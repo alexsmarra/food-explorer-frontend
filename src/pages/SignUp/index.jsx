@@ -6,7 +6,7 @@ import { Button } from '../../components/Button'
 
 import LogoPolygon from '../../assets/menu/Polygon.svg'
 
-export function SignIn() {
+export function SignUp() {
    return (
       <Container>
          <Head>
@@ -14,6 +14,11 @@ export function SignIn() {
                src={LogoPolygon} alt="Imagem de um polígono da logo" 
             />
          </Head>
+
+         <InputLabel 
+            htmlFor="3" id="3" title="Seu nome" 
+            type="text" placeholder="Ex: Maria da Silva" 
+         />
 
          <InputLabel 
             htmlFor="1" id="1" title="Email" 
@@ -29,7 +34,7 @@ export function SignIn() {
             title="Entrar"
          />
 
-         <a href="#">Criar uma conta</a>
+         <a href="#">Já possuo uma conta</a>
       </Container>
    )
 }
