@@ -23,4 +23,37 @@ export default createGlobalStyle`
       font-family: 'Poppins', sans-serif;
       outline: none;
    }
+
+   input, button {
+      border: none;
+      border-radius: 5px;
+   }
+
+   input {
+      background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND};
+      line-height: 16px;
+      padding: 16px 14px;
+   }
+
+   button {
+      line-height: 24px;
+      color: ${({ theme }) => theme.COLORS.MAIN_COLOR};
+   }
+
+   button, a {
+      transition: filter 0.2s;
+      cursor: pointer;
+   }
+
+   button:hover, a:hover {
+      filter: brightness(.9);
+   }
+
+   a {
+      font-size: 1.4rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      text-decoration: none;
+      color: ${({ theme }) => theme.COLORS.MAIN_COLOR};
+   }
 `

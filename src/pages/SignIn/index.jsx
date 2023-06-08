@@ -17,7 +17,7 @@ export function SignIn() {
 
          <InputLabel 
             htmlFor="1" id="1" title="Email" 
-            type="text" placeholder="Exemplo: exemplo@exemplo.com.br" 
+            type="text" placeholder="exemplo@exemplo.com" 
          />
          
          <InputLabel 
@@ -28,6 +28,8 @@ export function SignIn() {
          <Button 
             title="Entrar"
          />
+
+         <a href="#">Criar uma conta</a>
       </Container>
    )
 }
