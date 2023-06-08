@@ -27,8 +27,8 @@ export const Container = styled.div`
 `
 
 export const Head = styled.header`
-   margin-top: 11rem;
-   margin-bottom: 7.3rem;
+   margin-top: 10rem;
+   margin-bottom: 4.3rem;
 
    @media only screen and (min-width: 768px) {
       margin-top: 15rem;
