@@ -1,4 +1,4 @@
-import { Container, Head } from './styles'
+import { Container, Head, Form } from './styles'
 
 import { Logo } from '../../components/Logo' 
 import { InputLabel } from '../../components/InputLabel' 
@@ -15,21 +15,23 @@ export function SignIn() {
             />
          </Head>
 
-         <InputLabel 
-            htmlFor="1" id="1" title="Email" 
-            type="text" placeholder="Ex: maria@exemplo.com" 
-         />
-         
-         <InputLabel 
-            htmlFor="2" id="2" title="Senha" 
-            type="password" placeholder="No mínimo 6 caracteres" 
-         />
+         <Form>
+            <InputLabel 
+               htmlFor="1" id="1" title="Email" 
+               type="text" placeholder="Ex: maria@exemplo.com" 
+            />
+            
+            <InputLabel 
+               htmlFor="2" id="2" title="Senha" 
+               type="password" placeholder="No mínimo 6 caracteres" 
+            />
 
-         <Button 
-            title="Entrar"
-         />
+            <Button 
+               title="Entrar"
+            />
 
-         <a href="#">Criar uma conta</a>
+            <a href="#">Criar uma conta</a>
+         </Form>
       </Container>
    )
 }

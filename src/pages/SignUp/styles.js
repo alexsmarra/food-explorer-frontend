@@ -1,36 +1,39 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-   display: flex;
-   flex-direction: column;
-
+   margin: 0 2rem;
+   display: grid;
+   justify-content: center;
    height: 100vh;
 
-   padding: 0 2.7rem;
+   grid-template-rows: 130px 1fr;
 
-   @media only screen and (min-width: 416px) {
-      padding: 0 5.7rem;
+   /* @media only screen and (min-width: 416px) {
    }
 
    @media only screen and (min-width: 768px) {
-      padding: 0 9.7rem;
-   }
+   } */
+`
+
+export const Head = styled.header`
+   display: flex;
+   align-items: end;
+
+   /* @media only screen and (min-width: 768px) {
+   } */
+`
+export const Form = styled.form`
+   display: flex;
+   flex-direction: column;
+   gap: 5rem;
+   margin-top: 5rem;
 
    button {
-      margin-bottom: 3.2rem;
-      padding: 12px 0;
+      height: 35px;
+      margin-bottom: -2rem;
    }
 
    a {
       text-align: center;
-   }
-`
-
-export const Head = styled.header`
-   margin-top: 10rem;
-   margin-bottom: 4.3rem;
-
-   @media only screen and (min-width: 768px) {
-      margin-top: 15rem;
    }
 `
