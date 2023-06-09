@@ -31,7 +31,7 @@ export function SignUp() {
          />
 
          <Button 
-            title="Entrar"
+            title="Criar conta"
          />
 
          <a href="#">Já possuo uma conta</a>
