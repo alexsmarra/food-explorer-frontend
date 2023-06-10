@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-   margin: 0 2rem;
    display: grid;
    justify-content: center;
    height: 100vh;
