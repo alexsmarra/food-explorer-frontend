@@ -21,6 +21,12 @@ export const Container = styled.div`
          gap: 2rem;
       }
    }
+   @media (min-width: 1024px) {
+      padding: 0 26rem;
+   }
+   @media (min-width: 1280px) {
+      padding: 0 30rem;
+   }
 `
 
 export const Head = styled.header`
