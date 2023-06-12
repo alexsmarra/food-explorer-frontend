@@ -27,6 +27,10 @@ export const Container = styled.div`
    @media (min-width: 1280px) {
       padding: 0 30rem;
    }
+   @media (min-width: 1400px) {
+      flex-direction: row;
+      gap: 10rem;
+   }
 `
 
 export const Head = styled.header`
@@ -98,6 +102,10 @@ export const Head = styled.header`
          justify-content: start;
       }
    }
+   @media (min-width: 1400px) {
+      flex: 1;
+      margin-bottom: 26rem;
+   }
 `
 
 export const Form = styled.form`
@@ -105,6 +113,11 @@ export const Form = styled.form`
    flex-direction: column;
    gap: 5rem;
    margin-top: 5rem;
+
+   span {
+      display: none;
+      visibility: hidden;
+   }
 
    button {
       height: 35px;
@@ -204,5 +217,41 @@ export const Form = styled.form`
    }
    @media(min-width: 1280px) {
       margin-top: 6rem;
+   }
+   @media (min-width: 1400px) {
+      flex: 1;
+      justify-content: center;
+      background: ${({ theme }) => theme.COLORS.DARK_BLUE};
+      margin-top: 0;
+      margin: 12rem 0;
+      padding: 0 8rem;
+
+      span {
+         display: block;
+         visibility: visible;
+
+         font-family: 'Poppins', sans-serif;
+         font-weight: 500;
+         font-size: 3.2rem;
+
+         text-align: center;
+      }
+
+      div label {
+         margin-top: -5rem;
+      }
+
+      div input {
+         font-size: 2rem;
+      }
+
+      button {
+         margin-top: -5rem;
+         font-size: 2rem;
+      }
+
+      a {
+         font-size: 2rem;
+      }
    }
 `

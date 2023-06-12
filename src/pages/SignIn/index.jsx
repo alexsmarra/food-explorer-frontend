@@ -16,6 +16,7 @@ export function SignIn() {
          </Head>
 
          <Form>
+            <span>Faça login</span>
             <InputLabel 
                htmlFor="1" id="1" title="Email" 
                type="text" placeholder="Ex: maria@exemplo.com" 
