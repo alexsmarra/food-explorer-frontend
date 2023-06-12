@@ -225,6 +225,7 @@ export const Form = styled.form`
       margin-top: 0;
       margin: 12rem 0;
       padding: 0 8rem;
+      border-radius: 1.6rem;
 
       span {
          display: block;
