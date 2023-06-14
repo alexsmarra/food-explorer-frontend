@@ -1,4 +1,9 @@
+import { useState } from 'react'
+import { api } from '../../services/api'
+
 import { Container, Head, Form } from './styles'
+
+import { toast } from "react-toastify";
 
 import { Logo } from '../../components/Logo' 
 import { InputLabel } from '../../components/InputLabel' 
@@ -7,6 +12,16 @@ import { Button } from '../../components/Button'
 import LogoPolygon from '../../assets/menu/Polygon.svg'
 
 export function SignUp() {
+   const [name, setName] = useState("")
+   const [email, setEmail] = useState("")
+   const [password, setPassword] = useState("")
+
+   function handleSignUp() {
+      if(!name || !email || !password) {
+         return alert("Fill in all fields, please!")
+      }
+   }
+
    return (
       <Container>
          <Head>
@@ -20,20 +35,24 @@ export function SignUp() {
             <InputLabel 
                htmlFor="3" id="3" title="Seu nome" 
                type="text" placeholder="Ex: Maria da Silva" 
+               onChange={e => setName(e.target.value)}
             />
 
             <InputLabel 
                htmlFor="1" id="1" title="Email" 
                type="text" placeholder="Ex: maria@exemplo.com" 
+               onChange={e => setEmail(e.target.value)}
             />
             
             <InputLabel 
                htmlFor="2" id="2" title="Senha" 
                type="password" placeholder="No mínimo 6 caracteres" 
+               onChange={e => setPassword(e.target.value)}
             />
 
             <Button 
                title="Criar conta"
+               onClick={handleSignUp}
             />
 
             <a href="#">Já possuo uma conta</a>
