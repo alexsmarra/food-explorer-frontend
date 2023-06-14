@@ -20,6 +20,20 @@ export function SignUp() {
       if(!name || !email || !password) {
          return alert("Fill in all fields, please!")
       }
+
+      api.post('/users', { name, email, password })
+      .then(() => {
+         alert("Usuário cadastrado com sucesso")
+         console.log("usuário criado")
+         /* navigate('/') */
+      })
+      .catch(error => {
+         if(error.response) {
+            alert(error.response.data.message)
+         } else {
+            alert("Não foi possível cadastrar")
+         }
+      })
    }
 
    return (
@@ -53,6 +67,7 @@ export function SignUp() {
             <Button 
                title="Criar conta"
                onClick={handleSignUp}
+               href="#"
             />
 
             <a href="#">Já possuo uma conta</a>
