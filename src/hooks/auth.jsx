@@ -5,7 +5,7 @@ import { api } from "../services/api.js"
 export const AuthContext = createContext({})
 
 function AuthProvider({ children }) {
-   const [data, setData] = useState({})
+   // const [data, setData] = useState({})
 
    /* params entre chaves, assim, sempre que utilizarmos a nossa function 'signIn' não precisaremos
    chamar os params necessariamente nessa ordem */
@@ -14,6 +14,7 @@ function AuthProvider({ children }) {
          /* Irá pegar o email e senha digitado pelo usuário nos inputs da page SignIn e enviará
          para o nosso backend (para o nosso sessionController.js analisar) */
          const response = await api.post("/sessions", { email, password })
+         /* VEJA O CONSOLE.LOG EM TELA PARA ENTENDER */
          console.log(response)
 
       } catch(error) {
