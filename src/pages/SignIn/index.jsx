@@ -1,5 +1,7 @@
 import { Container, Head, Form } from './styles'
 
+import { useNavigate } from 'react-router-dom'
+
 import { Logo } from '../../components/Logo' 
 import { InputLabel } from '../../components/InputLabel' 
 import { Button } from '../../components/Button' 
@@ -7,6 +9,8 @@ import { Button } from '../../components/Button'
 import LogoPolygon from '../../assets/menu/Polygon.svg'
 
 export function SignIn() {
+   const navigate = useNavigate()
+
    return (
       <Container>
          <Head>
@@ -31,7 +35,7 @@ export function SignIn() {
                title="Entrar"
             />
 
-            <a href="#">Criar uma conta</a>
+            <a onClick={() => navigate("/register")}>Criar uma conta</a>
          </Form>
       </Container>
    )

@@ -17,6 +17,8 @@ export function SignUp() {
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
 
+   const navigate = useNavigate()
+
    function handleSignUp() {
       if(!name || !email || !password) {
          return alert("Fill in all fields, please!")
@@ -24,8 +26,8 @@ export function SignUp() {
 
       api.post('/users', { name, email, password })
       .then(() => {
-         return alert("Successfully registered user!")
-         // navigate('/')
+         alert("Successfully registered user!")
+         navigate('/')
       })
       .catch(error => {
          if(error.response) {
@@ -71,7 +73,7 @@ export function SignUp() {
                href="#"
             />
 
-            <a href="#">Já possuo uma conta</a>
+            <a onClick={() => navigate("/")}>Já possuo uma conta</a>
          </Form>
       </Container>
    )
