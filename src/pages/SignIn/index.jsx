@@ -1,5 +1,7 @@
 import { Container, Head, Form } from './styles'
 
+import { useAuth } from '../../hooks/auth'
+
 import { useNavigate } from 'react-router-dom'
 
 import { Logo } from '../../components/Logo' 
@@ -10,6 +12,9 @@ import LogoPolygon from '../../assets/menu/Polygon.svg'
 
 export function SignIn() {
    const navigate = useNavigate()
+
+   const { name, email } = useAuth()
+   console.log(name, email)
 
    return (
       <Container>
