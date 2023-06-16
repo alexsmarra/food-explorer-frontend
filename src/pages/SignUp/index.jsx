@@ -4,6 +4,7 @@ import { api } from '../../services/api'
 import { Container, Head, Form } from './styles'
 
 import { toast } from "react-toastify";
+import { useNavigate } from 'react-router-dom'
 
 import { Logo } from '../../components/Logo' 
 import { InputLabel } from '../../components/InputLabel' 
@@ -23,15 +24,15 @@ export function SignUp() {
 
       api.post('/users', { name, email, password })
       .then(() => {
-         alert("Usuário cadastrado com sucesso")
-         console.log("usuário criado")
-         /* navigate('/') */
+         return alert("Successfully registered user!")
+         // navigate('/')
       })
       .catch(error => {
          if(error.response) {
+            // pega do AppError
             alert(error.response.data.message)
          } else {
-            alert("Não foi possível cadastrar")
+            alert("Could not register!")
          }
       })
    }
