@@ -1,5 +1,6 @@
 import { Container, Head, Form } from './styles'
 
+// para exemplo:
 import { useAuth } from '../../hooks/auth'
 
 import { useNavigate } from 'react-router-dom'
@@ -13,6 +14,7 @@ import LogoPolygon from '../../assets/menu/Polygon.svg'
 export function SignIn() {
    const navigate = useNavigate()
 
+   // exemplo
    const { name, email } = useAuth()
    console.log(name, email)
 
