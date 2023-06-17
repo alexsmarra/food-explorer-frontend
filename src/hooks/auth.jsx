@@ -14,8 +14,10 @@ function AuthProvider({ children }) {
          /* Irá pegar o email e senha digitado pelo usuário nos inputs da page SignIn e enviará
          para o nosso backend (para o nosso sessionController.js analisar) */
          const response = await api.post("/sessions", { email, password })
-         /* VEJA O CONSOLE.LOG EM TELA PARA ENTENDER */
-         console.log(response)
+         /* Dentro da resposta de nosso sessionController temos várias propriedades, e dentro de 
+         'data' está nosso 'token' e 'user' */
+         const { token, user } = response.data
+         console.log(token, user)
 
       } catch(error) {
          if(error.response) {
