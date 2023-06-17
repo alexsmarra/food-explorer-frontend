@@ -5,7 +5,7 @@ import { api } from "../services/api.js"
 export const AuthContext = createContext({})
 
 function AuthProvider({ children }) {
-   // const [data, setData] = useState({})
+   const [data, setData] = useState({})
 
    /* params entre chaves, assim, sempre que utilizarmos a nossa function 'signIn' não precisaremos
    chamar os params necessariamente nessa ordem */
@@ -14,10 +14,12 @@ function AuthProvider({ children }) {
          /* Irá pegar o email e senha digitado pelo usuário nos inputs da page SignIn e enviará
          para o nosso backend (para o nosso sessionController.js analisar) */
          const response = await api.post("/sessions", { email, password })
-         /* Dentro da resposta de nosso sessionController temos várias propriedades, e dentro de 
-         'data' está nosso 'token' e 'user' */
-         const { token, user } = response.data
-         console.log(token, user)
+
+         const { user, token } = response.data
+         /* Inserindo um token do tipo Bearer, de autorização, no cabeçalho por padrão em todas as
+         requisições que o usuário for fazer a partir de agora */
+         api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+         setData({ user, token })
 
       } catch(error) {
          if(error.response) {
@@ -30,7 +32,9 @@ function AuthProvider({ children }) {
    }
 
    return (
-      <AuthContext.Provider value={{ signIn }}>
+      /* compartilhando signIn e data.user (e o que mais quisermos) em nosso contexto para que 
+         fique disponível em todo o nosso app */
+      <AuthContext.Provider value={{ signIn, user: data.user }}>
          {children}
       </AuthContext.Provider>
    )
