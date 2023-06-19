@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
 import { api } from "../services/api.js"
 
@@ -43,6 +43,30 @@ function AuthProvider({ children }) {
          }
       }
    }
+
+   /* Usaremos o useEffect pois ao atualizar a página, os useState fica vazio */
+   /* useEffect para buscar as informações do localStorage. Always leave closest to the return. 
+   When we leave the [] empty, the app will be loader only once after rendering our component 
+   (o app será carregado apenas uma vez após nosso componente ser renderizado, dessa forma, 
+   quando o usuário fizer o login e for direcionando para a page Home, se atualizarmos a tela, 
+   manterá na tela Home. Sem o useEffect, caso atualizássemos a tela após o usuário fazer o login, 
+   voltaria para a tela de login, pois o useState é resetado. Se colocarmos uma variável dentro 
+   dos [], isso quer dizer que, toda vez que essa variável mudar, o useEffect será executado. */
+   useEffect(() => {
+      const user = localStorage.getItem("@rocketfood:user")
+      const token = localStorage.getItem("@rocketfood:token")
+
+      if(user && token) {
+         api.defaults.headers.common['Authorization'] = `Bearer ${token}`
+
+         setData({
+            // passando para formato objeto json
+            user: JSON.parse(user),
+            token
+         })
+      }
+
+   }, [])
 
    return (
       /* compartilhando signIn e data.user (e o que mais quisermos) em nosso contexto para que 
