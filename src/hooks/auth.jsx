@@ -31,7 +31,10 @@ function AuthProvider({ children }) {
          /* Inserindo um token do tipo Bearer, de autorização, no cabeçalho por padrão em todas as
          requisições que o usuário for fazer a partir de agora */
          api.defaults.headers.common['Authorization'] = `Bearer ${token}`
-         setData({ user, token })
+         setData({ 
+            /* retornado para objeto tipo json */
+            user: JSON.parse(user), 
+            token })
 
       } catch(error) {
          if(error.response) {
