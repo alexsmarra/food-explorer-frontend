@@ -1,9 +1,11 @@
 import { Container } from './styles'
 
-export function Logo({ ...rest }) {
+import Polygon from "../../assets/menu/Polygon.svg"
+
+export function Logo() {
    return (
       <Container>
-         <img { ...rest } />
+         <img src={Polygon} alt="logo do restaurante, um polígono azul" />
          <h1>food explorer</h1>
       </Container>
    )

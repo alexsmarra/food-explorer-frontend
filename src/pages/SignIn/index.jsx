@@ -9,8 +9,6 @@ import { Logo } from '../../components/Logo'
 import { InputLabel } from '../../components/InputLabel' 
 import { Button } from '../../components/Button' 
 
-import LogoPolygon from '../../assets/menu/Polygon.svg'
-
 export function SignIn() {
    const [email, setEmail] = useState("")
    const [password, setPassword] = useState("")
@@ -28,9 +26,7 @@ export function SignIn() {
    return (
       <Container>
          <Head>
-            <Logo 
-               src={LogoPolygon} alt="Imagem de um polígono da logo" 
-            />
+            <Logo />
          </Head>
 
          <Form>

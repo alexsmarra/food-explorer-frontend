@@ -18,6 +18,7 @@ function AuthProvider({ children }) {
          para o nosso backend (para o nosso sessionController.js analisar) */
          const response = await api.post("/sessions", { email, password })
 
+         // pegando user e token de nosso backend
          const { user, token } = response.data
 
          /* Para armazenar informações no navegador do usuário. 
