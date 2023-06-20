@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 // Importações de imagens
 import MenuIcon from "../../assets/menu/Menu.svg"
+import PedidosIcon from "../../assets/menu/PedidosIcon.svg"
 // Importações de componentes externos
 import { Logo } from "../Logo"
 // Importações de componentes locais
@@ -55,6 +56,11 @@ const HeaderUser = () => {
             </button>
 
             <Logo />
+
+            <button className="pedidos-button">
+               <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" />
+               <div className="circleNumber">0</div>
+            </button>
          </>
 
          ) : (
@@ -62,7 +68,7 @@ const HeaderUser = () => {
          <>
             <div>Desktop</div>
          </>
-         
+
          )}
       </Container>
    )
