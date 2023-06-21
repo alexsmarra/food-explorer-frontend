@@ -44,8 +44,6 @@ const HeaderUser = () => {
       }
    }, [])
 
-   
-
    return (
       <Container>
          {isMobile ? (
@@ -59,7 +57,9 @@ const HeaderUser = () => {
 
             <button className="pedidos-button">
                <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" />
-               <div className="circleNumber">0</div>
+               <div className="circleNumber">
+                  {/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
+               </div>
             </button>
          </>
 
@@ -72,7 +72,6 @@ const HeaderUser = () => {
          )}
       </Container>
    )
-
 }
 
 export default HeaderUser
