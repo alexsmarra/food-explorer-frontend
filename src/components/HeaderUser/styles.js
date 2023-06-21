@@ -17,20 +17,12 @@ export const Container = styled.header`
       gap: .3rem;
    }
 
-   @media(min-width: 360px) {
-      padding: 5.6rem 2.8rem 2.4rem;
-
-      .logo {
-         gap: 1rem;
-      }
-   }
-
    button.pedidos-button {
       position: relative;
       display: inline-block;
    }
 
-   div.circleNumber {
+   div.circle-number {
       position: absolute;
       top: -10px;
       right: -6px;
@@ -45,4 +37,42 @@ export const Container = styled.header`
       font-size: 12px;
       font-weight: bold;  
    }
+
+   @media(min-width: 360px) {
+      padding: 5.6rem 2.8rem 2.4rem;
+
+      .logo {
+         gap: 1rem;
+      }
+   }
+
+   @media(min-width: 1024px) {
+
+      justify-content: space-around;
+
+      .input {
+         width: clamp(200px, 40%, 600px);
+      }
+
+      button.pedidos-button {
+         display: flex;
+         background-color: ${({ theme }) => theme.COLORS.BUTTON_COLOR}; 
+         padding: 16px 46px;
+         gap: .8rem;
+      }
+
+      div.pedidos-number {
+         font-weight: 500;
+      }
+   }
+
+   @media(min-width: 1280px) {
+
+      .input {
+
+      svg {
+         margin-left: 60px;
+      }
+   }
+}
 `

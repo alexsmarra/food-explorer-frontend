@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 // Importações de imagens
 import MenuIcon from "../../assets/menu/Menu.svg"
 import PedidosIcon from "../../assets/menu/PedidosIcon.svg"
+import SignOut from "../../assets/menu/SignOut.svg"
+import { FiSearch } from "react-icons/fi"
 // Importações de componentes externos
 import { Logo } from "../Logo"
+import { Input } from "../Input"
 // Importações de componentes locais
 import { Container } from "./styles"
 
@@ -23,7 +26,7 @@ const HeaderUser = () => {
    // for resize screen
    useEffect(() => {
       const handleResize = () => {
-         const isMobileScreen = window.innerWidth <= 768 // Defina o limite de tamanho para considerar como "mobile"
+         const isMobileScreen = window.innerWidth <= 1024 // Defina o limite de tamanho para considerar como "mobile"
 
          // Atualiza o estado com base no tamanho da tela
          setIsMobile(isMobileScreen)   
@@ -57,8 +60,9 @@ const HeaderUser = () => {
 
             <button className="pedidos-button">
                <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" />
-               <div className="circleNumber">
+               <div className="circle-number">
                   {/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
+                  0
                </div>
             </button>
          </>
@@ -66,7 +70,25 @@ const HeaderUser = () => {
          ) : (
 
          <>
-            <div>Desktop</div>
+            <Logo />
+
+            <Input 
+               icon={FiSearch} 
+               placeholder="Busque por pratos ou ingredientes"
+            />
+
+            <button className="pedidos-button">
+               <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" />
+               <div className="pedidos-number">
+                  Pedidos ({/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
+                  0)
+               </div>
+            </button>
+
+            <button>
+               <img className="logout" src={SignOut} alt="ícone de signout" />
+            </button>
+
          </>
 
          )}
