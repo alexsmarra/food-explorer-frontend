@@ -3,16 +3,16 @@ import styled from 'styled-components'
 export const Container = styled.div`
    display: flex;
    align-items: center;
-   gap: 1rem;
+   gap: .8rem;
    cursor: pointer;
 
    img {
-      width: 3.3rem;
-      height: 3.3rem;
+      width: 1.8rem;
+      height: 1.8rem;
    }
 
    h1 {
-      font-size: 2.5rem;
+      font-size: 1.4rem;
       font-family: 'Roboto', sans-serif;
    }
 `

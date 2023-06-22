@@ -1,35 +1,44 @@
 import styled from "styled-components"
 
 export const Container = styled.header`
-
+   grid-area: header;
    display: flex;
-   justify-content: space-between;
+   justify-content: space-around;
    align-items: center;
-   padding: 5.6rem 1rem 2.4rem;
+   padding: 5.6rem .5rem 2.4rem;
    background-color: ${({ theme }) => theme.COLORS.MAIN_DARK};
 
    button {
       background: none;
    }
 
+   .menu-button > img {
+      width: 2.1rem;
+      height: 1.4rem;
+   }
+
    .logo {
       margin-bottom: .5rem;
-      gap: .3rem;
    }
 
    button.pedidos-button {
       position: relative;
       display: inline-block;
+
+      img {
+         width: 2.1rem;
+         height: 2.1rem;
+      }
    }
 
    div.circle-number {
       position: absolute;
-      top: -10px;
+      top: -6px;
       right: -6px;
       background-color: ${({ theme }) => theme.COLORS.TOMATO};
       border-radius: 50%;
-      width: 20px;
-      height: 20px;
+      width: 16px;
+      height: 16px;
       display: flex;
       justify-content: center;
       align-items: center;

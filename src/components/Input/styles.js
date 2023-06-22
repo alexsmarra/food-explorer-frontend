@@ -9,15 +9,17 @@ export const Container = styled.div`
 
    border-radius: 10px;
 
-   > input {
-      color: ${({ theme }) => theme.COLORS.PLACEHOLDER_INPUT_COLOR};
-      width: 100%;
-   }
-   
    > svg {
       width: 24px;
       height: 24px;
       color: #C4C4CD;
       margin-left: 20px;
+      cursor: pointer;
    }
+
+   > input {
+      color: ${({ theme }) => theme.COLORS.PLACEHOLDER_INPUT_COLOR};
+      width: 100%;
+   }
+   
 `
