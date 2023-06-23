@@ -3,17 +3,17 @@ import styled from "styled-components"
 export const Container = styled.div`
    display: grid;
 
-   height: 100vh;
+  height: 100vh;
 
-  grid-template-rows: 137px auto 1fr;
+  grid-template-rows: 60px auto 1fr;
   grid-template-areas:
     "header"
     "banner"
     "restante";
 
-   @media (max-width: 820px) {
-    grid-template-rows: 114px auto 1fr;
-  }
+    > .banner {
+      margin-top: 4.5rem;
+    }
 `
 
 /* apenas para preencher por enquanto */

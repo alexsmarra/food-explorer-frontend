@@ -5,7 +5,7 @@ export const Container = styled.header`
    display: flex;
    justify-content: space-around;
    align-items: center;
-   padding: 5.6rem .5rem 2.4rem;
+   padding: 4.6rem .5rem 2.4rem;
    background-color: ${({ theme }) => theme.COLORS.MAIN_DARK};
 
    button {

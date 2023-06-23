@@ -3,8 +3,8 @@ import FoodSalteando from "../../assets/banner/FoodSalteando.svg";
 
 export const Banner = () => {
    return (
-      <Container>
-         <div className="banner">
+      <Container className="banner">
+         <div className="banner-wrapper">
             <div className="img-wrapper">
                <img src={FoodSalteando} alt="Imagem de aliamentos salteando, um banner" />
             </div>

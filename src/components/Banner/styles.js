@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const Container = styled.div`
   grid-area: banner;
 
-  .banner {
+  .banner-wrapper {
     display: grid;
     position: relative;
     grid-template-columns: 1fr 1fr;
     height: 80px;
     /* grid-template-areas: "a b"; */
     background: linear-gradient(180deg, #091E26 0%, #00131C 100%);
-    margin: 3.5rem .6rem 0 1.8rem;
+    margin: 0rem .6rem 0 1.8rem;
     border-radius: 3px;
 
     /* .img-wrapper {
