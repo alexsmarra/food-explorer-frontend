@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-   display: grid;
+  display: grid;
 
   height: 100vh;
 
@@ -11,9 +11,15 @@ export const Container = styled.div`
     "banner"
     "restante";
 
-    > .banner {
-      margin-top: 4.5rem;
-    }
+  > .banner {
+    margin-top: 4.5rem;
+  }
+  
+@media(min-width: 540px) {
+  .banner {
+    margin-top: 6rem;
+  }
+}
 `
 
 /* apenas para preencher por enquanto */

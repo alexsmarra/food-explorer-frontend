@@ -47,37 +47,49 @@ export const Container = styled.header`
       font-weight: bold;  
    }
 
-   @media(min-width: 360px) {
-      padding: 5.6rem 2.8rem 2.4rem;
+@media(min-width: 360px) {
+   justify-content: space-between;
+   padding: 4.6rem 2rem 2.4rem;
 
-      .logo {
-         gap: 1rem;
-      }
+   .logo {
+      gap: 1rem;
+   }
+}
+
+@media(min-width: 540px) {
+   .logo img {
+      width: 2.1rem;
+      height: 2.1rem;
    }
 
-   @media(min-width: 1024px) {
+   .logo h1 {
+      font-size: 1.63rem;
+   }
+}
 
-      justify-content: space-around;
+@media(min-width: 1024px) {
 
-      .input {
-         width: clamp(200px, 40%, 600px);
-      }
+   justify-content: space-around;
 
-      button.pedidos-button {
-         display: flex;
-         background-color: ${({ theme }) => theme.COLORS.BUTTON_COLOR}; 
-         padding: 16px 46px;
-         gap: .8rem;
-      }
-
-      div.pedidos-number {
-         font-weight: 500;
-      }
+   .input {
+      width: clamp(200px, 40%, 600px);
    }
 
-   @media(min-width: 1280px) {
+   button.pedidos-button {
+      display: flex;
+      background-color: ${({ theme }) => theme.COLORS.BUTTON_COLOR}; 
+      padding: 16px 46px;
+      gap: .8rem;
+   }
 
-      .input {
+   div.pedidos-number {
+      font-weight: 500;
+   }
+}
+
+@media(min-width: 1280px) {
+
+   .input {
 
       svg {
          margin-left: 60px;
