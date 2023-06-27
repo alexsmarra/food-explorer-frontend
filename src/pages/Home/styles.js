@@ -21,6 +21,12 @@ export const Container = styled.div`
   }
 } 
 
+@media(min-width: 768px) {
+  .banner {
+    margin-top: 7rem;
+  }
+}
+
 
 
 

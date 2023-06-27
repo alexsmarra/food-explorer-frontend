@@ -99,7 +99,22 @@ margin: 0 3.6rem;
 }  
 
 @media(min-width: 768px) {
-  
+height: 150px;
+
+  .food-wrapper img {
+    width: 25rem;
+    height: 20rem;
+    top: -37.5px;
+    left: -20px;
+  }
+
+  .text {
+    gap: 1.5rem;
+
+    p {
+      line-height: normal;
+    }
+  }
 } 
 
 
