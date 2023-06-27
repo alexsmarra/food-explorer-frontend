@@ -11,13 +11,31 @@ export const Container = styled.div`
     "banner"
     "restante";
 
-  > .banner {
+  .banner {
     margin-top: 4.5rem;
+  }  
+
+@media(min-width: 360px) {
+  .banner {
+    margin-top: 6.5rem;
   }
-  
+} 
+
+
+
+
+
 @media(min-width: 540px) {
   .banner {
-    margin-top: 6rem;
+    /* margin-top: 6rem; */
+  }
+}
+
+@media(min-width: 1024px) {
+  grid-template-rows: 110px auto 1fr;
+
+  .banner {
+    /* margin-top: 8rem; */
   }
 }
 `

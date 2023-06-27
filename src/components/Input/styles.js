@@ -20,6 +20,7 @@ export const Container = styled.div`
    > input {
       color: ${({ theme }) => theme.COLORS.PLACEHOLDER_INPUT_COLOR};
       width: 100%;
+      height: 50px;
    }
    
 `

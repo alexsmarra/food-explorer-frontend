@@ -52,24 +52,68 @@ export const Container = styled.header`
    padding: 4.6rem 2rem 2.4rem;
 
    .logo {
-      gap: 1rem;
+      /* gap: 1rem; */
    }
 }
 
 @media(min-width: 540px) {
+   padding: 4.6rem 4rem 2.4rem;
+
    .logo img {
-      width: 2.1rem;
-      height: 2.1rem;
+      /* width: 2.1rem; */
+      /* height: 2.1rem; */
    }
 
    .logo h1 {
-      font-size: 1.63rem;
+      /* font-size: 1.63rem; */
+   }
+}
+
+@media(min-width: 768px) {
+   .menu-button > img {
+      width: 2.8rem;
+      height: 1.85rem;
+   }
+
+   button.pedidos-button {
+      >img {
+         width: 2.8rem;
+         height: 2.8rem;
+      }
+
+      >div.circle-number {
+      position: absolute;
+      top: -7px;
+      right: -7px;
+      background-color: ${({ theme }) => theme.COLORS.TOMATO};
+      border-radius: 50%;
+      width: 20.5px;
+      height: 20.5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;  
+   }
    }
 }
 
 @media(min-width: 1024px) {
+   padding: 2.4rem 6rem 2.4rem;
 
-   justify-content: space-around;
+   .logo {
+      /* gap: 1.2rem; */
+   }
+
+   .logo img {
+      /* width: 3.15rem; */
+      /* height: 3.15rem; */
+   }
+
+   .logo h1 {
+      /* font-size: 2.4rem; */
+   }
 
    .input {
       width: clamp(200px, 40%, 600px);

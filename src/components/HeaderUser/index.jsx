@@ -26,7 +26,7 @@ const HeaderUser = () => {
    // for resize screen
    useEffect(() => {
       const handleResize = () => {
-         const isMobileScreen = window.innerWidth <= 1024 // Defina o limite de tamanho para considerar como "mobile"
+         const isMobileScreen = window.innerWidth <= 1023 // Defina o limite de tamanho para considerar como "mobile"
 
          // Atualiza o estado com base no tamanho da tela
          setIsMobile(isMobileScreen)   
@@ -48,7 +48,7 @@ const HeaderUser = () => {
    }, [])
 
    return (
-      <Container>
+      <Container className="header">
          {isMobile ? (
 
          <>
