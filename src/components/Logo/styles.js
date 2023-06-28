@@ -39,4 +39,15 @@ export const Container = styled.div`
       font-size: 2rem;
    }
 }
+
+@media(min-width: 1024px) {
+   img {
+      width: 2.9rem;
+      height: 2.9rem;
+   }
+
+   h1 {
+      font-size: 2.3rem;
+   }
+}
 `

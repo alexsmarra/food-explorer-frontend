@@ -27,23 +27,24 @@ export const Container = styled.div`
   }
 }
 
-
-
-
-
-@media(min-width: 540px) {
-  .banner {
-    /* margin-top: 6rem; */
-  }
-}
-
 @media(min-width: 1024px) {
   grid-template-rows: 110px auto 1fr;
 
+}
+
+@media(min-width: 1280px) {
   .banner {
-    /* margin-top: 8rem; */
+    margin-top: 10rem;
   }
 }
+
+@media(min-width: 1400px) {
+  .banner {
+    margin-top: 16rem;
+  }
+}
+
+
 `
 
 /* apenas para preencher por enquanto */

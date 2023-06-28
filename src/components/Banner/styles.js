@@ -117,9 +117,51 @@ height: 150px;
   }
 } 
 
-
-
-
 @media(min-width: 1024px) {
+margin: 0 12rem 0 12rem;
+height: 200px;
+
+.food-wrapper img {
+    width: 38rem;
+    height: 28rem;
+    top: -60.5px;
+    left: -44px;
+  }
+
+  .text {
+    p {
+      font-size: 1.3rem;
+    }
+  }
 }
+
+@media(min-width: 1280px) {
+height: 230px;
+
+  .food-wrapper img {
+    width: 49rem;
+    height: 29rem;
+  }
+
+  .text {
+    gap: 2.5rem;
+
+    p {
+      font-size: 1.45rem; 
+    }
+  }
+}
+
+@media(min-width: 1400px) {
+  height: 260px;
+  padding: 0 15rem 0 15rem;
+
+  .food-wrapper img {
+    width: 62rem;
+    height: 38rem;
+    top: -120px;
+    left: -70px;
+  }
+}
+
 `

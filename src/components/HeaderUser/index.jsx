@@ -9,10 +9,13 @@ import { FiSearch } from "react-icons/fi"
 // Importações de componentes externos
 import { Logo } from "../Logo"
 import { Input } from "../Input"
+import { ButtonTest } from "../../components/ButtonTest" 
 // Importações de componentes locais
 import { Container } from "./styles"
 
 
+/* outra forma de exportar, como default (ver abaixo no final o export), não é o meu preferido para
+components */
 const HeaderUser = () => {
    // for resize screen
    const [isMobile, setIsMobile] = useState(false)
@@ -23,7 +26,7 @@ const HeaderUser = () => {
       navigate("/menu")
    }
 
-   // for resize screen
+   // for resize screen (forma antiga, sem o uso do useMediaQuery do react-responsive, mas deixei para aprendizado)
    useEffect(() => {
       const handleResize = () => {
          const isMobileScreen = window.innerWidth <= 1023 // Defina o limite de tamanho para considerar como "mobile"
@@ -58,15 +61,17 @@ const HeaderUser = () => {
 
             <Logo />
 
-            <button className="pedidos-button">
-               <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" />
-               <div className="circle-number">
-                  {/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
-                  0
-               </div>
-            </button>
-         </>
+            <ButtonTest />
 
+            {/* <button className="pedidos-button"> */}
+               {/* <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" /> */}
+               {/* <div className="circle-number"> */}
+                  {/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
+                  {/* 0 */}
+               {/* </div> */}
+            {/* </button> */}
+         </>
+         // Desktop
          ) : (
 
          <>
@@ -77,13 +82,15 @@ const HeaderUser = () => {
                placeholder="Busque por pratos ou ingredientes"
             />
 
-            <button className="pedidos-button">
-               <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" />
-               <div className="pedidos-number">
-                  Pedidos ({/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
-                  0)
-               </div>
-            </button>
+            {/* <button className="pedidos-button"> */}
+               {/* <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" /> */}
+               {/* <div className="pedidos-number"> */}
+                  {/* Pedidos (numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
+                  {/* 0) */}
+               {/* </div> */}
+            {/* </button> */}
+
+            <ButtonTest />
 
             <button>
                <img className="logout" src={SignOut} alt="ícone de signout" />

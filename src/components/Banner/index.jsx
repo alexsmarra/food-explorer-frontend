@@ -1,11 +1,22 @@
 import { Container } from "./styles";
-import FoodSalteando from "../../assets/banner/FoodSalteando.svg";
+
+import FoodSalteandoMobile from "../../assets/banner/FoodSalteandoMobile.svg";
+import FoodSalteandoDesktop from "../../assets/banner/FoodSalteandoDesktop.svg";
+
+import { useMediaQuery } from "react-responsive"
 
 export const Banner = () => {
+   const isMobile = useMediaQuery({ maxWidth: 1023 })
+
    return (
       <Container className="banner">
          <div className="food-wrapper">
-            <img className='food' src={FoodSalteando} alt="Imagem de aliamentos salteando, um banner" />
+            {
+               isMobile ?
+                  <img className='food' src={FoodSalteandoMobile} alt="Imagem de aliamentos salteando, um banner" />
+               :
+                  <img className='food' src={FoodSalteandoDesktop} alt="Imagem de aliamentos salteando, um banner" />
+            }
          </div>
 
          <div className="position-text">.</div>
