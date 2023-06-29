@@ -5,7 +5,7 @@ import PedidosIcon from "../../assets/menu/PedidosIcon.svg"
 import { useMediaQuery } from "react-responsive"
 
 
-export const ButtonTest = ({icon: Icon, ...rest}) => {
+export const ButtonImg = ({title, ...rest}) => {
    const isMobile = useMediaQuery({ maxWidth: 1023})
 
    return (
@@ -23,7 +23,7 @@ export const ButtonTest = ({icon: Icon, ...rest}) => {
                <button className="pedidos-button">
                   <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" />
                   <div className="pedidos-number">
-                     Pedidos ({/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
+                     {title} ({/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
                      0)
                   </div>
                </button>

@@ -29,7 +29,6 @@ export const Container = styled.div`
 
 @media(min-width: 1024px) {
   grid-template-rows: 110px auto 1fr;
-
 }
 
 @media(min-width: 1280px) {

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// Importações de componentes locais
+import { Container } from "./styles"
+
 // Importações de imagens
 import MenuIcon from "../../assets/menu/Menu.svg"
-import PedidosIcon from "../../assets/menu/PedidosIcon.svg"
 import SignOut from "../../assets/menu/SignOut.svg"
 import { FiSearch } from "react-icons/fi"
 // Importações de componentes externos
 import { Logo } from "../Logo"
 import { Input } from "../Input"
-import { ButtonTest } from "../../components/ButtonTest" 
-// Importações de componentes locais
-import { Container } from "./styles"
+import { ButtonImg } from "../ButtonImg" 
 
 
 /* outra forma de exportar, como default (ver abaixo no final o export), não é o meu preferido para
@@ -61,15 +61,7 @@ const HeaderUser = () => {
 
             <Logo />
 
-            <ButtonTest />
-
-            {/* <button className="pedidos-button"> */}
-               {/* <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" /> */}
-               {/* <div className="circle-number"> */}
-                  {/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
-                  {/* 0 */}
-               {/* </div> */}
-            {/* </button> */}
+            <ButtonImg />
          </>
          // Desktop
          ) : (
@@ -82,15 +74,7 @@ const HeaderUser = () => {
                placeholder="Busque por pratos ou ingredientes"
             />
 
-            {/* <button className="pedidos-button"> */}
-               {/* <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" /> */}
-               {/* <div className="pedidos-number"> */}
-                  {/* Pedidos (numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
-                  {/* 0) */}
-               {/* </div> */}
-            {/* </button> */}
-
-            <ButtonTest />
+            <ButtonImg title="Pedidos" />
 
             <button>
                <img className="logout" src={SignOut} alt="ícone de signout" />

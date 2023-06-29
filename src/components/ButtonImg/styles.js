@@ -68,7 +68,7 @@ export const Container = styled.div`
       display: flex;
       background-color: ${({ theme }) => theme.COLORS.BUTTON_COLOR}; 
       padding: 12px 40px;
-      gap: .8rem;
+      gap: 1rem;
    }
 
    div.pedidos-number {

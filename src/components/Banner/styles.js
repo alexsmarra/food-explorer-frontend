@@ -163,5 +163,10 @@ height: 230px;
     left: -70px;
   }
 }
-
 `
+
+
+export const Teste = styled.div`
+  
+`
+
