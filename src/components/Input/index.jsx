@@ -4,8 +4,8 @@ import { Container } from './styles'
 
 
 export function Input({ icon: Icon, ...rest }) {
-   const { user } = useAuth()
-   console.log(user.isAdmin)
+   // const { user } = useAuth()
+   // console.log(user.isAdmin)
 
 
    return (

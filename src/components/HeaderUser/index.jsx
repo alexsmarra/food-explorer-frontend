@@ -9,7 +9,7 @@ import MenuIcon from "../../assets/menu/Menu.svg"
 import SignOut from "../../assets/menu/SignOut.svg"
 import { FiSearch } from "react-icons/fi"
 // Importações de componentes externos
-import { Logo } from "../Logo"
+import { Brand } from "../Brand"
 import { Input } from "../Input"
 import { ButtonImg } from "../ButtonImg" 
 
@@ -59,7 +59,7 @@ const HeaderUser = () => {
                <img className="menu-icon" src={MenuIcon} />
             </button>
 
-            <Logo />
+            <Brand />
 
             <ButtonImg />
          </>
@@ -67,7 +67,7 @@ const HeaderUser = () => {
          ) : (
 
          <>
-            <Logo />
+            <Brand />
 
             <Input 
                icon={FiSearch} 

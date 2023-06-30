@@ -54,16 +54,16 @@ function AuthProvider({ children }) {
    voltaria para a tela de login, pois o useState é resetado. Se colocarmos uma variável dentro 
    dos [], isso quer dizer que, toda vez que essa variável mudar, o useEffect será executado. */
    useEffect(() => {
-      const user = localStorage.getItem("@rocketfood:user")
       const token = localStorage.getItem("@rocketfood:token")
+      const user = localStorage.getItem("@rocketfood:user")
 
       if(user && token) {
          api.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
          setData({
+            token,
             // passando para formato objeto json
-            user: JSON.parse(user),
-            token
+            user: JSON.parse(user)
          })
       }
 

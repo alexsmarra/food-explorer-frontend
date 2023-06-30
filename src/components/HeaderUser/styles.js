@@ -17,7 +17,7 @@ export const Container = styled.header`
       height: 1.4rem;
    }
 
-   .logo {
+   .brand {
       margin-bottom: .5rem;
    }
 

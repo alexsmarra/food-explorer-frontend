@@ -10,13 +10,13 @@ import { useMediaQuery } from "react-responsive"
 export const Banner = () => {
    const isMobile = useMediaQuery({ maxWidth: 1023 })
 
-   const { user } = useAuth()
-   console.log(typeof user)
+   // const { user } = useAuth()
+   // console.log(typeof user)
 
    return (
       <Container className="banner">
          <Teste>
-            <div>{user.name}</div>
+            <div>{}</div>
          </Teste>
          <div className="food-wrapper">
             {
