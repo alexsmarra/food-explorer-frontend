@@ -1,13 +1,13 @@
 import { Container, Restante } from "./styles"
 
-import HeaderUser from "../../components/HeaderUser"
+import HeaderAdmin from "../../components/HeaderAdmin"
 import { Banner } from "../../components/Banner"
 
 export function Home() {
 
    return (
       <Container>
-         <HeaderUser />
+         <HeaderAdmin />
          <Banner />
          <Restante />
       </Container>

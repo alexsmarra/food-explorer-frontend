@@ -15,6 +15,7 @@ export default {
       BUTTON_COLOR: '#750310',
 
       DARK_BLUE: '#001219',
+      LIGHT_BLUE: '#82F3FF',
       TOMATO: '#750310'
    }
 }

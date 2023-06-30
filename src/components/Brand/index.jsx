@@ -12,9 +12,14 @@ export const Brand = () => {
          {/* mesmo que: user && user.isAdmin ? (user se tiver ou se tiver user (user?), vê a condição.. (user.isAdmin ?)) */}
          {user?.isAdmin ? 
             <>
-               <img src={Polygon} alt="logo do restaurante, um polígono azul" />
-               <h1>food explorer</h1>
-               <span>admin</span>
+               <div className="brand-wrapper">
+                  <div>
+                     <img src={Polygon} alt="logo do restaurante, um polígono azul" />
+                     <h1>food explorer</h1>
+                  </div>
+
+                  <span>admin</span>
+               </div>
             </>
          :
             <>
