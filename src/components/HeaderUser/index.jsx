@@ -51,7 +51,7 @@ const HeaderUser = () => {
    }, [])
 
    return (
-      <Container className="header">
+      <Container className="header-user">
          {isMobile ? (
 
          <>

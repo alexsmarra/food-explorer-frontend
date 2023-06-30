@@ -34,18 +34,31 @@ height: 100px;
       line-height: 1.5rem;
 
     h1 {
-      font-size: clamp(1.19rem, 3vw, 4rem);
+      /* font-size: clamp(1.19rem, 3vw, 4rem); */
+      font-size: 1.19rem;
       margin-top: .8rem;
-      margin-left: 3px;
+      margin-left: 12px;
     }
 
     p {
-      font-size: clamp(.7rem, 1.8vw, 1.6rem);
-      margin-left: 3px;
+      /* font-size: clamp(.8rem, 2vw, 1.6rem); */
+      font-size: .8rem;
+      margin-left: 12px;
       line-height: 1.1rem;
-      padding: 0 10px 0 0;
+      /* padding: 0 10px 0 0; */
     }
   }
+
+@media(min-width: 305px) {
+  .text {
+    h1 {
+      margin-left: 0px;
+    }
+    p{
+      margin-left: 0px;
+    }
+  }
+}
 
 @media(min-width: 360px) {
 margin: 0 1.5rem 0 3rem;
@@ -61,13 +74,22 @@ margin: 0 1.5rem 0 3rem;
     flex: 1.2;
 
     h1 {
-      margin-left: 0px;
       margin-top: 1.2rem;
     }
 
     p {
-      margin-left: 0px;
-      padding: 0 13px 0 0;
+      /* padding: 0 20px 0 0; */
+    }
+  }
+}
+
+@media(min-width: 380px) {
+  .text {
+    h1 {
+      width: 182px; 
+    }
+    p { 
+      width: 182px; 
     }
   }
 }
@@ -84,18 +106,30 @@ margin: 0 1.8rem 0 3.6rem;
   }
 
   .text {   
-    p {
-      padding: 0 45px 0 0;
-    }
-
     h1 {
       margin-top: 1.8rem;
+    }
+    p {
+      /* padding: 0 60px 0 0; */
     }
   } 
 }
 
 @media(min-width: 540px) {
 margin: 0 3.6rem; 
+
+>.text {
+  gap: .8rem;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.3rem;
+    }
+  }
 }  
 
 @media(min-width: 768px) {
@@ -163,10 +197,5 @@ height: 230px;
     left: -70px;
   }
 }
-`
-
-
-export const Teste = styled.div`
-  
 `
 

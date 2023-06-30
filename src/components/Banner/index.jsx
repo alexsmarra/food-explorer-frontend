@@ -1,6 +1,4 @@
-import { useAuth } from "../../hooks/auth"
-
-import { Container, Teste } from "./styles";
+import { Container } from "./styles";
 
 import FoodSalteandoMobile from "../../assets/banner/FoodSalteandoMobile.svg";
 import FoodSalteandoDesktop from "../../assets/banner/FoodSalteandoDesktop.svg";
@@ -10,14 +8,8 @@ import { useMediaQuery } from "react-responsive"
 export const Banner = () => {
    const isMobile = useMediaQuery({ maxWidth: 1023 })
 
-   // const { user } = useAuth()
-   // console.log(typeof user)
-
    return (
       <Container className="banner">
-         <Teste>
-            <div>{}</div>
-         </Teste>
          <div className="food-wrapper">
             {
                isMobile ?

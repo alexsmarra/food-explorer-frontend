@@ -53,7 +53,7 @@ const HeaderUser = () => {
   
 
    return (
-      <Container className="header">
+      <Container className="header-admin">
          {isMobile ? (
 
          <>

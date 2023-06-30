@@ -14,8 +14,8 @@ export const Brand = () => {
             <>
                <div className="brand-wrapper">
                   <div>
-                     <img src={Polygon} alt="logo do restaurante, um polígono azul" />
-                     <h1>food explorer</h1>
+                     <img className="logo-img" src={Polygon} alt="logo do restaurante, um polígono azul" />
+                     <h1 className="logo-h1">food explorer</h1>
                   </div>
 
                   <span>admin</span>
@@ -23,8 +23,8 @@ export const Brand = () => {
             </>
          :
             <>
-               <img src={Polygon} alt="logo do restaurante, um polígono azul" />
-               <h1>food explorer</h1>
+               <img className="logo-img" src={Polygon} alt="logo do restaurante, um polígono azul" />
+               <h1 className="logo-h1">food explorer</h1>
             </>
          }
       </Container>
