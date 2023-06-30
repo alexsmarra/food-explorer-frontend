@@ -34,48 +34,20 @@ export const Container = styled.div`
 `
 
 export const Head = styled.header`
-   display: flex;
-
-   margin-top: 10rem;
+display: flex;
+margin-top: 10rem;
 
    @media(min-width: 390px) {
       margin-top: 15rem;
-
-      > div img {
-         width: 5rem;
-         height: 5rem;
-      }
-
-      > div h1 {
-         font-size: 3rem;
-      }
    }
    @media (min-width: 540px) {
       margin-top: 11rem;
    }
    @media (min-width: 768px) {
       margin-top: 18rem;
-
-      > div img {
-         width: 7rem;
-         height: 7rem;
-      }
-
-      > div h1 {
-         font-size: 4rem;
-      }
    }
    @media (min-width: 912px) {
       margin-top: 22rem;
-
-      > div img {
-         width: 9.3rem;
-         height: 9.3rem;
-      }
-
-      > div h1 {
-         font-size: 5.3rem;
-      }
    }
    @media (min-width: 1024px) {
       margin-top: 4rem;
@@ -84,23 +56,9 @@ export const Head = styled.header`
          width: 100%;
          justify-content: center;
       }
-
-      > div img {
-         width: 6rem;
-         height: 6rem;
-      }
-
-      > div h1 {
-         font-size: 4rem;
-      }
    }
    @media(min-width: 1280px) {
       margin-top: 8rem;
-
-      > div {
-         width: 100%;
-         justify-content: start;
-      }
    }
    @media (min-width: 1400px) {
       flex: 1;

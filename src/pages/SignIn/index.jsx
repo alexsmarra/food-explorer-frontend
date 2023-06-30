@@ -5,7 +5,7 @@ import { Container, Head, Form } from './styles'
 
 import { useNavigate } from 'react-router-dom'
 
-import { Logo } from '../../components/Logo' 
+import { Brand } from '../../components/Brand' 
 import { InputLabel } from '../../components/InputLabel' 
 import { Button } from '../../components/Button' 
 
@@ -26,7 +26,7 @@ export function SignIn() {
    return (
       <Container>
          <Head>
-            <Logo />
+            <Brand />
          </Head>
 
          <Form>
