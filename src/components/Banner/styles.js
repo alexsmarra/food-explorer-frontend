@@ -143,10 +143,17 @@ height: 150px;
   }
 
   .text {
-    gap: 1.5rem;
+    gap: 1.1rem;
 
+    h1 {
+      width: 100%;
+      font-size: 2.3rem;
+      margin-top: 0;
+    }
     p {
-      line-height: normal;
+      width: 230px;
+      line-height: 1.5rem;
+      font-size: 1.1rem;
     }
   }
 } 
@@ -163,7 +170,14 @@ height: 200px;
   }
 
   .text {
+    gap: 1.5rem;
+
+    h1 {
+      font-size: 3rem;
+    }
     p {
+      width: 350px;
+      line-height: 1.7rem;
       font-size: 1.3rem;
     }
   }
@@ -178,10 +192,14 @@ height: 230px;
   }
 
   .text {
-    gap: 2.5rem;
+    gap: 1.9rem;
 
+    h1 {
+      font-size: 3.5rem;
+    }
     p {
       font-size: 1.45rem; 
+      line-height: 2rem;
     }
   }
 }
@@ -195,6 +213,18 @@ height: 230px;
     height: 38rem;
     top: -120px;
     left: -70px;
+  }
+
+  .text {
+    gap: 2.6rem;
+    
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 1.45rem; 
+      width: 100%;
+    }
   }
 }
 `

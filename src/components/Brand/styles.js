@@ -65,6 +65,18 @@ gap: 1.7rem;
    }
 }
 
+@media(min-width: 768px) {
+gap: 1.3rem;
+
+   .logo-img {
+      width: 2.7rem;
+      height: 2.7rem;
+   }
+   .logo-h1 {
+      font-size: 2.3rem;
+   }
+}
+
 @media(min-width: 1024px) {
 max-width: 200px;
    
@@ -91,6 +103,19 @@ max-width: 200px;
       span {
          justify-content: flex-end;
       }
+   }
+}
+
+@media(min-width: 1400px) {
+max-width: 300px;
+justify-content: left;
+
+   .logo-img {
+      width: 3rem;
+      height: 3rem;
+   }
+   .logo-h1 {
+      font-size: 2.7rem;
    }
 }
 `
