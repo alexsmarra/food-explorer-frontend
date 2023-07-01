@@ -44,6 +44,7 @@ margin-top: 10rem;
    .logo-h1 {
       font-family: 'Roboto', sans-serif;
       font-size: 2rem;
+      width: 100%;
    }
 
    @media(min-width: 390px) {
@@ -104,6 +105,10 @@ margin-top: 10rem;
    @media (min-width: 1400px) {
       flex: 1;
       margin-bottom: 26rem;
+
+      .brand {
+         width: 300px;
+      }
    }
 `
 

@@ -37,20 +37,50 @@ export const Head = styled.header`
 display: flex;
 margin-top: 10rem;
 
+   .logo-img {
+      width: 2.5rem;
+      height: 2.5rem;
+   }
+   .logo-h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2rem;
+      width: 100%;
+   }
+
    @media(min-width: 390px) {
       margin-top: 15rem;
+
+      .logo-img {
+         width: 3.3rem;
+         height: 3.3rem;
+      }
+      .logo-h1 {
+         font-size: 2.6rem;
+      }
    }
    @media (min-width: 540px) {
       margin-top: 11rem;
    }
    @media (min-width: 768px) {
       margin-top: 18rem;
+      
+      .logo-img {
+         width: 4.7rem;
+         height: 4.7rem;
+      }
+      .logo-h1 {
+         font-size: 3rem;
+      }  
    }
    @media (min-width: 912px) {
       margin-top: 22rem;
    }
    @media (min-width: 1024px) {
       margin-top: 4rem;
+
+      .brand {
+         max-width: 100%;
+      }
 
       > div {
          width: 100%;
@@ -59,10 +89,26 @@ margin-top: 10rem;
    }
    @media(min-width: 1280px) {
       margin-top: 8rem;
+
+      .brand {
+         gap: 2.3rem;
+         
+         .logo-img {
+            width: 5.6rem;
+            height: 5.6rem;
+         }
+         .logo-h1 {
+            font-size: 3.6rem;
+         } 
+      }
    }
    @media (min-width: 1400px) {
       flex: 1;
       margin-bottom: 26rem;
+
+      .brand {
+         width: 300px;
+      }
    }
 `
 
