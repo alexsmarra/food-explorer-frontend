@@ -74,7 +74,7 @@ const HeaderUser = () => {
                placeholder="Busque por pratos ou ingredientes"
             />
 
-            <ButtonImg title="Pedidos" />
+            <ButtonImg />
 
             <button>
                <img className="logout" src={SignOut} alt="ícone de signout" />
