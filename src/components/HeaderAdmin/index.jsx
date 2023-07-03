@@ -23,6 +23,7 @@ components */
 const HeaderAdmin = () => {
    const navigate = useNavigate()
 
+   // const com nome diferente da que esta em HeaderUser, pois estava interferindo na renderização
    const isMovable = useMediaQuery({ maxWidth: 1023 })
 
    const { signOut } = useAuth()
@@ -32,7 +33,6 @@ const HeaderAdmin = () => {
    // }
 
    async function handleSignOut() {
-      console.log("signOut")
       signOut()
    }
 

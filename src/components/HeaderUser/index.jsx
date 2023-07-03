@@ -22,7 +22,7 @@ components */
 const HeaderUser = () => {
    const navigate = useNavigate()
    
-   const isMobil = useMediaQuery({ maxWidth: 1023 })
+   const isMobile = useMediaQuery({ maxWidth: 1023 })
 
    const { signOut } = useAuth()
 
@@ -31,13 +31,12 @@ const HeaderUser = () => {
    // }
    
    async function handleSignOut() {
-      console.log("signOut")
       signOut()
    }
 
    return (
       <Container className="">
-         {isMobil ? (
+         {isMobile ? (
          <>
             <button className="menu-button" onClick={""}>
                <img className="menu-icon" src={MenuIcon} />
