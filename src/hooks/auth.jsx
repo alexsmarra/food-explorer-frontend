@@ -45,6 +45,13 @@ function AuthProvider({ children }) {
       }
    }
 
+   async function signOut() {
+      localStorage.removeItem("@rocketfood:user")
+      localStorage.removeItem("@rocketfood:token")
+
+      setData({})
+   }
+
    /* Usaremos o useEffect pois ao atualizar a página, os useState fica vazio */
    /* useEffect para buscar as informações do localStorage. Always leave closest to the return. 
    When we leave the [] empty, the app will be loader only once after rendering our component 
@@ -72,7 +79,7 @@ function AuthProvider({ children }) {
    return (
       /* compartilhando signIn e data.user (e o que mais quisermos) em nosso contexto para que 
          fique disponível em todo o nosso app */
-      <AuthContext.Provider value={{ signIn, user: data.user }}>
+      <AuthContext.Provider value={{ signIn, signOut, user: data.user }}>
          {children}
       </AuthContext.Provider>
    )
