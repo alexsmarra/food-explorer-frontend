@@ -38,6 +38,7 @@ export default createGlobalStyle`
    button {
       line-height: 24px;
       color: ${({ theme }) => theme.COLORS.MAIN_COLOR};
+      background: none;
    }
 
    button, a {

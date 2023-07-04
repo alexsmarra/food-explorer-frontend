@@ -28,9 +28,9 @@ const HeaderAdmin = () => {
 
    const { signOut } = useAuth()
 
-   // function handleMenuClick() {
-   //    navigate("/menu")
-   // }
+   function handleMenuClick() {
+      navigate("/menu")
+   }
 
    async function handleSignOut() {
       signOut()
@@ -41,7 +41,7 @@ const HeaderAdmin = () => {
          {isMovable ? (
 
          <>
-            <button className="menu-button" onClick={''}>
+            <button className="menu-button" onClick={handleMenuClick}>
                <img className="menu-icon" src={MenuIcon} />
             </button>
 

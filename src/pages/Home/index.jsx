@@ -11,7 +11,7 @@ export function Home() {
 
    return (
       <Container>
-         {user.admin ?
+         {user.isAdmin ?
             <HeaderAdmin />
          :
             <HeaderUser />

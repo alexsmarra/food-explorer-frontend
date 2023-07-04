@@ -26,9 +26,9 @@ const HeaderUser = () => {
 
    const { signOut } = useAuth()
 
-   // function handleMenuClick() {
-   //    navigate("/menu")
-   // }
+   function handleMenuClick() {
+      navigate("/menu")
+   }
    
    async function handleSignOut() {
       signOut()
@@ -38,7 +38,7 @@ const HeaderUser = () => {
       <Container className="">
          {isMobile ? (
          <>
-            <button className="menu-button" onClick={""}>
+            <button className="menu-button" onClick={handleMenuClick}>
                <img className="menu-icon" src={MenuIcon} />
             </button>
 

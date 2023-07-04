@@ -7,9 +7,9 @@ export const Container = styled.div`
 
   grid-template-rows: 60px auto 1fr;
   grid-template-areas:
-    "header"
-    "banner"
-    "restante";
+  "header"
+  "banner"
+  "restante";
 
   .banner {
     margin-top: 4.5rem;
