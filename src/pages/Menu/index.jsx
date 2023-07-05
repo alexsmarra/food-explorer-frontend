@@ -45,7 +45,7 @@ export const Menu = () => {
                {user.isAdmin == 1 &&
                   <>
                      <button>Novo Prato</button>
-                     <hr />
+                     <hr className="hr" />
                   </>
                }
 

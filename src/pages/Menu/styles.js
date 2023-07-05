@@ -8,6 +8,10 @@ grid-template-areas:
 "footer";
 height: 100vh;
 grid-template-rows: 60px 1fr 50px;
+
+@media(min-width: 768px) {
+grid-template-rows: 110px 1fr 70px;
+}
 `
 
 export const Head = styled.header`
@@ -23,12 +27,36 @@ background-color: ${({ theme }) => theme.COLORS.MAIN_DARK};
    }
 
    >button img {
-      width: 1.6rem;
-      height: 1.6rem;
+      width: 1.5rem;
+      height: 1.5rem;
    }
    >span {
       font-size: 1.8rem;
    }
+
+@media(min-width: 360px) {
+padding-left: 2rem;
+padding-right: 2rem;
+}
+
+@media(min-width: 540px) {
+padding-left: 3rem;
+padding-right: 3rem;
+}
+
+@media(min-width: 768px) {
+padding-left: 5rem;
+padding-right: 5rem;
+gap: 2rem;
+
+   >button img {
+      width: 1.8rem;
+      height: 1.8rem;
+   }
+   >span {
+      font-size: 2.1rem;
+   }
+}
 `
 
 export const Section = styled.section`
@@ -36,10 +64,12 @@ grid-area: section;
 display: flex;
 flex-direction: column;
 padding: 1.2rem;
-margin-top: 1.6rem;
+margin-top: 2.5rem;
 gap: 2rem;
 
    >.input-div {
+   margin-bottom: 2rem;
+
       svg {
          width: 2rem;
          height: 2rem;
@@ -55,10 +85,66 @@ gap: 2rem;
    >div:nth-child(2) {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: .5rem;
 
       button {
+         color: ${({ theme }) => theme.COLORS.WHITE_GRAY};
          text-align: left;
       }
+
+      hr {
+         border-color: ${({ theme }) => theme.COLORS.DARK_GRAY_BLUE};
+         height: -1px;
+         opacity: 0.2;
+      }
    }
+
+@media(min-width: 360px) {
+padding-left: 1.8rem;
+padding-right: 1.8rem;
+
+   >.input-div {
+      input {
+         &::placeholder {
+            font-size: 1.3rem;
+         }
+      }
+   }
+}
+
+@media(min-width: 390px) {
+margin-top: 3.5rem;
+}
+
+@media(min-width: 540px) {
+margin-top: 4rem;
+padding-left: 2.4rem;
+padding-right: 2.4rem;
+}
+
+@media(min-width: 768px) {
+padding-left: 5rem;
+padding-right: 5rem; 
+
+   >.input-div {
+      margin-bottom: 3rem;
+
+      input {
+         height: 55px;
+
+
+         &::placeholder {
+            font-size: 1.6rem;
+         }
+      }
+   }
+
+   >div:nth-child(2) {
+      gap: 1.6rem;
+
+      button {
+         font-size: 2.5rem;
+      }
+   }
+}
 `
