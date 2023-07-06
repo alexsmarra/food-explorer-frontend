@@ -1,10 +1,12 @@
 import { useAuth } from "../../hooks/auth"
 
-import { Container, Restante } from "./styles"
+import { Container } from "./styles"
 
 import { HeaderAdmin } from "../../components/HeaderAdmin"
 import { HeaderUser } from "../../components/HeaderUser"
 import { Banner } from "../../components/Banner"
+import { Dishes } from "../../components/Dishes"
+import { Footer} from "../../components/Footer"
 
 export function Home() {
    const { user } = useAuth()
@@ -12,12 +14,16 @@ export function Home() {
    return (
       <Container>
          {user.isAdmin ?
-            <HeaderAdmin />
+         <HeaderAdmin />
          :
-            <HeaderUser />
+         <HeaderUser />
          }
+
          <Banner />
-         <Restante />
+
+         <Dishes />
+
+         <Footer />
       </Container>
    )
 }

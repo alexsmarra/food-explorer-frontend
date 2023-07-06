@@ -5,11 +5,12 @@ export const Container = styled.div`
 
   height: 100vh;
 
-  grid-template-rows: 60px auto 1fr;
+  grid-template-rows: 60px auto 1fr 40px;
   grid-template-areas:
   "header"
   "banner"
-  "restante";
+  "dishes"
+  "footer";
 
   .banner {
     margin-top: 4.5rem;
@@ -22,13 +23,25 @@ export const Container = styled.div`
 } 
 
 @media(min-width: 768px) {
+grid-template-rows: 60px auto 1fr 55px;
+
   .banner {
     margin-top: 7rem;
   }
 }
 
+@media(min-width: 820px) {
+grid-template-rows: 60px auto 1fr 58px;
+}
+
+
 @media(min-width: 1024px) {
-  grid-template-rows: 110px auto 1fr;
+grid-template-rows: 110px auto 1fr 58px;
+
+  .footer {
+    justify-content: space-between;
+    padding: 0 6rem;
+  }
 }
 
 @media(min-width: 1280px) {
@@ -41,14 +54,9 @@ export const Container = styled.div`
   .banner {
     margin-top: 16rem;
   }
+
+  .footer {
+    padding: 0 11.8rem;
+  }
 }
-
-
-`
-
-/* apenas para preencher por enquanto */
-export const Restante = styled.div`
-   grid-area: restante;
-   background: grey;
-   margin-top: 100px;
 `

@@ -89,4 +89,23 @@ padding: 0 5rem;
       font-size: 1.35rem;
    }
 }
+
+@media(min-width: 820px) {
+   
+   >div {
+      gap: 1.5rem;
+
+      img {
+         width: 2.53rem;
+         height: 2.53rem;
+      }
+      span {
+         font-size: 1.72rem;
+      }
+   }   
+
+   >span {
+      font-size: 1.48rem;
+   }  
+}
 `

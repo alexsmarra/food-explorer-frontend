@@ -7,10 +7,14 @@ grid-template-areas:
 "section"
 "footer";
 height: 100vh;
-grid-template-rows: 60px 1fr 50px;
+grid-template-rows: 60px 1fr 40px;
 
 @media(min-width: 768px) {
-grid-template-rows: 110px 1fr 70px;
+grid-template-rows: 110px 1fr 55px;
+}
+
+@media(min-width: 820px) {
+grid-template-rows: 110px 1fr 58px;
 }
 `
 
@@ -55,6 +59,18 @@ gap: 2rem;
    }
    >span {
       font-size: 2.1rem;
+   }
+}
+
+@media(min-width: 820px) {
+gap: 2.2rem;
+
+   >button img {
+      width: 1.9rem;
+      height: 1.9rem;
+   }
+   >span {
+      font-size: 2.2rem;
    }
 }
 `
@@ -141,6 +157,39 @@ padding-right: 5rem;
 
    >div:nth-child(2) {
       gap: 1.6rem;
+
+      button {
+         font-size: 2.5rem;
+      }
+   }
+}
+
+@media(min-width: 820px) {
+margin-top: 6rem;
+
+   >.input-div {
+      margin-bottom: 4rem;
+
+      .input {
+         gap: .5rem;
+      }
+
+      svg {
+            width: 28px;
+            height: 28px;
+         }
+
+      input {
+         height: 65px;
+
+         &::placeholder {
+            font-size: 2rem;
+         }
+      }
+   }
+
+   >div:nth-child(2) {
+      gap: 2rem;
 
       button {
          font-size: 2.5rem;

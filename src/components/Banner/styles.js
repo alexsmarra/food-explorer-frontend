@@ -143,7 +143,7 @@ height: 150px;
   }
 
   .text {
-    gap: 1.1rem;
+    gap: 1.8rem;
 
     h1 {
       width: 100%;
@@ -170,7 +170,6 @@ height: 200px;
   }
 
   .text {
-    gap: 1.5rem;
 
     h1 {
       font-size: 3rem;
@@ -192,7 +191,7 @@ height: 230px;
   }
 
   .text {
-    gap: 1.9rem;
+    gap: 2.4rem;
 
     h1 {
       font-size: 3.5rem;

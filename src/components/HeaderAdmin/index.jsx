@@ -22,7 +22,6 @@ import { ButtonImg } from "../ButtonImg"
 components */
 const HeaderAdmin = () => {
    const navigate = useNavigate()
-
    // const com nome diferente da que esta em HeaderUser, pois estava interferindo na renderização
    const isMovable = useMediaQuery({ maxWidth: 1023 })
 
@@ -37,7 +36,7 @@ const HeaderAdmin = () => {
    }
 
    return (
-      <Container className="">
+      <Container className="header-admin">
          {isMovable ? (
 
          <>

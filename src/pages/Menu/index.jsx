@@ -1,4 +1,5 @@
 import { useAuth } from "../../hooks/auth"
+import { useEffect } from "react"
 
 import { Container, Head, Section } from "./styles.js"
 
@@ -9,10 +10,12 @@ import Close from "../../assets/menu/Close.svg"
 import { FiSearch } from "react-icons/fi"
 
 import { useNavigate } from "react-router-dom"
+import { useMediaQuery } from "react-responsive"
 
 export const Menu = () => {
    const { user, signOut } = useAuth()
    const navigate = useNavigate()
+   const itsNotMobile = useMediaQuery({ minWidth: 1023 });
 
    function handleCloseButton() {
       navigate(-1)
@@ -23,7 +26,13 @@ export const Menu = () => {
       navigate(-1)
    }
 
+   useEffect(() => { 
+      if(itsNotMobile) navigate(-1)
+
+   }, [itsNotMobile, navigate])
+
    return (
+      
       <Container>
          <Head>
             <button onClick={handleCloseButton}>
@@ -44,7 +53,7 @@ export const Menu = () => {
             <div>
                {user.isAdmin == 1 &&
                   <>
-                     <button>Novo Prato</button>
+                     <button onClick={() => navigate("/newDish")}>Novo Prato</button>
                      <hr className="hr" />
                   </>
                }
@@ -55,7 +64,6 @@ export const Menu = () => {
                   </>
             </div>
          </Section>
-
 
          <Footer />
       </Container>

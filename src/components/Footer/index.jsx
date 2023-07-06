@@ -4,7 +4,7 @@ import PolygonFooter from "../../assets/footer/Polygon-footer.svg"
 
 export const Footer = () => {
    return (
-      <Container>
+      <Container className="footer">
          <div>
             <img src={PolygonFooter} alt="Polygon img logo" />
             <span>food explorer</span>
