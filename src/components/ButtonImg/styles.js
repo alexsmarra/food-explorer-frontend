@@ -61,17 +61,15 @@ export const Container = styled.div`
    }
 }
 
-
-
 @media(min-width: 1024px) {
-   button.pedidos-button {
+   div.pedidos-button {
       display: flex;
       background-color: ${({ theme }) => theme.COLORS.BUTTON_COLOR}; 
       padding: 12px 40px;
       gap: 1rem;
    }
 
-   div.pedidos-number {
+   button.pedidos-number {
       font-weight: 500;
    }
 }

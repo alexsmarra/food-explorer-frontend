@@ -70,6 +70,6 @@ const HeaderAdmin = () => {
    )
 }
 
-export { HeaderAdmin}
+export { HeaderAdmin } 
 
 

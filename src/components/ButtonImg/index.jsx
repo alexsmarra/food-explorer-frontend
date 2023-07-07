@@ -15,7 +15,7 @@ export const ButtonImg = ({title, ...rest}) => {
    const { user } = useAuth()
 
    return (
-      <Container type="button" {...rest}>
+      <Container {...rest}>
          {
             isMobile ?
                <button className="pedidos-button">
@@ -31,24 +31,24 @@ export const ButtonImg = ({title, ...rest}) => {
                   </div>
                </button>
             :
-            <button className="pedidos-button">
+            <div className="pedidos-button">
                {user?.isAdmin ?
-                  <div 
+                  <button 
                      className="novo-prato"
                      onClick={() => navigate("/newDish")}
                   >
                      Novo prato
-                  </div>
+                  </button>
                :
                   <>
                      <img className="pedidos-icon" src={PedidosIcon} alt="ícone de pedidos" />
-                     <div className="pedidos-number">
+                     <button className="pedidos-number">
                         {title} ({/* numeroDePedido && <span className="badge">{numeroDePedidos}</span> */}
                         0)
-                     </div>
+                     </button>
                   </>
                }
-            </button>
+            </div>
 
          }
 
