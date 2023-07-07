@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   height: 100vh;
 
-  grid-template-rows: 60px auto 1fr 40px;
+  grid-template-rows: 70px auto 1fr 40px;
   grid-template-areas:
   "header"
   "banner"
@@ -23,7 +23,7 @@ export const Container = styled.div`
 } 
 
 @media(min-width: 768px) {
-grid-template-rows: 60px auto 1fr 55px;
+grid-template-rows: 100px auto 1fr 55px;
 
   .banner {
     margin-top: 7rem;
@@ -31,12 +31,11 @@ grid-template-rows: 60px auto 1fr 55px;
 }
 
 @media(min-width: 820px) {
-grid-template-rows: 60px auto 1fr 58px;
+grid-template-rows: 110px auto 1fr 58px;
 }
 
 
 @media(min-width: 1024px) {
-grid-template-rows: 110px auto 1fr 58px;
 
   .footer {
     justify-content: space-between;
@@ -51,6 +50,7 @@ grid-template-rows: 110px auto 1fr 58px;
 }
 
 @media(min-width: 1400px) {
+
   .banner {
     margin-top: 16rem;
   }

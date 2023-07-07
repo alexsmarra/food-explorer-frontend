@@ -17,24 +17,24 @@ justify-content: center;
          display: flex;
          justify-content: center;
          align-items: center;
-         gap: 1rem;
+         gap: .8rem;
       }
    }
 
    .logo-img {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2rem;
+      height: 2rem;
    }
    .logo-h1 {
       font-family: 'Roboto', sans-serif;
-      font-size: 2rem;
+      font-size: 1.7rem;
    }
       
    span {
       display: inline-flex;
       align-items: center;
       color: ${({ theme }) => theme.COLORS.LIGHT_BLUE};
-      font-size: 10px;
+      font-size: 8px;
    }
 
 @media(min-width: 360px) {
@@ -54,15 +54,6 @@ gap: 1.5rem;
 
 @media(min-width: 540px) {
 gap: 1.7rem;
-
-   img {
-      /* width: 3.8rem;
-      height: 3.8rem; */
-   }
-
-   h1 {
-      /* font-size: 2.7rem; */
-   }
 }
 
 @media(min-width: 768px) {
@@ -74,6 +65,10 @@ gap: 1.3rem;
    }
    .logo-h1 {
       font-size: 2.3rem;
+   }
+
+   span {
+      font-size: 12px;
    }
 }
 
