@@ -4,6 +4,7 @@ export default {
       MAIN_DARK: '#001219',
 
       INPUT_BACKGROUND: '#0D1D25',
+      INPUT_BACKGROUND_2: '#0D161B',
 
 
 
