@@ -4,7 +4,7 @@ import { HeaderAdmin } from "../../components/HeaderAdmin"
 import { ButtonReturn } from "../../components/ButtonReturn"
 import { Input } from "../../components/Input"
 import { InputLabel } from "../../components/InputLabel"
-import { Select } from "../../components/Select"
+import { CustomSelect } from "../../components/CustomSelect"
 
 import { BiUpload } from "react-icons/bi";
 
@@ -34,8 +34,19 @@ export const NewDish = () => {
                   placeholder="Ex: Salada Ceasar"
                />
 
-               <Select />
+               <CustomSelect />
             </div> 
+
+           <div className="wrapper-inputs-two">
+               <div className="ingredients">
+                  <span>Ingredientes</span>
+                  <div className="tags">
+                     <div className="a">note</div>
+                     <div className="b">note +</div>
+                  </div>
+               </div>
+           </div>
+
          </Form>
       </Container>
    )

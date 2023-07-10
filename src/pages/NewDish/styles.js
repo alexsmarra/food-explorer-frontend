@@ -17,7 +17,7 @@ grid-template-rows: 70px 100px 1fr;
    }
 
    .button-return {
-      padding-top: 1.4rem;
+      padding-top: 1rem;
 
       button {
          padding-left: .7rem;
@@ -31,12 +31,22 @@ grid-template-rows: 70px 100px 1fr;
 
 export const Form = styled.form`
 grid-area: form;
+margin: 0 1.05rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+
+   span {
+         display: inline-flex;
+         margin-bottom: 1rem;
+         color: ${({ theme }) => theme.COLORS.LABEL_COLOR};
+         font-size: 1rem;
+      }
 
    .wrapper-inputs-one {
    display: flex;
    flex-direction: column;
-   gap: 3rem;
-   margin: 0 1.05rem;
+   gap: 4rem;
 
    
       label {
@@ -46,14 +56,9 @@ grid-area: form;
       }
 
       .wrapper-img-input {
+         margin-bottom: -2rem;
 
          label {
-
-            span {
-               display: inline-flex;
-               margin-bottom: 1rem;
-               color: ${({ theme }) => theme.COLORS.LABEL_COLOR};
-            }
             
             .input {
                background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
@@ -83,25 +88,25 @@ grid-area: form;
          }
       }
 
-      .select {
+      .custom-select {
          display: flex;
          flex-direction: column;
+      }
+   }
 
-         select {
-            /* para retirar a setinha */
-            appearance: none;
-            /* no site canIuse podemos ver as configurações para todos os navegadores */
-            /* mesma coisa, mas para o mozilla */
-            -moz-appearance: none;
-            /* para chrome, safari.. */
-            -webkit-appearance: none;
-            /* essa imagem foi feita da seguinte forma: Copiamos o svg de uma setinha do figma de um projeto já pronto,  e no site https://yoksel.github.io/url-encoder/  nós colamos em INSERT SVG e em seguida copiamos de READY FOR CSS , colocando no css (código abaixo). Essa imagem está formatada de base64, que é em formato de texto */
-            background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-            /* para imagem não se repetir */
-            background-repeat: no-repeat;
-            /* para posicionar a imagem no canto direito com um espaço de 24px e top 50% (no centro) */
-            background-position: right 24px top 50%
+   .wrapper-inputs-two {
+      .ingredients div {
+         display: flex;
+         background: orange;
+
+         .a {
+            background: green;
+         }
+
+         .b {
+            background: blue;
          }
       }
    }
+
 `
