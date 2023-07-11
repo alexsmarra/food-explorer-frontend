@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import { Container, Form } from "./styles"
 
 import { HeaderAdmin } from "../../components/HeaderAdmin"
@@ -13,6 +15,14 @@ import { Footer } from "../../components/Footer"
 import { BiUpload } from "react-icons/bi";
 
 export const NewDish = () => {
+   const [tags, setTags] = useState([])
+   const [newTag, setNewTag] = useState("")
+
+   function handleAddTag() {
+      setTags(prevState => [...prevState, newTag])
+      setNewTag("")
+   }
+
    return (
       <Container>
          <HeaderAdmin />
@@ -45,15 +55,24 @@ export const NewDish = () => {
                <div className="ingredients">
                   <span>Ingredientes</span>
                   <div className="tags">
+                     {
+                        tags.map((tag, index) => (
+                           <IngredientsItem 
+                              isNew={false}
+                              key={String(index)}
+                              value={tag}
+                           />
+                        ))
+                     }
+
                      <IngredientsItem 
                         isNew={true}
                         placeholder="Adicionar"
+                        value={newTag}
+                        onChange={e => setNewTag(e.target.value)}
+                        onClick={handleAddTag}
                      />
 
-                     <IngredientsItem 
-                        isNew={false}
-                        value="Exemplo"
-                     />
                   </div>
                </div>
 
