@@ -95,17 +95,12 @@ gap: 1rem;
    }
 
    .wrapper-inputs-two {
-      .ingredients div {
+      .ingredients .tags {
          display: flex;
-         background: orange;
+         background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
+         border-radius: 5px;
+         padding: 5px;
 
-         .a {
-            background: green;
-         }
-
-         .b {
-            background: blue;
-         }
       }
    }
 

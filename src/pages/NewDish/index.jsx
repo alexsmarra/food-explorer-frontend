@@ -5,6 +5,7 @@ import { ButtonReturn } from "../../components/ButtonReturn"
 import { Input } from "../../components/Input"
 import { InputLabel } from "../../components/InputLabel"
 import { CustomSelect } from "../../components/CustomSelect"
+import { IngredientsItem } from "../../components/IngredientsItem"
 
 import { BiUpload } from "react-icons/bi";
 
@@ -41,8 +42,10 @@ export const NewDish = () => {
                <div className="ingredients">
                   <span>Ingredientes</span>
                   <div className="tags">
-                     <div className="a">note</div>
-                     <div className="b">note +</div>
+                     <IngredientsItem 
+                        isNew={false}
+                        placeholder="Adicionar"
+                     />
                   </div>
                </div>
            </div>
