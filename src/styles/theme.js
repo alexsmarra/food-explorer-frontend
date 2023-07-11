@@ -14,6 +14,7 @@ export default {
       LABEL_COLOR: '#C4C4CD',
       PLACEHOLDER_INPUT_COLOR: '#7C7D8A',
       BUTTON_COLOR: '#750310',
+      BUTTON_FORM_COLOR: '#AB4D55',
 
       DARK_BLUE: '#001219',
       DARK_GRAY_BLUE: '#192227',

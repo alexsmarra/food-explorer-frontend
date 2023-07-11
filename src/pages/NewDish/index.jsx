@@ -6,6 +6,9 @@ import { Input } from "../../components/Input"
 import { InputLabel } from "../../components/InputLabel"
 import { CustomSelect } from "../../components/CustomSelect"
 import { IngredientsItem } from "../../components/IngredientsItem"
+import { Textarea } from "../../components/Textarea"
+import { Button } from "../../components/Button"
+import { Footer } from "../../components/Footer"
 
 import { BiUpload } from "react-icons/bi";
 
@@ -43,14 +46,34 @@ export const NewDish = () => {
                   <span>Ingredientes</span>
                   <div className="tags">
                      <IngredientsItem 
-                        isNew={false}
+                        isNew={true}
                         placeholder="Adicionar"
+                     />
+
+                     <IngredientsItem 
+                        isNew={false}
+                        value="Exemplo"
                      />
                   </div>
                </div>
-           </div>
 
+               <InputLabel 
+                  title="Preço" 
+                  placeholder="R$00,00"
+               />
+
+               <Textarea
+                  placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
+               />
+
+               <Button
+                  className="btn-form" 
+                  title="Salvar alterações"
+               />
+           </div>
          </Form>
+
+         <Footer />
       </Container>
    )
 }
