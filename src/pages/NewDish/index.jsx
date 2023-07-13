@@ -15,6 +15,7 @@ import { Footer } from "../../components/Footer"
 import { BiUpload } from "react-icons/bi";
 
 export const NewDish = () => {
+   const [image, setImage] = useState(null)
    const [name, setName] = useState("")
    const [selectedCategory, setSelectedCategory] = useState('refeicao')
    const [tags, setTags] = useState([])
@@ -91,6 +92,7 @@ export const NewDish = () => {
                         type="file" 
                         icon={BiUpload}
                         text="Selecione Imagem"
+                        onChange={e => setImage(e.target.files[0])}
                      />
                   </label>
                </div>
