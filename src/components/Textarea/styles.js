@@ -16,11 +16,12 @@ gap: 1rem;
       border: none;
       resize: none;
       height: 100px;
+      padding: 1.2rem;
+      color: ${({ theme }) => theme.COLORS.PLACEHOLDER_INPUT_COLOR};
 
       &::placeholder {
          color: ${({ theme }) => theme.COLORS.PLACEHOLDER_INPUT_COLOR};
          font-size: 1rem;
-         padding: 1.2rem;
       }
    }
 `
