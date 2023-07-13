@@ -14,7 +14,12 @@ import { Footer } from "../../components/Footer"
 
 import { BiUpload } from "react-icons/bi";
 
+import { useNavigate } from "react-router-dom"
+import { toast } from 'react-toastify';
+
 export const NewDish = () => {
+   const navigate = useNavigate()
+
    const [image, setImage] = useState(null)
    const [name, setName] = useState("")
    const [selectedCategory, setSelectedCategory] = useState('refeicao')
@@ -75,6 +80,17 @@ export const NewDish = () => {
       const newPrice = inputPrice.length > 0 ? `R$${inputPrice}` : ''
       setPrice(newPrice)
    }   
+
+   async function handleNewDish() {
+      if(!name || !tags || !price || !description) {
+         return toast.error("Por favor, preencha todos os campos!", {
+            position: 'top-center',
+            theme: "dark"
+         })
+      }
+      
+      navigate("/")
+   }
          
    return (
       <Container>
@@ -149,6 +165,7 @@ export const NewDish = () => {
                <Button
                   className="btn-form" 
                   title="Salvar alterações"
+                  onClick={handleNewDish}
                />
            </div>
          </Form>

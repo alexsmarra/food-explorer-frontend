@@ -13,11 +13,12 @@ gap: 1rem;
 
    textarea {
       background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
+      color: ${({ theme }) => theme.COLORS.PLACEHOLDER_INPUT_COLOR};
       border: none;
       resize: none;
       height: 100px;
       padding: 1.2rem;
-      color: ${({ theme }) => theme.COLORS.PLACEHOLDER_INPUT_COLOR};
+      font-size: 1rem;
 
       &::placeholder {
          color: ${({ theme }) => theme.COLORS.PLACEHOLDER_INPUT_COLOR};

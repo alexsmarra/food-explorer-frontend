@@ -16,6 +16,8 @@ export const Container = styled.div`
    input {
       // setando como padrão do html (pois no global tem propriedades alteradas)
       background-color: transparent;
+      color: ${({ theme, isnew }) => isnew == 'true' ? theme.COLORS.PLACEHOLDER_INPUT_COLOR
+                                                     : "white"};
       padding: 1px 0.5em;
       //
 

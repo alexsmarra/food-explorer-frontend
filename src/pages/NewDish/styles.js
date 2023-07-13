@@ -37,6 +37,8 @@ display: flex;
 flex-direction: column;
 gap: 1.5rem;
 
+
+
    span {
          display: inline-flex;
          margin-bottom: 1rem;
@@ -63,11 +65,13 @@ gap: 1.5rem;
             
             .input {
                background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
+               color: ${({ theme }) => theme.COLORS.MAIN_COLOR};
                gap: .5rem;
                height: 40px;
                 
                svg {
-                  background-color: ${({ theme }) => theme.COLORS.MAIN_COLOR};
+                  background: none;
+                  color: ${({ theme }) => theme.COLORS.MAIN_COLOR};
                 }
             
                input {
@@ -83,6 +87,7 @@ gap: 1.5rem;
          input {
             background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
             height: 40px;
+            font-size: 1rem;
 
             &::placeholder {
                font-size: 1rem;
@@ -124,6 +129,7 @@ gap: 1.5rem;
          input {
             background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
             height: 40px;
+            font-size: 1rem;
 
             &::placeholder {
                font-size: 1rem;
