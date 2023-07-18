@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { api } from "../../services/api"
 
 import { Container, Form } from "./styles"
 
@@ -82,14 +83,40 @@ export const NewDish = () => {
    }   
 
    async function handleNewDish() {
-      if(!name || !tags || !price || !description) {
-         return toast.error("Por favor, preencha todos os campos!", {
-            position: 'top-center',
-            theme: "dark"
-         })
-      }
-      
-      navigate("/")
+      /* Como estamos tratando de imagens (para videos tbm serviria), vamos instaciar o FormData() 
+      do JS para armazenarmos não só as imagens, mas todos os dados nele e enviarmos para a nossa 
+      api. Em nossa api, o nosso formData chegará como um objeto, é bom ter 
+      ciência disso, caso necessário faremos tratamentos por lá */
+      const formData = new FormData()
+
+      // if(!name || !tags || !price || !description) {
+      //    toast.error("Por favor, preencha todos os campos!", {
+      //       position: 'top-center',
+      //       theme: "dark"
+      //    })
+      //    return
+      // }
+
+      // u have to pass it like this, with key and value
+      formData.append("image", image)
+      formData.append('name', name)
+      formData.append('category', selectedCategory)
+      formData.append('ingredients', tags)
+      formData.append('price', price)
+      formData.append('description', description)
+
+      console.log(formData)
+
+      api.post("/dishes", formData).then(() => {
+         alert("Prato criado com sucesso!")
+         navigate("/")
+      }).catch(error => {
+         if(error.response) {
+            alert(error.response.data.message)
+         } else {
+            alert("Erro ao cadastrar o prato")
+         }
+      }) 
    }
          
    return (
