@@ -134,7 +134,7 @@ export const NewDish = () => {
                         id="img-input" 
                         type="file" 
                         icon={BiUpload}
-                        text="Selecione Imagem"
+                        text="Selecione imagem"
                         onChange={e => setImage(e.target.files[0])}
                      />
                   </label>
