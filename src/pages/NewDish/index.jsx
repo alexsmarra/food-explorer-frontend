@@ -89,13 +89,14 @@ export const NewDish = () => {
       ciência disso, caso necessário faremos tratamentos por lá */
       const formData = new FormData()
 
-      // if(!name || !tags || !price || !description) {
-      //    toast.error("Por favor, preencha todos os campos!", {
-      //       position: 'top-center',
-      //       theme: "dark"
-      //    })
-      //    return
-      // }
+      if(!name || !tags || !price || !description) {
+         toast.error("Por favor, preencha todos os campos!", {
+            position: 'top-center',
+            theme: "dark",
+            autoClose: 1000
+         })
+         return
+      }
 
       // u have to pass it like this, with key and value
       formData.append("image", image)
@@ -105,20 +106,20 @@ export const NewDish = () => {
       formData.append('price', price)
       formData.append('description', description)
 
-      console.log(formData)
-
       api.post("/dishes", formData).then(() => {
-         alert("Prato criado com sucesso!")
+         toast.success("Prato criado com sucesso!", {
+            autoClose: 1000
+         })
          navigate("/")
       }).catch(error => {
          if(error.response) {
-            alert(error.response.data.message)
+            toast.error(error.response.data.message, {autoClose: 1000})
          } else {
-            alert("Erro ao cadastrar o prato")
+            toast.error("Erro ao cadastrar o prato", {autoClose: 1000})
          }
       }) 
    }
-         
+   
    return (
       <Container>
          <HeaderAdmin />
@@ -142,6 +143,7 @@ export const NewDish = () => {
 
                <InputLabel 
                   title="Nome" 
+                  className="input-value"
                   placeholder="Ex: Salada Ceasar"
                   onChange={e => setName(e.target.value)}
                />
