@@ -4,7 +4,7 @@ import { api } from "../../services/api"
 
 import { Container } from "./styles"
 
-export const Dishes = () => {
+export const Dish = () => {
    const [dishes, setDishes] = useState([])
    const [imgDish, setImgDish] = useState(null)
 
@@ -14,7 +14,6 @@ export const Dishes = () => {
       }
 
       fetchImagesDishes()
-      console.log(imgDish)
    })
 
    useEffect(() => {
@@ -29,8 +28,6 @@ export const Dishes = () => {
 
       fetchDishes()
    }, [])
-
-   console.log(dishes)
 
    return (
       <Container>

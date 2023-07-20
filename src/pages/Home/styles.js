@@ -5,11 +5,13 @@ export const Container = styled.div`
 
   height: 100vh;
 
-  grid-template-rows: 70px auto 1fr 40px;
+  grid-template-rows: 70px auto auto auto auto 40px;
   grid-template-areas:
   "header"
   "banner"
-  "dishes"
+  "section"
+  "section"
+  "section"
   "footer";
 
   .banner {
