@@ -2,10 +2,14 @@ import { useState } from "react"
 
 import { api } from "../../services/api"
 
+import { useAuth } from "../../hooks/auth"
+
+import { Button } from "../Button"
+
 import { Container } from "./styles" 
 
 export const Meal = ({ data, ...rest }) => {
-
+   const { user } = useAuth()
    const [amount, setAmount] = useState(1)
    const [price, setPrice] = useState(parseFloat(((data.price).slice(2)).replace(/,/g, '.')));
 
@@ -43,14 +47,25 @@ export const Meal = ({ data, ...rest }) => {
          <div>
             <h3>{`${data.name} >`}</h3> 
          </div>
-         <p>{data.description}</p>
+
          <div>
-            <div>
-               <button className="minus" onClick={minusPrice}>-</button>
-               <span>{zeroFix(amount)}</span>
-               <button className="plus" onClick={plusPrice}>+</button>
-            </div>
-            <span className="price-span">{`R$${price.toFixed(2)}`}</span>
+            {
+            user.isAdmin ?
+               <span className="price-span">{`R$${price.toFixed(2)}`}</span>
+            :
+               <div>
+                  <span className="price-span">{`R$${price.toFixed(2)}`}</span>
+                  <div>
+                     <div>
+                        <button className="minus" onClick={minusPrice}>-</button>
+                        <span>{zeroFix(amount)}</span>
+                        <button className="plus" onClick={plusPrice}>+</button>
+                     </div>
+                     <Button title="Incluir" />
+                  </div>
+
+               </div>
+            }
          </div>
       </Container>
    )

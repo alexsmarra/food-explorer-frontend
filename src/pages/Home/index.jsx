@@ -57,8 +57,7 @@ export function Home() {
          <Banner />
 
          <Section title="Refeições">
-
-            {
+         {
             dishes.filter(dishes => dishes.category === "refeicao").map(dish => ( 
             
                <div 
@@ -77,21 +76,56 @@ export function Home() {
                         data={dish}
                      />
                </div>
-            ))
-            
-            }
+            ))     
+         }
          </Section>
 
          <Section title="Sobremesas">
-            <div className="meal-wrapper">
-
-            </div>   
+         {
+            dishes.filter(dishes => dishes.category === "sobremesa").map(dish => ( 
+            
+               <div 
+                  key={dish.id}
+                  className="meal-wrapper">
+                  
+                     {
+                     user.isAdmin ?
+                     <BsPencil />
+                     :
+                     <AiOutlineHeart />
+                     }
+                     
+                     <Meal
+                        key={dish.name}
+                        data={dish}
+                     />
+               </div>
+            ))     
+         }   
          </Section>
 
          <Section title="Bebidas">
-            <div className="meal-wrapper">
-               
-            </div>          
+         {
+            dishes.filter(dishes => dishes.category === "bebidas").map(dish => ( 
+            
+               <div 
+                  key={dish.id}
+                  className="meal-wrapper">
+                  
+                     {
+                     user.isAdmin ?
+                     <BsPencil />
+                     :
+                     <AiOutlineHeart />
+                     }
+                     
+                     <Meal
+                        key={dish.name}
+                        data={dish}
+                     />
+               </div>
+            ))     
+         }          
          </Section>
 
          <Footer />

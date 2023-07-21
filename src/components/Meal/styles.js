@@ -7,7 +7,9 @@ flex-direction: column;
 gap: 1rem;
 
 img {
-   width: 30%;
-   height: 30%;
+   width: 100px;
+   height: 100px;
+   border-radius: 50%;
+   object-fit: cover;
 } 
 `
