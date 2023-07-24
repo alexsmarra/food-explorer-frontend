@@ -58,7 +58,7 @@ export function Home() {
 
          <Section title="Refeições">
          {
-            dishes.filter(dishes => dishes.category === "refeicao").map(dish => ( 
+            dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
             
                <div 
                   key={dish.id}
@@ -72,7 +72,7 @@ export function Home() {
                      }
                      
                      <Meal
-                        key={dish.name}
+                        key={String(index)}
                         data={dish}
                      />
                </div>
@@ -82,10 +82,10 @@ export function Home() {
 
          <Section title="Sobremesas">
          {
-            dishes.filter(dishes => dishes.category === "sobremesa").map(dish => ( 
+            dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
             
                <div 
-                  key={dish.id}
+                  key={String(index)}
                   className="meal-wrapper">
                   
                      {
@@ -106,10 +106,10 @@ export function Home() {
 
          <Section title="Bebidas">
          {
-            dishes.filter(dishes => dishes.category === "bebidas").map(dish => ( 
+            dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
             
                <div 
-                  key={dish.id}
+                  key={String(index)}
                   className="meal-wrapper">
                   
                      {

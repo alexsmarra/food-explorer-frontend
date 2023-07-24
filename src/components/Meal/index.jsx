@@ -8,7 +8,11 @@ import { Button } from "../Button"
 
 import { Container } from "./styles" 
 
+import { useNavigate } from "react-router-dom"
+
 export const Meal = ({ data, ...rest }) => {
+   const navigate = useNavigate()
+
    const { user } = useAuth()
    const [amount, setAmount] = useState(1)
    const [price, setPrice] = useState(parseFloat(((data.price).slice(2)).replace(/,/g, '.')));
@@ -45,7 +49,7 @@ export const Meal = ({ data, ...rest }) => {
             alt={`Foto de um(a) ${(data.name).toLowerCase()}`} 
          />
          <div>
-            <h3>{`${data.name} >`}</h3> 
+            <h3 onClick={() => navigate("/newDish")}>{`${data.name} >`}</h3> 
          </div>
 
          <div>
