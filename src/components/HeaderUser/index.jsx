@@ -19,7 +19,7 @@ import { ButtonImg } from "../ButtonImg"
 
 /* outra forma de exportar, como default (ver abaixo no final o export), não é o meu preferido para
 components */
-const HeaderUser = () => {
+const HeaderUser = ({ setSearch }) => {
    const navigate = useNavigate()
    
    const isMobile = useMediaQuery({ maxWidth: 1023 })
@@ -55,6 +55,7 @@ const HeaderUser = () => {
             <Input 
                icon={FiSearch} 
                placeholder="Busque por pratos ou ingredientes"
+               onChange={e => setSearch(e.target.value)}
             />
 
             <ButtonImg title="Pedidos" />

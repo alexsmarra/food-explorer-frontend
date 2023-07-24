@@ -52,7 +52,7 @@ export function Home() {
          {user.isAdmin ?
          <HeaderAdmin setSearch={setSearch} />
          :
-         <HeaderUser />
+         <HeaderUser setSearch={setSearch} />
          }
 
          <Banner />
