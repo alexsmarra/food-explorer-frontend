@@ -22,13 +22,14 @@ export function Home() {
    const { user } = useAuth()
    const [dishes, setDishes] = useState([])
    const [imgDish, setImgDish] = useState(null)
+   const [search, setSearch] = useState("")
 
    const isMobile = useMediaQuery({ maxWidth: 1023})
 
    useEffect(() => {
       const fetchDishes = async () => {
          try {
-            const response = await api.get("/dishes")
+            const response = await api.get(`/dishes?name=${search}`)
             setDishes(response.data)
          } catch(error) {
             console.log(error)
@@ -36,7 +37,7 @@ export function Home() {
       }
 
       fetchDishes()
-   }, [])
+   }, [search])
    
    useEffect(() => {
       const fetchImagesDishes = async () => {
@@ -49,7 +50,7 @@ export function Home() {
    return (
       <Container>
          {user.isAdmin ?
-         <HeaderAdmin />
+         <HeaderAdmin setSearch={setSearch} />
          :
          <HeaderUser />
          }

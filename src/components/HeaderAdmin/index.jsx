@@ -20,7 +20,7 @@ import { ButtonImg } from "../ButtonImg"
 
 /* outra forma de exportar, como default (ver abaixo no final o export), não é o meu preferido para
 components */
-const HeaderAdmin = () => {
+const HeaderAdmin = ({ setSearch }) => {
    const navigate = useNavigate()
    // const com nome diferente da que esta em HeaderUser, pois estava interferindo na renderização
    const isMovable = useMediaQuery({ maxWidth: 1023 })
@@ -55,6 +55,7 @@ const HeaderAdmin = () => {
             <Input 
                icon={FiSearch} 
                placeholder="Busque por pratos ou ingredientes"
+               onChange={e => setSearch(e.target.value)}
             />
 
             <ButtonImg />
