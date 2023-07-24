@@ -12,4 +12,8 @@ img {
    border-radius: 50%;
    object-fit: cover;
 } 
+
+h3 {
+   cursor: pointer;
+}
 `

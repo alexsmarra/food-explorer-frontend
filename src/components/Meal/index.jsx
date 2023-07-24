@@ -15,7 +15,11 @@ export const Meal = ({ data, ...rest }) => {
 
    const { user } = useAuth()
    const [amount, setAmount] = useState(1)
-   const [price, setPrice] = useState(parseFloat(((data.price).slice(2)).replace(/,/g, '.')));
+   const [price, setPrice] = useState(parseFloat(((data.price).slice(2)).replace(/,/g, '.')))
+
+   const handleDetails = (id) => {
+      navigate(`/details/${id}`)
+   }
 
    const zeroFix = (number) => {
       if(number > 9) {
@@ -49,7 +53,7 @@ export const Meal = ({ data, ...rest }) => {
             alt={`Foto de um(a) ${(data.name).toLowerCase()}`} 
          />
          <div>
-            <h3 onClick={() => navigate("/newDish")}>{`${data.name} >`}</h3> 
+            <h3 onClick={() => handleDetails(data.id)}>{`${data.name} >`}</h3> 
          </div>
 
          <div>
