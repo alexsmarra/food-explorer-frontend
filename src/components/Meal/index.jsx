@@ -18,6 +18,8 @@ export const Meal = ({ data, ...rest }) => {
    const [price, setPrice] = useState(parseFloat(((data.price).slice(2)).replace(/,/g, '.')))
 
    const handleDetails = (id) => {
+      localStorage.removeItem("@foodexplorer:endPrice")
+      localStorage.setItem("@foodexplorer:endPrice", JSON.stringify(price))
       navigate(`/details/${id}`)
    }
 
@@ -71,7 +73,6 @@ export const Meal = ({ data, ...rest }) => {
                      </div>
                      <Button title="Incluir" />
                   </div>
-
                </div>
             }
          </div>
