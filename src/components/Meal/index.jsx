@@ -20,6 +20,8 @@ export const Meal = ({ data, ...rest }) => {
    const handleDetails = (id) => {
       localStorage.removeItem("@foodexplorer:endPrice")
       localStorage.setItem("@foodexplorer:endPrice", JSON.stringify(price))
+      localStorage.removeItem("@foodexplorer:amount")
+      localStorage.setItem("@foodexplorer:amount",JSON.stringify(amount))
       navigate(`/details/${id}`)
    }
 
@@ -35,7 +37,7 @@ export const Meal = ({ data, ...rest }) => {
       if(amount > 1) {
          setPrice(currentPrice => 
             currentPrice - parseFloat(((data.price).slice(2)).replace(/,/g, '.')))
-            setAmount(currentAmount => currentAmount -1)
+         setAmount(currentAmount => currentAmount -1)
       } else {
          return
       }
@@ -44,7 +46,7 @@ export const Meal = ({ data, ...rest }) => {
    const plusPrice = () => {
       // takes the current value of price and adds
       setPrice(currentPrice => 
-            currentPrice + parseFloat(((data.price).slice(2)).replace(/,/g, '.')))
+         currentPrice + parseFloat(((data.price).slice(2)).replace(/,/g, '.')))
       setAmount(currentAmount => currentAmount + 1)
    }
 
@@ -64,7 +66,7 @@ export const Meal = ({ data, ...rest }) => {
                <span className="price-span">{`R$${price.toFixed(2)}`}</span>
             :
                <div>
-                  <span className="price-span">{`R$${price.toFixed(2)}`}</span>
+                  <span className="price-span">{`R$${(price.toFixed(2)).replace(/\./g, ',')}`}</span>
                   <div>
                      <div>
                         <button className="minus" onClick={minusPrice}>-</button>
