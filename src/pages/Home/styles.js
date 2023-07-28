@@ -18,6 +18,10 @@ export const Container = styled.div`
     margin-top: 4.5rem;
   }  
 
+  .section .meal-wrapper svg {
+    cursor: pointer;
+  }
+
 @media(min-width: 360px) {
   .banner {
     margin-top: 6.5rem;

@@ -23,7 +23,7 @@ export const NewDish = () => {
 
    const [image, setImage] = useState(null)
    const [name, setName] = useState("")
-   const [selectedCategory, setSelectedCategory] = useState('refeicao')
+   const [selectedCategory, setSelectedCategory] = useState('escolha')
    const [tags, setTags] = useState([])
    const [newTag, setNewTag] = useState("")
    const [price, setPrice] = useState("")

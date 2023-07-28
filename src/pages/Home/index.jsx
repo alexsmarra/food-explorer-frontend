@@ -17,19 +17,26 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 
 import { useMediaQuery } from "react-responsive"
+import { useNavigate } from "react-router-dom"
 
 export function Home() {
    const { user } = useAuth()
+   const navigate = useNavigate()
+
    const [dishes, setDishes] = useState([])
    const [imgDish, setImgDish] = useState(null)
    const [search, setSearch] = useState("")
 
-   const isMobile = useMediaQuery({ maxWidth: 1023})
+   const isMobile = useMediaQuery({ maxWidth: 1023 })
+
+   const runEditDish = (id) => {
+      navigate(`/editDish/${id}`)
+   }
 
    useEffect(() => {
       const fetchDishes = async () => {
          try {
-            const response = await api.get(`/dishes?name=${search}`)
+            const response = await api.get(`/dishes?search=${search}`)
             setDishes(response.data)
          } catch(error) {
             console.log(error)
@@ -67,7 +74,9 @@ export function Home() {
                   
                      {
                      user.isAdmin ?
-                     <BsPencil />
+                     <BsPencil
+                        onClick={() => runEditDish(dish.id)}
+                     />
                      :
                      <AiOutlineHeart />
                      }
