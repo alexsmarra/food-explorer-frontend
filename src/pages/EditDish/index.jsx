@@ -26,7 +26,8 @@ export const EditDish = () => {
 
    const [image, setImage] = useState(null)
    const [name, setName] = useState("")
-   const [selectedCategory, setSelectedCategory] = useState('refeicao')
+   const categoryParams = params.category
+   // const [selectedCategory, setSelectedCategory] = useState(categoryParams)
    const [tags, setTags] = useState([])
    const [newTag, setNewTag] = useState("")
    const [price, setPrice] = useState("")
@@ -107,6 +108,7 @@ export const EditDish = () => {
 
       <CustomSelect 
          onChange={handleCategoryChange}
+         categoryParams={categoryParams}
       />
    </div> 
 

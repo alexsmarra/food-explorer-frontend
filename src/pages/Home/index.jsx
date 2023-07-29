@@ -29,8 +29,8 @@ export function Home() {
 
    const isMobile = useMediaQuery({ maxWidth: 1023 })
 
-   const runEditDish = (id) => {
-      navigate(`/editDish/${id}`)
+   const runEditDish = (id, category) => {
+      navigate(`/editDish/${id}/${category}`)
    }
 
    useEffect(() => {
@@ -75,7 +75,7 @@ export function Home() {
                      {
                      user.isAdmin ?
                      <BsPencil
-                        onClick={() => runEditDish(dish.id)}
+                        onClick={() => runEditDish(dish.id, dish.category)}
                      />
                      :
                      <AiOutlineHeart />

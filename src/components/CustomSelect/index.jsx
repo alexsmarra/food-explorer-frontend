@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import { Container, SelectElement } from "./styles.js"
 
-export const CustomSelect = ({ ...rest }) => {
+export const CustomSelect = ({ categoryParams, ...rest }) => {
    const [selected, setSelectedOption] = useState(null)
 
    const options = [
@@ -12,14 +12,17 @@ export const CustomSelect = ({ ...rest }) => {
       { value: 'bebidas', label: 'Bebidas'}
    ]
 
+   const indexCategoryParams = options.findIndex(opt => opt.value === categoryParams)
+
+
    return (
       <Container className="custom-select">
          <label htmlFor="category">Categoria</label>
          <SelectElement
             classNamePrefix="custom-select" // como o proprio nome diz, classNamePrefix, um prefixo para classes base da extensão
-            defaultValue={options[0]}
+            defaultValue={options[indexCategoryParams] || options[0]}
             options={options}
-            onChange={selectedOption => selectedOption === 'escolha' ? alert("não!") : setSelectedOption(selectedOption)}
+            onChange={selectedOption => setSelectedOption(selectedOption)}
             {...rest}
          />
       </Container>
