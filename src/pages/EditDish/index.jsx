@@ -28,7 +28,8 @@ export const EditDish = () => {
    const [name, setName] = useState("")
    const categoryParams = params.category
    // const [selectedCategory, setSelectedCategory] = useState(categoryParams)
-   const [ing, setIng] = useState([])
+   // novo estado para armazenar os ingredientes 
+   const [ingredientList, setIngredientList] = useState([]) 
    const [tags, setTags] = useState([])
    const [newTag, setNewTag] = useState("")
    const [price, setPrice] = useState("")
@@ -45,6 +46,10 @@ export const EditDish = () => {
       } else {
          return
       }
+   }
+
+   function handleRemoveIngredient(deleted) {
+      setIngredientList(prevState => prevState.filter(ingredient => ingredient !== deleted))
    }
 
    function handleRemoveTag(deleted) {
@@ -71,14 +76,21 @@ export const EditDish = () => {
          try {
             const response = await api.get(`/dishes/${params.id}`)
             setDish(response.data)
-            setIng((response.data.ingredients).split(',').map(ingredient => ingredient))
+
+            if(response.data.ingredients) {
+               const ingredients = response.data.ingredients.split(',').map(ingredient => 
+                  /* mesmo não necessitando, é importante fazer trim quando estamos lidando com 
+                  dados e string e o map, afim de evitar erros */
+                  ingredient.trim())
+               setIngredientList(ingredients)
+            }
          } catch(error) {
             console.log(error)
          }
       }
 
       fetchDish()
-   })
+   }, [])
 
    return (
       <Container>
@@ -118,16 +130,14 @@ export const EditDish = () => {
       <div className="ingredients">
          <span>Ingredientes</span>
          <div className="tags">
-            {     dish.ingredients && 
-                  dish.ingredients.split(',').map((ingredient, index) => (
-
-                     <IngredientsItem
-                        isNew={false} 
-                        key={String(index)}
-                        value={ingredient}
-                     />
-                  ))
-            }
+            {ingredientList.map((ingredient, index) => (
+               <IngredientsItem 
+                  isNew={false}
+                  key={String(index)}
+                  value={ingredient}
+                  onClick={() => handleRemoveIngredient(ingredient)}
+               />
+            ))}
             {
                tags.map((tag, index) => (
                   <IngredientsItem 
