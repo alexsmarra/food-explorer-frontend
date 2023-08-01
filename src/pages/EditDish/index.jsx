@@ -28,6 +28,7 @@ export const EditDish = () => {
    const [name, setName] = useState("")
    const categoryParams = params.category
    // const [selectedCategory, setSelectedCategory] = useState(categoryParams)
+   const [ing, setIng] = useState([])
    const [tags, setTags] = useState([])
    const [newTag, setNewTag] = useState("")
    const [price, setPrice] = useState("")
@@ -36,7 +37,7 @@ export const EditDish = () => {
    const handleCategoryChange = category => {
       setSelectedCategory(category.value)
    }
-
+ 
    function handleAddTag() {
       if(newTag.length > 0) {
          setTags(prevState => [...prevState, newTag])
@@ -70,6 +71,7 @@ export const EditDish = () => {
          try {
             const response = await api.get(`/dishes/${params.id}`)
             setDish(response.data)
+            setIng((response.data.ingredients).split(',').map(ingredient => ingredient))
          } catch(error) {
             console.log(error)
          }
@@ -116,6 +118,16 @@ export const EditDish = () => {
       <div className="ingredients">
          <span>Ingredientes</span>
          <div className="tags">
+            {     dish.ingredients && 
+                  dish.ingredients.split(',').map((ingredient, index) => (
+
+                     <IngredientsItem
+                        isNew={false} 
+                        key={String(index)}
+                        value={ingredient}
+                     />
+                  ))
+            }
             {
                tags.map((tag, index) => (
                   <IngredientsItem 

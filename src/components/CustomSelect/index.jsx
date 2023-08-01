@@ -3,18 +3,24 @@ import { useState } from "react"
 import { Container, SelectElement } from "./styles.js"
 
 export const CustomSelect = ({ categoryParams, ...rest }) => {
+
+   const [options, setOptions] = useState(
+      window.location.pathname === "/newDish" ? [
+         { value: "escolha", label: "Escolha uma categoria" },
+         { value: "refeicao", label: "Refeição" },
+         { value: "sobremesa", label: "Sobremesa" },
+         { value: "bebidas", label: "Bebidas" }
+       ]
+     : [
+         { value: "refeicao", label: "Refeição" },
+         { value: "sobremesa", label: "Sobremesa" },
+         { value: "bebidas", label: "Bebidas" }
+       ]
+   )
    const [selected, setSelectedOption] = useState(null)
 
-   const options = [
-      { value: 'escolha', label: 'Escolha uma categoria'},
-      { value: 'refeicao', label: 'Refeição'},
-      { value: 'sobremesa', label: 'Sobremesa'},
-      { value: 'bebidas', label: 'Bebidas'}
-   ]
-
    const indexCategoryParams = options.findIndex(opt => opt.value === categoryParams)
-
-
+   
    return (
       <Container className="custom-select">
          <label htmlFor="category">Categoria</label>
