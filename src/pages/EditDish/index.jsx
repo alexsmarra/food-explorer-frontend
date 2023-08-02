@@ -27,13 +27,15 @@ export const EditDish = () => {
    const [image, setImage] = useState(null)
    const [name, setName] = useState("")
    const categoryParams = params.category
-   // const [selectedCategory, setSelectedCategory] = useState(categoryParams)
+   const [selectedCategory, setSelectedCategory] = useState(categoryParams)
    // novo estado para armazenar os ingredientes 
    const [ingredientList, setIngredientList] = useState([]) 
    const [tags, setTags] = useState([])
    const [newTag, setNewTag] = useState("")
    const [price, setPrice] = useState("")
    const [description, setDescription] = useState("")
+
+   console.log(dish)
 
    const handleCategoryChange = category => {
       setSelectedCategory(category.value)
@@ -71,6 +73,49 @@ export const EditDish = () => {
       setPrice(newPrice)
    }   
 
+   async function handleNewDish() {
+      
+      const formData = new FormData()
+
+      const fieldsToCheck = [
+         { name: 'image', value: image},
+         { name: 'name', value: name },
+         { name: 'category', value: selectedCategory},
+         // { name: "ingredients", value: ingredientList}
+         { name: 'price', value: price},
+         { name: 'description', value: description}
+      ]
+
+      fieldsToCheck.forEach(field => {
+         if(field.value.length == 0) {
+            formData.append(field.name, dish[field.name])
+         } else {
+            formData.append(field.name, field.value)
+         }
+      })
+
+      /* A ideia do array e forEach acima é para fazer o que está abaixo com cada um */
+      // if(name.length == 0) {
+      //    formData.append('name', dish.name)
+      // } else {
+      //    formData.append('name', name)
+      // }
+
+      try { 
+         await api.patch(`/dishes/${params.id}`, formData)
+            toast.success("Name atualizado com sucesso!", {
+               autoClose: 1000
+            })
+            // navigate(address)
+      } catch( error) {
+         if(error.response) {
+            toast.error(error.response.data.message, {autoClose: 1000})
+         } else {
+            toast.error("Erro ao atualizar prato!", {autoClose: 1000})
+         }
+      }
+   }
+
    useEffect(() => {
       const fetchDish = async () => {
          try {
@@ -93,94 +138,94 @@ export const EditDish = () => {
    }, [])
 
    return (
-      <Container>
-         <HeaderAdmin />
+   <Container>
+      <HeaderAdmin />
 
-<ButtonReturn title="Editar prato" />
+      <ButtonReturn title="Editar prato" />
 
-<Form>
-  <div className="wrapper-inputs-one">
-      <div className="wrapper-img-input">
-         <label htmlFor="img-input">
-            <span>Imagem do prato</span>
-            <Input 
-               id="img-input" 
-               type="file" 
-               icon={BiUpload}
-               text="Selecione imagem para alterá-la"
-               onChange={e => setImage(e.target.files[0])}
-            />
-         </label>
-      </div>
+      <Form>
+         <div className="wrapper-inputs-one">
+               <div className="wrapper-img-input">
+                  <label htmlFor="img-input">
+                     <span>Imagem do prato</span>
+                     <Input 
+                        id="img-input" 
+                        type="file" 
+                        icon={BiUpload}
+                        text="Selecione imagem para alterá-la"
+                        onChange={e => setImage(e.target.files[0])}
+                     />
+                  </label>
+               </div>
 
-      <InputLabel 
-         title="Nome" 
-         className="input-value"
-         placeholder={dish.name}
-         onChange={e => setName(e.target.value)}
-      />
-
-      <CustomSelect 
-         onChange={handleCategoryChange}
-         categoryParams={categoryParams}
-      />
-   </div> 
-
-  <div className="wrapper-inputs-two">
-      <div className="ingredients">
-         <span>Ingredientes</span>
-         <div className="tags">
-            {ingredientList.map((ingredient, index) => (
-               <IngredientsItem 
-                  isNew={false}
-                  key={String(index)}
-                  value={ingredient}
-                  onClick={() => handleRemoveIngredient(ingredient)}
+               <InputLabel 
+                  title="Nome" 
+                  className="input-value"
+                  placeholder={dish.name}
+                  onChange={e => setName(e.target.value)}
                />
-            ))}
-            {
-               tags.map((tag, index) => (
-                  <IngredientsItem 
-                     isNew={false}
-                     key={String(index)}
-                     value={tag}
-                     onClick={() => handleRemoveTag(tag)}
-                  />
-               ))
-            }
 
-            <IngredientsItem 
-               isNew={true}
-               placeholder="Adicionar"
-               value={newTag}
-               onChange={e => setNewTag(e.target.value)}
-               onClick={handleAddTag}
-            />
+               <CustomSelect 
+                  onChange={handleCategoryChange}
+                  categoryParams={categoryParams}
+               />
+         </div> 
 
+         <div className="wrapper-inputs-two">
+               <div className="ingredients">
+                  <span>Ingredientes</span>
+                  <div className="tags">
+                     {ingredientList.map((ingredient, index) => (
+                        <IngredientsItem 
+                           isNew={false}
+                           key={String(index)}
+                           value={ingredient}
+                           onClick={() => handleRemoveIngredient(ingredient)}
+                        />
+                     ))}
+                     {
+                        tags.map((tag, index) => (
+                           <IngredientsItem 
+                              isNew={false}
+                              key={String(index)}
+                              value={tag}
+                              onClick={() => handleRemoveTag(tag)}
+                           />
+                        ))
+                     }
+
+                     <IngredientsItem 
+                        isNew={true}
+                        placeholder="Adicionar"
+                        value={newTag}
+                        onChange={e => setNewTag(e.target.value)}
+                        onClick={handleAddTag}
+                     />
+
+                  </div>
+               </div>
+
+               <InputLabel 
+                  title="Preço" 
+                  placeholder={dish.price}
+                  onChange={handlePriceChange}
+                  value={price}
+               />
+
+               <Textarea
+                  placeholder={dish.description}
+                  onChange={e => setDescription(e.target.value)}
+               />
+
+               <Button
+                  className="btn-form" 
+                  title="Salvar alterações"
+                  onClick={handleNewDish}
+               />
          </div>
-      </div>
+      </Form>
 
-      <InputLabel 
-         title="Preço" 
-         placeholder={dish.price}
-         onChange={handlePriceChange}
-         value={price}
-      />
-
-      <Textarea
-         placeholder={dish.description}
-         onChange={e => setDescription(e.target.value)}
-      />
-
-      <Button
-         className="btn-form" 
-         title="Salvar alterações"
-      
-      />
-  </div>
-</Form>
-
-<Footer />
-      </Container>
+      <Footer />
+   </Container>
    )
 }
