@@ -25,7 +25,7 @@ export const EditDish = () => {
    const [dish, setDish] = useState([])
 
    const [image, setImage] = useState(null)
-   // const [name, setName] = useState("")
+   const [name, setName] = useState("")
    const categoryParams = params.category
    const [selectedCategory, setSelectedCategory] = useState(categoryParams)
    // novo estado para armazenar os ingredientes 
@@ -34,8 +34,6 @@ export const EditDish = () => {
    const [newTag, setNewTag] = useState("")
    const [price, setPrice] = useState("")
    const [description, setDescription] = useState("")
-
-   console.log(dish)
 
    const handleCategoryChange = category => {
       setSelectedCategory(category.value)
@@ -78,23 +76,26 @@ export const EditDish = () => {
    async function handleEditDish() {
       
       const formData = new FormData()
+      
+      const response = await api.get(`/dishes/${params.id}`)
+      const meal = response.data
 
-      // const fieldsToCheck = [
-      //    // { name: 'image', value: image},
-      //    { name: 'name', value: name },
-      //    // { name: 'category', value: selectedCategory},
-      //    // { name: "ingredients", value: ingredientList}
-      //    // { name: 'price', value: price},
-      //    // { name: 'description', value: description}
-      // ]
+      const fieldsToCheck = [
+         // { name: 'image', value: image},
+         { name: 'name', value: meal.name, input: name},
+         // { name: 'category', value: selectedCategory},
+         // { name: "ingredients", value: ingredientList}
+         // { name: 'price', value: price},
+         // { name: 'description', value: description}
+      ]
 
-      // fieldsToCheck.forEach(field => {
-      //    if(field.value.length == 0) {
-      //       formData.append(field.name, dish[field.name])
-      //    } else {
-      //       formData.append(field.name, field.value)
-      //    }
-      // })
+      fieldsToCheck.forEach(field => {
+         if(field.input.length == 0) {
+            formData.append(field.name, meal.name)
+         } else {
+            formData.append(field.name, field.input)
+         }
+      })
 
       /* A ideia do array e forEach acima é para fazer o que está abaixo com cada um */
       // if(name.length == 0) {
@@ -102,9 +103,6 @@ export const EditDish = () => {
       // } else {
       //    formData.append('name', name)
       // }
-
-      const name = "batata"
-      formData.append('name', name)
 
       try { 
          await api.patch(`/dishes/${params.id}`, formData)
