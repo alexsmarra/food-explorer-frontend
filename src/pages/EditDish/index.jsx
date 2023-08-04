@@ -24,7 +24,7 @@ export const EditDish = () => {
 
    const [dish, setDish] = useState([])
 
-   const [image, setImage] = useState(null)
+   const [image, setImage] = useState()
    const [name, setName] = useState("")
    const categoryParams = params.category
    const [selectedCategory, setSelectedCategory] = useState(categoryParams)
@@ -34,6 +34,13 @@ export const EditDish = () => {
    const [newTag, setNewTag] = useState("")
    const [price, setPrice] = useState("")
    const [description, setDescription] = useState("")
+
+   console.log(`ingredientList: ${ingredientList}`)
+   console.log(`tags : ${tags}`)
+   const teste = tags.length > 0 ? [...tags, ...ingredientList] : [...ingredientList]
+   console.log(`teste: ${teste}`)
+   console.log(price)
+
 
    const handleCategoryChange = category => {
       setSelectedCategory(category.value)
@@ -71,8 +78,6 @@ export const EditDish = () => {
       setPrice(newPrice)
    }   
 
-   console.log(params.id)
-
    async function handleEditDish() {
       
       const formData = new FormData()
@@ -80,22 +85,33 @@ export const EditDish = () => {
       const response = await api.get(`/dishes/${params.id}`)
       const meal = response.data
 
+      console.log(meal)
+
       const fieldsToCheck = [
-         // { name: 'image', value: image},
-         { name: 'name', value: meal.name, input: name},
-         // { name: 'category', value: selectedCategory},
-         // { name: "ingredients", value: ingredientList}
-         // { name: 'price', value: price},
-         // { name: 'description', value: description}
+         // { name: 'image', value: meal.image, input: image},
+         { title: 'name', value: meal.name, input: name},
+         { title: 'category', value: meal.category, input: selectedCategory},
+         { title: 'price', value: meal.price, input: price},
+         { title: 'description', value: meal.description, input: description}
       ]
+
+      console.log(description)
 
       fieldsToCheck.forEach(field => {
          if(field.input.length == 0) {
-            formData.append(field.name, meal.name)
+            formData.append(field.title, field.value)
          } else {
-            formData.append(field.name, field.input)
+            formData.append(field.title, field.input)
          }
       })
+
+      console.log(meal.image)
+      const img = image === undefined ? meal.image : image
+      const allIngredients = tags.length > 0 ? [...tags, ...ingredientList] : [...ingredientList]
+
+      formData.append("image", img)
+      formData.append("ingredients", allIngredients)
+      
 
       /* A ideia do array e forEach acima é para fazer o que está abaixo com cada um */
       // if(name.length == 0) {
