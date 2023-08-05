@@ -85,7 +85,9 @@ export const EditDish = () => {
       const response = await api.get(`/dishes/${params.id}`)
       const meal = response.data
 
-      console.log(meal)
+      if(!image) {
+         return alert("imagem tem que ser inserida para finalizar a edição do prato")
+      }
 
       const fieldsToCheck = [
          // { name: 'image', value: meal.image, input: image},
@@ -105,20 +107,11 @@ export const EditDish = () => {
          }
       })
 
-      console.log(meal.image)
-      const img = image === undefined ? meal.image : image
+      const img = image
       const allIngredients = tags.length > 0 ? [...tags, ...ingredientList] : [...ingredientList]
 
       formData.append("image", img)
       formData.append("ingredients", allIngredients)
-      
-
-      /* A ideia do array e forEach acima é para fazer o que está abaixo com cada um */
-      // if(name.length == 0) {
-      //    formData.append('name', dish.name)
-      // } else {
-      //    formData.append('name', name)
-      // }
 
       try { 
          await api.patch(`/dishes/${params.id}`, formData)
