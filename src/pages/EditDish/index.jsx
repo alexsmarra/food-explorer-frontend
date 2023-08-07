@@ -85,12 +85,7 @@ export const EditDish = () => {
       const response = await api.get(`/dishes/${params.id}`)
       const meal = response.data
 
-      // if(!image) {
-      //    return alert("imagem tem que ser inserida para finalizar a edição do prato")
-      // }
-
       const fieldsToCheck = [
-         // { name: 'image', value: meal.image, input: image},
          { title: 'name', value: meal.name, input: name},
          { title: 'category', value: meal.category, input: selectedCategory},
          { title: 'price', value: meal.price, input: price},
@@ -125,6 +120,12 @@ export const EditDish = () => {
             toast.error("Erro ao atualizar prato!", {autoClose: 1000})
          }
       }
+   }
+
+   async function handleDeleteDish() {
+      const confirm = window.confirm("Quer realmente deletar esse prato?")
+
+      if(confirm) await api.delete(`/dishes/${params.id}`)
    }
 
    useEffect(() => {
@@ -228,11 +229,20 @@ export const EditDish = () => {
                   onChange={e => setDescription(e.target.value)}
                />
 
-               <Button
-                  className="btn-form" 
-                  title="Salvar alterações"
-                  onClick={handleEditDish}
-               />
+               <div className="buttons">
+               
+                  <Button 
+                     className="btn-form-excluir"
+                     title="Excluir prato"   
+                     onClick={handleDeleteDish}   
+             
+                  />
+                  <Button
+                     className="btn-form-save" 
+                     title="Salvar alterações"
+                     onClick={handleEditDish}
+                  />
+               </div>
          </div>
       </Form>
 

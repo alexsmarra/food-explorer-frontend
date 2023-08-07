@@ -137,10 +137,23 @@ gap: 1.5rem;
          }
       }
 
-      button.btn-form {
-         background-color: ${({ theme }) => theme.COLORS.BUTTON_FORM_COLOR};
-         font-size: 1rem;
-         margin-bottom: 4rem;
+      .buttons {
+         display: flex;
+         gap: 1rem;
+
+         .btn-form-excluir {
+            flex: 1;
+            background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
+            font-size: 1rem;
+            margin-bottom: 4rem;
+         }
+
+         .btn-form-save {
+            flex: 1;
+            background-color: ${({ theme }) => theme.COLORS.BUTTON_FORM_COLOR};
+            font-size: 1rem;
+            margin-bottom: 4rem;
+         }
       }
    }
 `
