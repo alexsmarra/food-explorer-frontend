@@ -85,9 +85,9 @@ export const EditDish = () => {
       const response = await api.get(`/dishes/${params.id}`)
       const meal = response.data
 
-      if(!image) {
-         return alert("imagem tem que ser inserida para finalizar a edição do prato")
-      }
+      // if(!image) {
+      //    return alert("imagem tem que ser inserida para finalizar a edição do prato")
+      // }
 
       const fieldsToCheck = [
          // { name: 'image', value: meal.image, input: image},
@@ -97,7 +97,7 @@ export const EditDish = () => {
          { title: 'description', value: meal.description, input: description}
       ]
 
-      console.log(description)
+
 
       fieldsToCheck.forEach(field => {
          if(field.input.length == 0) {
@@ -107,10 +107,10 @@ export const EditDish = () => {
          }
       })
 
-      const img = image
       const allIngredients = tags.length > 0 ? [...tags, ...ingredientList] : [...ingredientList]
 
-      formData.append("image", img)
+      if(image) formData.append("image", image)
+      
       formData.append("ingredients", allIngredients)
 
       try { 
