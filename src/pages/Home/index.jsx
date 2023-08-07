@@ -100,7 +100,9 @@ export function Home() {
                   
                      {
                      user.isAdmin ?
-                     <BsPencil />
+                     <BsPencil 
+                        onClick={() => runEditDish(dish.id, dish.category)}
+                     />
                      :
                      <AiOutlineHeart />
                      }
@@ -124,7 +126,9 @@ export function Home() {
                   
                      {
                      user.isAdmin ?
-                     <BsPencil />
+                     <BsPencil 
+                     onClick={() => runEditDish(dish.id, dish.category)}
+                     />
                      :
                      <AiOutlineHeart />
                      }
