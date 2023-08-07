@@ -4,10 +4,11 @@ export const Container = styled.div`
 display: grid;
 grid-template-areas: 
 "head"
+"headTwo"
 "section"
 "footer";
 height: 100vh;
-grid-template-rows: 60px 1fr 40px;
+grid-template-rows: 60px 200px auto 40px;
 
 @media(min-width: 768px) {
 grid-template-rows: 110px 1fr 55px;
@@ -75,8 +76,8 @@ gap: 2.2rem;
 }
 `
 
-export const Section = styled.section`
-grid-area: section;
+export const HeadTwo = styled.header`
+grid-area: headTwo;
 display: flex;
 flex-direction: column;
 padding: 1.2rem;
