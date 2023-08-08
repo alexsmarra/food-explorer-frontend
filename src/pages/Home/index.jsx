@@ -64,83 +64,100 @@ export function Home() {
 
          <Banner />
 
-         <Section title="Refeições">
-         {
-            dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
-            
-               <div 
-                  key={dish.id}
-                  className="meal-wrapper">
-                  
-                     {
-                     user.isAdmin ?
-                     <BsPencil
-                        onClick={() => runEditDish(dish.id, dish.category)}
-                     />
-                     :
-                     <AiOutlineHeart />
-                     }
+         <div className="meals">
+            <Section title="Refeições">
+               <div className="cards">
+               {
+               dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
+               
+                  <div 
+                     key={dish.id}
+                     className="meal-wrapper">
                      
-                     <Meal
-                        key={String(index)}
-                        data={dish}
-                     />
+                        {
+                        user.isAdmin ?
+                        <BsPencil
+                           className="bs-pencil"
+                           onClick={() => runEditDish(dish.id, dish.category)}
+                        />
+                        :
+                        <AiOutlineHeart 
+                           className="ai-outline-heart"
+                        />
+                        }
+                        
+                        <Meal
+                           key={String(index)}
+                           data={dish}
+                        />
+                  </div>
+               ))     
+               }
                </div>
-            ))     
-         }
-         </Section>
+            </Section>
 
-         <Section title="Sobremesas">
-         {
-            dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
-            
-               <div 
-                  key={String(index)}
-                  className="meal-wrapper">
-                  
-                     {
-                     user.isAdmin ?
-                     <BsPencil 
-                        onClick={() => runEditDish(dish.id, dish.category)}
-                     />
-                     :
-                     <AiOutlineHeart />
-                     }
+            <Section title="Sobremesas">
+               <div className="cards">
+               {
+               dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
+               
+                  <div 
+                     key={String(index)}
+                     className="meal-wrapper">
                      
-                     <Meal
-                        key={dish.name}
-                        data={dish}
-                     />
-               </div>
-            ))     
-         }   
-         </Section>
+                        {
+                        user.isAdmin ?
+                        <BsPencil 
+                           className="bs-pencil"
+                           onClick={() => runEditDish(dish.id, dish.category)}
+                        />
+                        :
+                        <AiOutlineHeart 
+                           className="ai-outline-heart"
+                        />
+                        }
+                        
+                        <Meal
+                           key={dish.name}
+                           data={dish}
+                        />
+                  </div>
+               ))     
+               }
+               </div>   
+            </Section>
 
-         <Section title="Bebidas">
-         {
-            dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
-            
-               <div 
-                  key={String(index)}
-                  className="meal-wrapper">
-                  
-                     {
-                     user.isAdmin ?
-                     <BsPencil 
-                     onClick={() => runEditDish(dish.id, dish.category)}
-                     />
-                     :
-                     <AiOutlineHeart />
-                     }
+            <Section title="Bebidas">
+               <div className="cards">
+               {
+               dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
+               
+                  <div 
+                     key={String(index)}
+                     className="meal-wrapper">
                      
-                     <Meal
-                        key={dish.name}
-                        data={dish}
-                     />
-               </div>
-            ))     
-         }          
-         </Section>
+                        {
+                        user.isAdmin ?
+                        <BsPencil
+                           className="bs-pencil"
+                           onClick={() => runEditDish(dish.id, dish.category)}
+                        />
+                        :
+                        <AiOutlineHeart 
+                           className="ai-outline-heart"
+                        />
+                        }
+                        
+                        <Meal
+                           key={dish.name}
+                           data={dish}
+                        />
+                  </div>
+               ))     
+               }     
+               </div>     
+            </Section>
+         </div>
 
          <Footer />
       </Container>

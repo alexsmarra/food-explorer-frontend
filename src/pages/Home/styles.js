@@ -9,14 +9,39 @@ export const Container = styled.div`
   grid-template-areas:
   "header"
   "banner"
-  "section"
-  "section"
-  "section"
+  "meals"
   "footer";
 
   .banner {
     margin-top: 4.5rem;
-  }  
+    margin-bottom: 3rem;  
+  } 
+  
+  .meals {
+    grid-area: meals;
+    overflow: scroll;
+  }
+
+  .section {
+    margin: 0 0 0 1.6rem;
+
+    .cards {
+      display: flex;
+      gap: 1.2rem;
+      width: 500px;
+    }
+    .meal-wrapper {
+      position: relative;
+      padding: 3rem 0;
+      background: ${({ theme }) => theme.COLORS.CARD};
+
+      .bs-pencil, .ai-outline-heart {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+      }
+    }
+  }
 
   .section .meal-wrapper svg {
     cursor: pointer;
@@ -59,6 +84,10 @@ grid-template-rows: 110px auto 1fr 58px;
 
   .banner {
     margin-top: 16rem;
+  }
+
+  .meals {
+    /* overflow: hidden; */
   }
 
   .footer {

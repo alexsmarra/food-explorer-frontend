@@ -17,6 +17,7 @@ export default {
       BUTTON_FORM_COLOR: '#AB4D55',
 
       DARK_BLUE: '#001219',
+      CARD: '#000204',
       DARK_GRAY_BLUE: '#192227',
       LIGHT_BLUE: '#82F3FF',
       WHITE_GRAY: '#E1E1E6',
