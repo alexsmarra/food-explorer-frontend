@@ -108,7 +108,7 @@ export const NewDish = () => {
 
       api.post("/dishes", formData).then(() => {
          toast.success("Prato criado com sucesso!", {
-            autoClose: 1000
+            autoClose: 2000
          })
          navigate("/")
       }).catch(error => {

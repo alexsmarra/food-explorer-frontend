@@ -110,14 +110,14 @@ export const EditDish = () => {
 
       try { 
          await api.patch(`/dishes/${params.id}`, formData)
-            toast.success("Name atualizado com sucesso!", {
-               autoClose: 1000
+            toast.success("Prato atualizado com sucesso!", {
+               autoClose: 2000
             })
       } catch( error) {
          if(error.response) {
-            toast.error(error.response.data.message, {autoClose: 1000})
+            toast.error(error.response.data.message, {autoClose: 2000})
          } else {
-            toast.error("Erro ao atualizar prato!", {autoClose: 1000})
+            toast.error("Erro ao atualizar prato!", {autoClose: 2000})
          }
       }
    }
@@ -126,6 +126,10 @@ export const EditDish = () => {
       const confirm = window.confirm("Quer realmente deletar esse prato?")
 
       if(confirm) await api.delete(`/dishes/${params.id}`)
+
+      navigate(-1)
+      toast.success(`Prato ${dish.name} excluído com sucesso!`, {autoClose: 2000})
+
    }
 
    useEffect(() => {
