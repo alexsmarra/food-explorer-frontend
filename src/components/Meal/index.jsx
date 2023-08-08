@@ -63,7 +63,7 @@ export const Meal = ({ data, ...rest }) => {
          <div>
             {
             user.isAdmin ?
-               <span className="price-span">{`R$${price.toFixed(2)}`}</span>
+               <span className="price-span">{`R$${price.toFixed(2).replace(/\./g, ',')}`}</span>
             :
                <div>
                   <span className="price-span">{`R$${(price.toFixed(2)).replace(/\./g, ',')}`}</span>
