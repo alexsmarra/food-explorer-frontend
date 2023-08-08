@@ -1,13 +1,20 @@
 import { useEffect, useState } from "react"
 
 import { api } from "../../services/api"
+import { useAuth } from "../../hooks/auth"
 
-import { Container } from "./styles"
+import { HeaderAdmin } from "../../components/HeaderAdmin"
+import { HeaderUser } from "../../components/HeaderUser"
+import { ButtonReturn } from "../../components/ButtonReturn"
+import { Footer } from "../../components/Footer"
+
+import { Container, Content } from "./styles"
 
 import { useParams } from "react-router-dom"
 
 export const DishDetails = () => {
    const params = useParams()
+   const { user } = useAuth()
 
    let priceLocalStorage = localStorage.getItem("@foodexplorer:endPrice")
    priceLocalStorage = JSON.parse(priceLocalStorage)
@@ -80,27 +87,42 @@ export const DishDetails = () => {
    
    return (
       <Container>
-         <img 
-            src={`${api.defaults.baseURL}/files/${dish.image}`} 
-            alt={`Foto de um(a) ${nameImageLowerCase}`} 
-         />
-         <p>{dish.name}</p>
-         <p>{dish.description}</p>
-         <div>
-            {
-               ingredientsString.map((item, index) => (
-                  <div key={String(index)}>{item}</div>
-               ))
-            }
-         </div>
-         <div>
-            <h1>R$ {fixEndPrice.replace(/\./g, ',')}</h1>       
-            <div>
-               <button className="minus" onClick={minusPrice}>-</button>
-               <span>{zeroFix(amount)}</span>
-               <button className="plus" onClick={plusPrice}>+</button>
-            </div>
-         </div>
+         {user.isAdmin ?
+            <HeaderAdmin />
+         :
+            <HeaderUser />
+         }
+
+         
+         <Content>
+            <main>
+               <ButtonReturn />
+
+               <img 
+                  src={`${api.defaults.baseURL}/files/${dish.image}`} 
+                  alt={`Foto de um(a) ${nameImageLowerCase}`} 
+               />
+               <p>{dish.name}</p>
+               <p>{dish.description}</p>
+               <div>
+                  {
+                     ingredientsString.map((item, index) => (
+                        <div key={String(index)}>{item}</div>
+                     ))
+                  }
+               </div>
+               <div>
+                  <h1>R$ {fixEndPrice.replace(/\./g, ',')}</h1>       
+                  <div>
+                     <button className="minus" onClick={minusPrice}>-</button>
+                     <span>{zeroFix(amount)}</span>
+                     <button className="plus" onClick={plusPrice}>+</button>
+                  </div>
+               </div>
+            </main>
+         </Content>
+         
+         <Footer />
       </Container>
    )
 }

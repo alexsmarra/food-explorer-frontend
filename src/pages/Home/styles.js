@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   height: 100vh;
 
-  grid-template-rows: 70px auto auto auto auto 40px;
+  grid-template-rows: 70px auto auto 40px;
   grid-template-areas:
   "header"
   "banner"
@@ -22,17 +22,23 @@ export const Container = styled.div`
     overflow: scroll;
   }
 
+  .meals::-webkit-scrollbar {
+    display: none;
+}
+
   .section {
     margin: 0 0 0 1.6rem;
 
     .cards {
       display: flex;
       gap: 1.2rem;
+      margin: 24px 0;
       width: 500px;
     }
     .meal-wrapper {
       position: relative;
       padding: 3rem 0;
+      border-radius: 8px;
       background: ${({ theme }) => theme.COLORS.CARD};
 
       .bs-pencil, .ai-outline-heart {
