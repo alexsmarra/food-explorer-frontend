@@ -3,14 +3,11 @@ import { api } from '../../services/api'
 
 import { Container, Head, Form } from './styles'
 
-import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom'
 
-import { Logo } from '../../components/Logo' 
+import { Brand } from '../../components/Brand' 
 import { InputLabel } from '../../components/InputLabel' 
 import { Button } from '../../components/Button' 
-
-import LogoPolygon from '../../assets/menu/Polygon.svg'
 
 export function SignUp() {
    const [name, setName] = useState("")
@@ -42,9 +39,7 @@ export function SignUp() {
    return (
       <Container>
          <Head>
-            <Logo 
-               src={LogoPolygon} alt="Imagem de um polígono da logo" 
-            />
+            <Brand />
          </Head>
 
          <Form>

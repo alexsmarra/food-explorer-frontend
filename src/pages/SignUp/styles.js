@@ -34,20 +34,28 @@ export const Container = styled.div`
 `
 
 export const Head = styled.header`
-   display: flex;
+display: flex;
+margin-top: 10rem;
 
-   margin-top: 10rem;
+   .logo-img {
+      width: 2.5rem;
+      height: 2.5rem;
+   }
+   .logo-h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2rem;
+      width: 100%;
+   }
 
    @media(min-width: 390px) {
       margin-top: 15rem;
 
-      > div img {
-         width: 5rem;
-         height: 5rem;
+      .logo-img {
+         width: 3.3rem;
+         height: 3.3rem;
       }
-
-      > div h1 {
-         font-size: 3rem;
+      .logo-h1 {
+         font-size: 2.6rem;
       }
    }
    @media (min-width: 540px) {
@@ -55,56 +63,52 @@ export const Head = styled.header`
    }
    @media (min-width: 768px) {
       margin-top: 18rem;
-
-      > div img {
-         width: 7rem;
-         height: 7rem;
+      
+      .logo-img {
+         width: 4.7rem;
+         height: 4.7rem;
       }
-
-      > div h1 {
-         font-size: 4rem;
-      }
+      .logo-h1 {
+         font-size: 3rem;
+      }  
    }
    @media (min-width: 912px) {
       margin-top: 22rem;
-
-      > div img {
-         width: 9.3rem;
-         height: 9.3rem;
-      }
-
-      > div h1 {
-         font-size: 5.3rem;
-      }
    }
    @media (min-width: 1024px) {
       margin-top: 4rem;
+
+      .brand {
+         max-width: 100%;
+      }
 
       > div {
          width: 100%;
          justify-content: center;
       }
-
-      > div img {
-         width: 6rem;
-         height: 6rem;
-      }
-
-      > div h1 {
-         font-size: 4rem;
-      }
    }
    @media(min-width: 1280px) {
       margin-top: 8rem;
 
-      > div {
-         width: 100%;
-         justify-content: start;
+      .brand {
+         gap: 2.3rem;
+         
+         .logo-img {
+            width: 5.6rem;
+            height: 5.6rem;
+         }
+         .logo-h1 {
+            font-size: 3.6rem;
+         } 
       }
    }
    @media (min-width: 1400px) {
       flex: 1;
       margin-bottom: 26rem;
+
+      .brand {
+         width: 300px;
+      }
    }
 `
 
