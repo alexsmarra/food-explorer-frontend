@@ -6,6 +6,7 @@ import { useAuth } from "../../hooks/auth"
 import { HeaderAdmin } from "../../components/HeaderAdmin"
 import { HeaderUser } from "../../components/HeaderUser"
 import { ButtonReturn } from "../../components/ButtonReturn"
+import { IngredientsTag } from "../../components/IngredientsTag"
 import { Footer } from "../../components/Footer"
 
 import { Container, Content } from "./styles"
@@ -101,18 +102,19 @@ export const DishDetails = () => {
 
                   <img 
                      src={`${api.defaults.baseURL}/files/${dish.image}`} 
-                     alt={`Foto de um(a) ${nameImageLowerCase}`} 
+                     alt={`Foto de um(a) ${nameImageLowerCase}`}
+                     className="dish-image" 
                   />
                </div>
 
                <div className="wrapper-details-two">
                   <p>{dish.name}</p>
                   <p>{dish.description}</p>
-                  <div>
+                  <div className="ingredients">
                      {
-                        ingredientsString.map((item, index) => (
-                           <div key={String(index)}>{item}</div>
-                        ))
+                       ingredientsString.map((item, index) => (
+                        <IngredientsTag key={String(index)} title={item}/>
+                     )) 
                      }
                   </div>
                   <div>
