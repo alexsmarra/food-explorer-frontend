@@ -96,27 +96,32 @@ export const DishDetails = () => {
          
          <Content>
             <main>
-               <ButtonReturn />
+               <div className="wrapper-details-one">
+                  <ButtonReturn />
 
-               <img 
-                  src={`${api.defaults.baseURL}/files/${dish.image}`} 
-                  alt={`Foto de um(a) ${nameImageLowerCase}`} 
-               />
-               <p>{dish.name}</p>
-               <p>{dish.description}</p>
-               <div>
-                  {
-                     ingredientsString.map((item, index) => (
-                        <div key={String(index)}>{item}</div>
-                     ))
-                  }
+                  <img 
+                     src={`${api.defaults.baseURL}/files/${dish.image}`} 
+                     alt={`Foto de um(a) ${nameImageLowerCase}`} 
+                  />
                </div>
-               <div>
-                  <h1>R$ {fixEndPrice.replace(/\./g, ',')}</h1>       
+
+               <div className="wrapper-details-two">
+                  <p>{dish.name}</p>
+                  <p>{dish.description}</p>
                   <div>
-                     <button className="minus" onClick={minusPrice}>-</button>
-                     <span>{zeroFix(amount)}</span>
-                     <button className="plus" onClick={plusPrice}>+</button>
+                     {
+                        ingredientsString.map((item, index) => (
+                           <div key={String(index)}>{item}</div>
+                        ))
+                     }
+                  </div>
+                  <div>
+                     <h1>R$ {fixEndPrice.replace(/\./g, ',')}</h1>       
+                     <div>
+                        <button className="minus" onClick={minusPrice}>-</button>
+                        <span>{zeroFix(amount)}</span>
+                        <button className="plus" onClick={plusPrice}>+</button>
+                     </div>
                   </div>
                </div>
             </main>

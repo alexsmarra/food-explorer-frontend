@@ -19,21 +19,32 @@ export const Content = styled.div`
       flex-direction: column;
       margin: 0 2rem;
 
-      .button-return {
-         img {
-            width: 1.8rem;
-            height: 1.8rem;
+      .wrapper-details-one {
+            .button-return {
+               height: auto;
+
+               img {
+                  width: 1.8rem;
+                  height: 1.8rem; 
+               }
+               span {
+                  font-size: 1.35rem;
+               }
+            }
+
+            img {
+               width: 10rem;
+               height: 10rem;
+            }
          }
       }
 
-      img {
-         width: 66px;
-         height: 66px;
+      .wrapper-details-two {
+         h1 {
+            color: white;
+            font-size: 50px;
+         }
       }
       
-      h1 {
-         color: white;
-         font-size: 50px;
-      }
    }
 `
