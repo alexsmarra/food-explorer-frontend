@@ -20,17 +20,17 @@ export const Content = styled.div`
       margin: 0 2rem;
 
       .wrapper-details-one {
-            .button-return {
-               height: auto;
+         .button-return {
+            height: auto;
 
-               img {
-                  width: 1.8rem;
-                  height: 1.8rem; 
-               }
-               span {
-                  font-size: 1.35rem;
-               }
+            img {
+               width: 1.8rem;
+               height: 1.8rem; 
             }
+            span {
+               font-size: 1.35rem;
+            }
+         }
 
             img {
                width: 10rem;
@@ -46,5 +46,5 @@ export const Content = styled.div`
          }
       }
       
-   }
+   
 `
