@@ -7,15 +7,20 @@ import { HeaderAdmin } from "../../components/HeaderAdmin"
 import { HeaderUser } from "../../components/HeaderUser"
 import { ButtonReturn } from "../../components/ButtonReturn"
 import { IngredientsTag } from "../../components/IngredientsTag"
+import { Button } from "../../components/Button"
+import { ButtonImg } from "../../components/ButtonImg"
 import { Footer } from "../../components/Footer"
 
 import { Container, Content } from "./styles"
 
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
+import { useMediaQuery } from "react-responsive"
 
 export const DishDetails = () => {
    const params = useParams()
+   const navigate = useNavigate()
    const { user } = useAuth()
+   const isMobile = useMediaQuery({ maxWidth: 1023 })
 
    let priceLocalStorage = localStorage.getItem("@foodexplorer:endPrice")
    priceLocalStorage = JSON.parse(priceLocalStorage)
@@ -70,6 +75,10 @@ export const DishDetails = () => {
       setAmount(currentAmount => currentAmount + 1)
    }
 
+   const runEditDish = (id, category) => {
+      navigate(`/editDish/${id}/${category}`)
+   }
+
    useEffect(() => {
       const fetchDish = async () => {
          try {
@@ -93,8 +102,7 @@ export const DishDetails = () => {
          :
             <HeaderUser />
          }
-
-         
+ 
          <Content>
             <main>
                <div className="wrapper-details-one">
@@ -117,14 +125,36 @@ export const DishDetails = () => {
                      )) 
                      }
                   </div>
-                  <div>
-                     <h1>R$ {fixEndPrice.replace(/\./g, ',')}</h1>       
+                  {user.isAdmin ?
+                     <Button 
+                        title="Editar prato"
+                        className="btn-edit-dish"
+                        onClick={() => runEditDish(dish.id, dish.category)}
+                     />
+                  :
+                  <div className="wrapper-amount-and-price">
                      <div>
                         <button className="minus" onClick={minusPrice}>-</button>
                         <span>{zeroFix(amount)}</span>
                         <button className="plus" onClick={plusPrice}>+</button>
                      </div>
+                     <span className="price"> 
+                        
+                        {isMobile ?
+
+                        <ButtonImg className="btn-img" />  
+                        :
+                           ""
+                        }
+                        {isMobile ?
+                           "pedir . "
+                        :
+                           "incluir . "
+                        }
+                        R$ {fixEndPrice.replace(/\./g, ',')}
+                     </span>       
                   </div>
+                  }
                </div>
             </main>
          </Content>
