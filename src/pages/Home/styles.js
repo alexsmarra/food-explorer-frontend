@@ -53,6 +53,10 @@ export const Container = styled.div`
         cursor: pointer;
       }
     }
+
+    .meal {
+      // editar aqui
+    }
   }
 
 @media(min-width: 360px) {
@@ -72,7 +76,7 @@ export const Container = styled.div`
 }
 
 @media(min-width: 768px) {
-grid-template-rows: 100px auto 1fr 55px;
+grid-template-rows: 100px auto 900px 55px;
 
   .banner {
     margin-top: 7rem;
@@ -88,7 +92,6 @@ grid-template-rows: 100px auto 1fr 55px;
 
     .cards {
       gap: 1.8rem;
-      /* margin: 24px 0;  */
     }
     .meal-wrapper {
       padding: 5rem 2rem;
@@ -116,7 +119,7 @@ grid-template-rows: 100px auto 1fr 55px;
 }
 
 @media(min-width: 820px) {
-grid-template-rows: 110px auto 1fr 58px;
+grid-template-rows: 110px auto 950px 58px;
 }
 
 

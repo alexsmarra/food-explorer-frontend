@@ -65,7 +65,7 @@ export function Home() {
          <Banner />
 
          <div className="meals">
-            <Section title="Refeições" className="refeicoes">
+            <Section title="Refeições">
                <div className="cards">
                {
                dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 

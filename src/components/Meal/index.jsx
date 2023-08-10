@@ -68,7 +68,7 @@ export const Meal = ({ data, ...rest }) => {
                <div>
                   <span className="price-span">{`R$${(price.toFixed(2)).replace(/\./g, ',')}`}</span>
                   <div>
-                     <div>
+                     <div className="amount">
                         <button className="minus" onClick={minusPrice}>-</button>
                         <span>{zeroFix(amount)}</span>
                         <button className="plus" onClick={plusPrice}>+</button>
