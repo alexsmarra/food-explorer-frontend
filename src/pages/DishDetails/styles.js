@@ -17,34 +17,33 @@ export const Content = styled.div`
    main {
       display: flex;
       flex-direction: column;
-      margin: 0 2rem;
+      margin: 0 2rem 3rem;
       justify-content:center;
       align-items: center;
-      /* background: grey; */
+
 
       .wrapper-details-one {
          position: relative;
          padding-top: 3rem;
 
-            .button-return {
-               height: auto;
-               position: absolute;
-               left: -20px;
+         .button-return {
+            height: auto;
+            position: absolute;
+            left: -20px;
 
-               img {
-                  width: 2rem;
-                  height: 2rem; 
-               }
-               span {
-                  font-size: 1.5rem;
-               }
+            img {
+               width: 2rem;
+               height: 2rem; 
             }
+            span {
+               font-size: 1.5rem;
+            }
+         }
 
-            img.dish-image {
-               width: 17rem;
-               height: 17rem;
-               margin-top: 35px;
-            }
+         img.dish-image {
+            width: 17rem;
+            height: 17rem;
+            margin-top: 35px;
          }
       }
 
@@ -104,4 +103,5 @@ export const Content = styled.div`
             }
          }   
       }        
+   }
 `

@@ -11,8 +11,8 @@ gap: 1rem;
 width: 150px;
 
    img {
-      width: 66px;
-      height: 66px;
+      width: 6.6rem;
+      height: 6.6rem;
       border-radius: 50%;
       object-fit: cover;
    } 

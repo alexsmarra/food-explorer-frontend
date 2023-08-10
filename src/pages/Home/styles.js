@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   height: 100vh;
 
-  grid-template-rows: 70px auto auto 40px;
+  grid-template-rows: 70px auto 700px 40px;
   grid-template-areas:
   "header"
   "banner"
@@ -19,7 +19,8 @@ export const Container = styled.div`
   
   .meals {
     grid-area: meals;
-    overflow: scroll;
+    overflow-x: scroll;
+    /* width: 98%; fazer tipo assim no desktop */
   }
 
   .meals::-webkit-scrollbar {
@@ -27,14 +28,18 @@ export const Container = styled.div`
 }
 
   .section {
-    margin: 0 0 0 1.6rem;
+    margin: 0 0 0 1rem;
 
     .cards {
       display: flex;
       gap: 1.2rem;
       margin: 24px 0;
-      width: 500px;
+      overflow-x: scroll;
     }
+    .cards::-webkit-scrollbar {
+      display: none;
+    }
+
     .meal-wrapper {
       position: relative;
       padding: 3rem 0;
@@ -45,19 +50,26 @@ export const Container = styled.div`
         position: absolute;
         top: 8px;
         right: 8px;
+        cursor: pointer;
       }
     }
-  }
-
-  .section .meal-wrapper svg {
-    cursor: pointer;
   }
 
 @media(min-width: 360px) {
   .banner {
     margin-top: 6.5rem;
   }
+
+  .section {
+    margin: 0 0 0 2rem;
+  }
 } 
+
+@media(min-width: 540px) {
+  .section {
+    margin-top: 1rem;
+  }
+}
 
 @media(min-width: 768px) {
 grid-template-rows: 100px auto 1fr 55px;
@@ -65,6 +77,42 @@ grid-template-rows: 100px auto 1fr 55px;
   .banner {
     margin-top: 7rem;
   }
+
+  .section {
+    margin-left: 3.6rem;
+    margin-top: 2rem;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    .cards {
+      gap: 1.8rem;
+      /* margin: 24px 0;  */
+    }
+    .meal-wrapper {
+      padding: 5rem 2rem;
+
+      .bs-pencil, .ai-outline-heart {
+        width: 2rem;
+        height: 2rem;
+        top: 13px;
+        right: 13px;
+      }
+      
+      .meal {
+        img {
+          width: 10.5rem;
+          height: 10.5rem;
+        }
+
+        h3 {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+
 }
 
 @media(min-width: 820px) {

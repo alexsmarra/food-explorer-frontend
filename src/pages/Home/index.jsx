@@ -65,7 +65,7 @@ export function Home() {
          <Banner />
 
          <div className="meals">
-            <Section title="Refeições">
+            <Section title="Refeições" className="refeicoes">
                <div className="cards">
                {
                dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
@@ -89,6 +89,7 @@ export function Home() {
                         <Meal
                            key={String(index)}
                            data={dish}
+                           className="meal"
                         />
                   </div>
                ))     
@@ -120,6 +121,7 @@ export function Home() {
                         <Meal
                            key={dish.name}
                            data={dish}
+                           className="meal"
                         />
                   </div>
                ))     
@@ -151,6 +153,7 @@ export function Home() {
                         <Meal
                            key={dish.name}
                            data={dish}
+                           className="meal"
                         />
                   </div>
                ))     

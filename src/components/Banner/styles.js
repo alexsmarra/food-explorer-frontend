@@ -34,18 +34,15 @@ height: 100px;
       line-height: 1.5rem;
 
     h1 {
-      /* font-size: clamp(1.19rem, 3vw, 4rem); */
       font-size: 1.19rem;
       margin-top: .8rem;
       margin-left: 12px;
     }
 
     p {
-      /* font-size: clamp(.8rem, 2vw, 1.6rem); */
       font-size: .8rem;
       margin-left: 12px;
       line-height: 1.1rem;
-      /* padding: 0 10px 0 0; */
     }
   }
 

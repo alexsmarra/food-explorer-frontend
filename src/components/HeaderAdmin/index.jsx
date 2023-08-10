@@ -7,7 +7,6 @@ import { useMediaQuery } from "react-responsive"
 // Importações de componentes locais
 import { Container } from "./styles"
 
-
 // Importações de imagens
 import MenuIcon from "../../assets/menu/Menu.svg"
 import SignOut from "../../assets/menu/SignOut.svg"
