@@ -54,8 +54,18 @@ export const Container = styled.div`
       }
     }
 
-    .meal {
-      // editar aqui
+    .price-amount-and-incluir {
+      span.price-span {
+        margin-bottom: 1rem;
+      }
+      .amount {
+        margin-bottom: 1rem;
+      }
+      .incluir-btn {
+        width: 11rem;
+        height: 25px;
+        font-size: 1.2rem;
+      }
     }
   }
 
@@ -104,7 +114,7 @@ grid-template-rows: 100px auto 900px 55px;
       }
       
       .meal {
-        img {
+        img.dish-img {
           width: 10.5rem;
           height: 10.5rem;
         }
@@ -115,7 +125,6 @@ grid-template-rows: 100px auto 900px 55px;
       }
     }
   }
-
 }
 
 @media(min-width: 820px) {
@@ -124,6 +133,16 @@ grid-template-rows: 110px auto 950px 58px;
 
 
 @media(min-width: 1024px) {
+
+  .meals {
+    grid-area: meals;
+    overflow-x: scroll;
+    width: 98%; 
+
+    .meal {
+      width: 450px;
+    }
+  }
 
   .footer {
     justify-content: space-between;

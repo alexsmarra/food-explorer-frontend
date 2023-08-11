@@ -4,6 +4,9 @@ import { api } from "../../services/api"
 
 import { useAuth } from "../../hooks/auth"
 
+import Minus from "../../assets/btns/Minus.svg"
+import Plus from "../../assets/btns/Plus.svg"
+
 import { Button } from "../Button"
 
 import { Container } from "./styles" 
@@ -55,25 +58,33 @@ export const Meal = ({ data, ...rest }) => {
          <img 
             src={`${api.defaults.baseURL}/files/${data.image}`} 
             alt={`Foto de um(a) ${(data.name).toLowerCase()}`} 
+            className="dish-img"
          />
          <div>
             <h3 onClick={() => handleDetails(data.id)}>{`${data.name} >`}</h3> 
          </div>
 
-         <div>
+         <div className='price-amount-and-incluir'>
             {
             user.isAdmin ?
                <span className="price-span">{`R$${price.toFixed(2).replace(/\./g, ',')}`}</span>
             :
                <div>
-                  <span className="price-span">{`R$${(price.toFixed(2)).replace(/\./g, ',')}`}</span>
+                  <span className="price-span">{`R$ ${(price.toFixed(2)).replace(/\./g, ',')}`}</span>
                   <div>
                      <div className="amount">
-                        <button className="minus" onClick={minusPrice}>-</button>
+                        <button className="minus" onClick={minusPrice}>
+                           <img src={Minus} alt="minus btn" />
+                        </button>
                         <span>{zeroFix(amount)}</span>
-                        <button className="plus" onClick={plusPrice}>+</button>
+                        <button className="plus" onClick={plusPrice}>
+                           <img src={Plus} alt="plus btn" />
+                        </button>
                      </div>
-                     <Button title="Incluir" />
+                     <Button 
+                        title="incluir" 
+                        className="incluir-btn"
+                     />
                   </div>
                </div>
             }
