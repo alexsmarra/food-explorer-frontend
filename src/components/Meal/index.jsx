@@ -12,9 +12,11 @@ import { Button } from "../Button"
 import { Container } from "./styles" 
 
 import { useNavigate } from "react-router-dom"
+import { useMediaQuery } from "react-responsive"
 
 export const Meal = ({ data, ...rest }) => {
    const navigate = useNavigate()
+   const isMobile = useMediaQuery({ maxWidth: 1280 })
 
    const { user } = useAuth()
    const [amount, setAmount] = useState(1)
@@ -61,7 +63,12 @@ export const Meal = ({ data, ...rest }) => {
             className="dish-img"
          />
          <div>
-            <h3 onClick={() => handleDetails(data.id)}>{`${data.name} >`}</h3> 
+            <h3 onClick={() => handleDetails(data.id)}>{`${data.name} >`}</h3>
+            {isMobile ?
+               ""
+            :
+               <p>{data.description}</p>
+            }
          </div>
 
          <div className='price-amount-and-incluir'>

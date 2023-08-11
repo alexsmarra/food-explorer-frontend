@@ -8,7 +8,7 @@ justify-content: center;
 align-items: center;
 text-align: center;
 /* gap: .5rem; */
-width: 150px;
+width: 190px;
 
    img {
       width: 6.6rem;
@@ -22,6 +22,11 @@ width: 150px;
       font-size: 1rem;
       color: ${({ theme }) => theme.COLORS.WHITE_GRAY};
       font-weight: 500;
+   }
+
+   p {
+      font-size: .8rem;
+      color: ${({ theme }) => theme.COLORS.WHITE_GRAY};
    }
 
    .price-amount-and-incluir {

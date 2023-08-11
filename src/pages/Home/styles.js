@@ -50,6 +50,8 @@ export const Container = styled.div`
         top: 8px;
         right: 8px;
         cursor: pointer;
+        width: 2.5rem;
+        height: 2.5rem;
       }
 
       img {
@@ -68,7 +70,7 @@ export const Container = styled.div`
           margin-bottom: 0rem;
         }
         .incluir-btn {
-          width: 11rem;
+          width: 13rem;
           height: 25px;
           font-size: 1.2rem;
         }
