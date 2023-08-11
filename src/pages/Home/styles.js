@@ -20,7 +20,6 @@ export const Container = styled.div`
   .meals {
     grid-area: meals;
     overflow-x: scroll;
-    /* width: 98%; fazer tipo assim no desktop */
   }
 
   .meals::-webkit-scrollbar {
@@ -32,8 +31,8 @@ export const Container = styled.div`
 
     .cards {
       display: flex;
-      gap: 1.2rem;
-      margin: 24px 0;
+      /* gap: 1.2rem; */
+      margin: 12px 0 24px 0;
       overflow-x: scroll;
     }
     .cards::-webkit-scrollbar {
@@ -42,7 +41,7 @@ export const Container = styled.div`
 
     .meal-wrapper {
       position: relative;
-      padding: 3rem 0;
+      padding: 2rem 0;
       border-radius: 8px;
       background: ${({ theme }) => theme.COLORS.CARD};
 
@@ -52,19 +51,27 @@ export const Container = styled.div`
         right: 8px;
         cursor: pointer;
       }
-    }
 
-    .price-amount-and-incluir {
-      span.price-span {
+      img {
         margin-bottom: 1rem;
       }
-      .amount {
-        margin-bottom: 1rem;
+
+      h3 {
+        margin-bottom: .5rem;
       }
-      .incluir-btn {
-        width: 11rem;
-        height: 25px;
-        font-size: 1.2rem;
+      
+      .price-amount-and-incluir {
+        span.price-span {
+          margin-bottom: 1rem;
+        }
+        .amount {
+          margin-bottom: 0rem;
+        }
+        .incluir-btn {
+          width: 11rem;
+          height: 25px;
+          font-size: 1.2rem;
+        }
       }
     }
   }
@@ -128,19 +135,22 @@ grid-template-rows: 100px auto 900px 55px;
 }
 
 @media(min-width: 820px) {
-grid-template-rows: 110px auto 950px 58px;
+  grid-template-rows: 110px auto 950px 58px;
 }
 
 
 @media(min-width: 1024px) {
-
   .meals {
-    grid-area: meals;
-    overflow-x: scroll;
-    width: 98%; 
+    .section {
+      margin: 3rem 12rem;
 
-    .meal {
-      width: 450px;
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .meal {
+        width: 175px;
+      }
     }
   }
 
@@ -153,6 +163,16 @@ grid-template-rows: 110px auto 950px 58px;
 @media(min-width: 1280px) {
   .banner {
     margin-top: 10rem;
+  }
+
+  .meals {
+    .section {
+      /* margin: 0 12rem; */
+      
+      .meal {
+        width: 400px;
+      }
+    }
   }
 }
 

@@ -7,7 +7,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 text-align: center;
-gap: 1rem;
+/* gap: .5rem; */
 width: 150px;
 
    img {
@@ -28,7 +28,7 @@ width: 150px;
       .price-span {
          display: inline-flex;
          color: ${({ theme }) => theme.COLORS.LIGHT_BLUE};
-         font-size: 1.3rem;
+         font-size: 1.2rem;
       }
       .amount {
          display: flex;
@@ -38,7 +38,7 @@ width: 150px;
 
          span {
             font-size: 1.2rem;
-            margin-bottom: 5px;
+            margin-bottom: 16px;
          }
          img {
             width: 1.7rem;
