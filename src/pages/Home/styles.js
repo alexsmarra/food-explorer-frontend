@@ -24,14 +24,14 @@ export const Container = styled.div`
 
   .meals::-webkit-scrollbar {
     display: none;
-}
+  }
 
   .section {
     margin: 0 0 0 1rem;
 
     .cards {
       display: flex;
-      /* gap: 1.2rem; */
+      gap: 1.2rem;
       margin: 12px 0 24px 0;
       overflow-x: scroll;
     }
@@ -47,11 +47,11 @@ export const Container = styled.div`
 
       .bs-pencil, .ai-outline-heart {
         position: absolute;
-        top: 8px;
-        right: 8px;
+        top: 1rem;
+        right: 1rem;
         cursor: pointer;
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.2rem;
+        height: 2.2rem;
       }
 
       img {
@@ -59,7 +59,7 @@ export const Container = styled.div`
       }
 
       h3 {
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
       }
       
       .price-amount-and-incluir {
@@ -106,7 +106,7 @@ grid-template-rows: 100px auto 900px 55px;
     margin-top: 2rem;
 
     h2 {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
 
     .cards {
@@ -116,20 +116,42 @@ grid-template-rows: 100px auto 900px 55px;
       padding: 5rem 2rem;
 
       .bs-pencil, .ai-outline-heart {
-        width: 2rem;
-        height: 2rem;
-        top: 13px;
-        right: 13px;
+        width: 2.5rem;
+        height: 2.5rem;
+        top: 1.5rem;
+        right: 1.5rem;
       }
       
       .meal {
+        width: 210px;
+
         img.dish-img {
           width: 10.5rem;
           height: 10.5rem;
         }
 
         h3 {
-          font-size: 1.2rem;
+          font-size: 1.4rem;
+        }
+
+        .price-amount-and-incluir {
+          span.price-span {
+            font-size: 1.5rem;
+          }
+          .amount {
+            img {
+              width: 2.2rem;
+              height: 2.2rem;
+            }
+            span {
+              font-size: 1.4rem;
+            }
+          }
+          .incluir-btn {
+            width: 16rem;
+            height: 30px;
+            font-size: 1.4rem;
+          }
         }
       }
     }
@@ -145,6 +167,9 @@ grid-template-rows: 100px auto 900px 55px;
   .meals {
     .section {
       margin: 3rem 12rem;
+      background: orange;
+      position: relative;
+      height: auto;
 
       h2 {
         font-size: 2rem;
@@ -154,6 +179,23 @@ grid-template-rows: 100px auto 900px 55px;
         width: 175px;
       }
     }
+
+    .arrows {
+      position: absolute;
+      /* left: 140px; */
+      top: 50%;
+      /* z-index: 99; */
+      
+      div {
+        svg {
+          width: 10rem;
+          height: 10rem;
+        }
+
+      } 
+        
+    }
+
   }
 
   .footer {
@@ -193,3 +235,11 @@ grid-template-rows: 100px auto 900px 55px;
   }
 }
 `
+
+// export const Arrow = styled.div`
+//   /* position: absolute; */
+//   svg {
+//     width: 5rem;
+//     height: 5rem;
+//   }
+// `

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 import { api } from "../../services/api"
 
@@ -15,6 +15,7 @@ import { Footer} from "../../components/Footer"
 
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
 import { useMediaQuery } from "react-responsive"
 import { useNavigate } from "react-router-dom"
@@ -23,11 +24,27 @@ export function Home() {
    const { user } = useAuth()
    const navigate = useNavigate()
 
+   const scrollMealList = useRef(null)
+
    const [dishes, setDishes] = useState([])
    const [imgDish, setImgDish] = useState(null)
    const [search, setSearch] = useState("")
 
    const isMobile = useMediaQuery({ maxWidth: 1023 })
+
+   const handlePrevMealList = () => {
+      scrollMealList.current.scrollBy({
+         left: -120,
+         behavior: 'smooth'
+      })
+   }
+
+   const handleNextMealList = () => {
+      scrollMealList.current.scrollBy({
+         left: 120,
+         behavior: 'smooth'
+      })
+   }
 
    const runEditDish = (id, category) => {
       navigate(`/editDish/${id}/${category}`)
@@ -65,8 +82,8 @@ export function Home() {
          <Banner />
 
          <div className="meals">
-            <Section title="Refeições">
-               <div className="cards">
+            <Section title="Refeições" className="refeicoes">
+               <div className="cards" ref={scrollMealList}>
                {
                dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
                
@@ -95,6 +112,18 @@ export function Home() {
                ))     
                }
                </div>
+               {!isMobile && 
+               <div className="arrows">
+                  <div onClick={handlePrevMealList} direction="prev">
+                     <FiChevronLeft />
+                  </div>
+
+                  <div>
+
+                  <FiChevronRight onClick={handleNextMealList} direction="next"/>
+                  </div>
+               </div>
+               }
             </Section>
 
             <Section title="Sobremesas">
