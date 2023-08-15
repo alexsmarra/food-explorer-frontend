@@ -167,33 +167,37 @@ grid-template-rows: 100px auto 900px 55px;
   .meals {
     .section {
       margin: 3rem 12rem;
-      background: orange;
       position: relative;
       height: auto;
 
       h2 {
         font-size: 2rem;
       }
-      
+
       .meal {
         width: 175px;
       }
     }
 
     .arrows {
-      position: absolute;
-      /* left: 140px; */
-      top: 50%;
-      /* z-index: 99; */
+      div:nth-child(1) {
+        position: absolute;
+        top: 50%;
+        transition: opacity 1s ease-in-out;
+      }
+      div:nth-child(2) {
+        position: absolute;
+        top: 50%;
+        right: 0;
+      }
       
       div {
         svg {
           width: 10rem;
           height: 10rem;
+          opacity: 0.5;
         }
-
       } 
-        
     }
 
   }
@@ -235,11 +239,3 @@ grid-template-rows: 100px auto 900px 55px;
   }
 }
 `
-
-// export const Arrow = styled.div`
-//   /* position: absolute; */
-//   svg {
-//     width: 5rem;
-//     height: 5rem;
-//   }
-// `

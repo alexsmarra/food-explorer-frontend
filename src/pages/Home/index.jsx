@@ -23,31 +23,133 @@ import { useNavigate } from "react-router-dom"
 export function Home() {
    const { user } = useAuth()
    const navigate = useNavigate()
+   const isMobile = useMediaQuery({ maxWidth: 1279 })
+
 
    const scrollMealList = useRef(null)
+   const scrollDessertList = useRef(null);
+   const scrollDrinkList = useRef(null)
 
    const [dishes, setDishes] = useState([])
    const [imgDish, setImgDish] = useState(null)
    const [search, setSearch] = useState("")
 
-   const isMobile = useMediaQuery({ maxWidth: 1023 })
+   const [isLeftArrowVisibleMeal, setIsLeftArrowVisibleMeal] = useState(false);
+   const [isRightArrowVisibleMeal, setIsRightArrowVisibleMeal] = useState(false);
+   const [isLeftArrowVisibleDessert, setIsLeftArrowVisibleDessert] = useState(false);
+   const [isRightArrowVisibleDessert, setIsRightArrowVisibleDessert] = useState(false);
+   const [isLeftArrowVisibleDrink, setIsLeftArrowVisibleDrink] = useState(false);
+   const [isRightArrowVisibleDrink, setIsRightArrowVisibleDrink] = useState(false);
+
+   const meals = dishes.filter(dish => dish.category === 'refeicao')
+   const desserts = dishes.filter(dish => dish.category === 'sobremesa')
+   const drinks = dishes.filter(dish => dish.category === 'bebidas')
+
+   const runEditDish = (id, category) => {
+      navigate(`/editDish/${id}/${category}`)
+   }
+   
+   const handleScrollMeals = () => {
+      const container = scrollMealList.current;
+      if (container) {
+         const scrollWidth = container.scrollWidth;
+         const clientWidth = container.clientWidth;
+         const scrollLeft = container.scrollLeft;
+
+         setIsLeftArrowVisibleMeal(scrollLeft > 0);
+         setIsRightArrowVisibleMeal(scrollWidth > clientWidth + scrollLeft) 
+
+         if(scrollWidth == clientWidth) {
+            setIsRightArrowVisibleMeal(true)
+         }
+      }
+   };
+
+ // Chamado quando o componente é montado
+   useEffect(() => {
+      // Inicializar a visibilidade das setas
+      handleScrollMeals();
+
+      // Adicionar o listener de scroll
+      scrollMealList.current.addEventListener('scroll', handleScrollMeals);
+
+   }, []);
+
+
+   const handleScrollDessert = () => {
+      const container = scrollDessertList.current;
+      if (container) {
+         const scrollWidth = container.scrollWidth;
+         const clientWidth = container.clientWidth;
+         const scrollLeft = container.scrollLeft;
+
+         setIsLeftArrowVisibleDessert(scrollLeft > 0);
+         setIsRightArrowVisibleDessert(scrollWidth > clientWidth + scrollLeft);
+      }
+   };
+
+   useEffect(() => {
+      handleScrollDessert();
+      scrollDessertList.current.addEventListener('scroll', handleScrollDessert);
+   }, []);
+
+   const handleScrollDrink = () => {
+      const container = scrollDrinkList.current;
+      if (container) {
+         const scrollWidth = container.scrollWidth;
+         const clientWidth = container.clientWidth;
+         const scrollLeft = container.scrollLeft;
+
+         setIsLeftArrowVisibleDrink(scrollLeft > 0);
+         setIsRightArrowVisibleDrink(scrollWidth > clientWidth + scrollLeft);
+      }
+   };
+
+   useEffect(() => {
+      handleScrollDrink();
+      scrollDrinkList.current.addEventListener('scroll', handleScrollDrink);
+   }, []);
 
    const handlePrevMealList = () => {
       scrollMealList.current.scrollBy({
-         left: -120,
+         left: -150,
          behavior: 'smooth'
       })
    }
 
    const handleNextMealList = () => {
       scrollMealList.current.scrollBy({
-         left: 120,
+         left: 150,
          behavior: 'smooth'
       })
    }
 
-   const runEditDish = (id, category) => {
-      navigate(`/editDish/${id}/${category}`)
+   const handlePrevDessertList = () => {
+      scrollDessertList.current.scrollBy({
+         left: -150,
+         behavior: 'smooth',
+      })
+   }
+
+   const handleNextDessertList = () => {
+      scrollDessertList.current.scrollBy({
+         left: 150,
+         behavior: 'smooth'
+      })
+   }
+
+   const handlePrevDrinkList = () => {
+      scrollDrinkList.current.scrollBy({
+         left: -150,
+         behavior: 'smooth'
+      })
+   }
+
+   const handleNextDrinkList = () => {
+      scrollDrinkList.current.scrollBy({
+         left: 150,
+         behavior: 'smooth'
+      })
    }
 
    useEffect(() => {
@@ -78,12 +180,11 @@ export function Home() {
          :
          <HeaderUser setSearch={setSearch} />
          }
-
          <Banner />
 
          <div className="meals">
             <Section title="Refeições" className="refeicoes">
-               <div className="cards" ref={scrollMealList}>
+               <div className="cards" ref={scrollMealList} onScroll={handleScrollMeals}>
                {
                dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
                
@@ -114,20 +215,30 @@ export function Home() {
                </div>
                {!isMobile && 
                <div className="arrows">
-                  <div onClick={handlePrevMealList} direction="prev">
-                     <FiChevronLeft />
+                  <div 
+                     onClick={handlePrevMealList} 
+                     direction="prev" 
+                     style={{ 
+                        opacity: isLeftArrowVisibleMeal ? 1 : 0
+                     }}>
+                        {isLeftArrowVisibleMeal && meals.length > 3 && 
+                           <FiChevronLeft />
+                        }
                   </div>
 
-                  <div>
-
-                  <FiChevronRight onClick={handleNextMealList} direction="next"/>
+                  <div 
+                     onClick={handleNextMealList} 
+                     direction="next">
+                        {isRightArrowVisibleMeal && meals.length > 3 && 
+                           <FiChevronRight />
+                        }
                   </div>
                </div>
                }
             </Section>
 
             <Section title="Sobremesas">
-               <div className="cards">
+               <div className="cards" ref={scrollDessertList} onScroll={handleScrollDessert}>
                {
                dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
                
@@ -155,11 +266,30 @@ export function Home() {
                   </div>
                ))     
                }
-               </div>   
+               </div>  
+               {!isMobile && 
+               <div className="arrows">
+                  <div 
+                     onClick={handlePrevDessertList} 
+                     direction="prev"
+                     style={{ opacity: isLeftArrowVisibleDessert ? 1 : 0 }}
+                  >
+                     {isLeftArrowVisibleDessert && desserts.length > 3 && 
+                        <FiChevronLeft />
+                     }
+                  </div>
+
+                  <div onClick={handleNextDessertList} direction="next">
+                     {isRightArrowVisibleDessert && desserts.length > 3 && 
+                        <FiChevronRight />
+                     }
+                  </div>
+               </div>
+               } 
             </Section>
 
             <Section title="Bebidas">
-               <div className="cards">
+               <div className="cards" ref={scrollDrinkList} onScroll={handleScrollDrink}>
                {
                dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
                
@@ -187,7 +317,22 @@ export function Home() {
                   </div>
                ))     
                }     
-               </div>     
+               </div>   
+               {!isMobile && 
+               <div className="arrows">
+                  <div onClick={handlePrevDrinkList} direction="prev">
+                     {isLeftArrowVisibleDrink && drinks.length > 3 && 
+                        <FiChevronLeft />
+                     }
+                  </div>
+
+                  <div onClick={handleNextDrinkList} direction="next">
+                     {isRightArrowVisibleDrink && drinks.length > 3 && 
+                        <FiChevronRight />
+                     }
+                  </div>
+               </div>
+               }  
             </Section>
          </div>
 
