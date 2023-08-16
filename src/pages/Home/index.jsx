@@ -35,11 +35,11 @@ export function Home() {
    const [search, setSearch] = useState("")
 
    const [isLeftArrowVisibleMeal, setIsLeftArrowVisibleMeal] = useState(false);
-   const [isRightArrowVisibleMeal, setIsRightArrowVisibleMeal] = useState(false);
+   const [isRightArrowVisibleMeal, setIsRightArrowVisibleMeal] = useState(true);
    const [isLeftArrowVisibleDessert, setIsLeftArrowVisibleDessert] = useState(false);
-   const [isRightArrowVisibleDessert, setIsRightArrowVisibleDessert] = useState(false);
+   const [isRightArrowVisibleDessert, setIsRightArrowVisibleDessert] = useState(true);
    const [isLeftArrowVisibleDrink, setIsLeftArrowVisibleDrink] = useState(false);
-   const [isRightArrowVisibleDrink, setIsRightArrowVisibleDrink] = useState(false);
+   const [isRightArrowVisibleDrink, setIsRightArrowVisibleDrink] = useState(true);
 
    const meals = dishes.filter(dish => dish.category === 'refeicao')
    const desserts = dishes.filter(dish => dish.category === 'sobremesa')
@@ -65,17 +65,6 @@ export function Home() {
       }
    };
 
- // Chamado quando o componente é montado
-   useEffect(() => {
-      // Inicializar a visibilidade das setas
-      handleScrollMeals();
-
-      // Adicionar o listener de scroll
-      scrollMealList.current.addEventListener('scroll', handleScrollMeals);
-
-   }, []);
-
-
    const handleScrollDessert = () => {
       const container = scrollDessertList.current;
       if (container) {
@@ -88,11 +77,6 @@ export function Home() {
       }
    };
 
-   useEffect(() => {
-      handleScrollDessert();
-      scrollDessertList.current.addEventListener('scroll', handleScrollDessert);
-   }, []);
-
    const handleScrollDrink = () => {
       const container = scrollDrinkList.current;
       if (container) {
@@ -104,11 +88,6 @@ export function Home() {
          setIsRightArrowVisibleDrink(scrollWidth > clientWidth + scrollLeft);
       }
    };
-
-   useEffect(() => {
-      handleScrollDrink();
-      scrollDrinkList.current.addEventListener('scroll', handleScrollDrink);
-   }, []);
 
    const handlePrevMealList = () => {
       scrollMealList.current.scrollBy({
@@ -153,6 +132,29 @@ export function Home() {
    }
 
    useEffect(() => {
+      // Inicializar a visibilidade das setas
+      handleScrollMeals();
+      
+      meals.lenght > 0 &&
+         // Adicionar o listener de scroll
+         scrollMealList.current.addEventListener('scroll', handleScrollMeals);
+   }, []);
+
+   useEffect(() => {
+      handleScrollDessert();
+
+      desserts.length > 0 &&
+         scrollDessertList.current.addEventListener('scroll', handleScrollDessert);
+   }, []);
+
+   useEffect(() => {
+      handleScrollDrink();
+
+      drinks.length > 0 &&
+         scrollDrinkList.current.addEventListener('scroll', handleScrollDrink);
+   }, []);
+
+   useEffect(() => {
       const fetchDishes = async () => {
          try {
             const response = await api.get(`/dishes?search=${search}`)
@@ -184,35 +186,35 @@ export function Home() {
 
          <div className="meals">
             <Section title="Refeições" className="refeicoes">
-               <div className="cards" ref={scrollMealList} onScroll={handleScrollMeals}>
-               {
-               dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
-               
-                  <div 
-                     key={dish.id}
-                     className="meal-wrapper">
-                     
-                        {
-                        user.isAdmin ?
-                        <BsPencil
-                           className="bs-pencil"
-                           onClick={() => runEditDish(dish.id, dish.category)}
-                        />
-                        :
-                        <AiOutlineHeart 
-                           className="ai-outline-heart"
-                        />
-                        }
-                        
-                        <Meal
-                           key={String(index)}
-                           data={dish}
-                           className="meal"
-                        />
+               {meals.length > 0 ?
+                  <div className="cards" ref={scrollMealList} onScroll={handleScrollMeals}>
+                     {dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
+                        <div 
+                           key={dish.id}
+                           className="meal-wrapper">
+                              {
+                              user.isAdmin ?
+                              <BsPencil
+                                 className="bs-pencil"
+                                 onClick={() => runEditDish(dish.id, dish.category)}
+                              />
+                              :
+                              <AiOutlineHeart 
+                                 className="ai-outline-heart"
+                              />
+                              }
+                              <Meal
+                                 key={String(index)}
+                                 data={dish}
+                                 className="meal"
+                              />
+                        </div>
+                        ))     
+                     }
                   </div>
-               ))     
+               :
+                  <span>Não há pratos na categoria de refeições para essa busca</span>
                }
-               </div>
                {!isMobile && 
                <div className="arrows">
                   <div 
@@ -238,35 +240,36 @@ export function Home() {
             </Section>
 
             <Section title="Sobremesas">
-               <div className="cards" ref={scrollDessertList} onScroll={handleScrollDessert}>
-               {
-               dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
-               
-                  <div 
-                     key={String(index)}
-                     className="meal-wrapper">
-                     
-                        {
-                        user.isAdmin ?
-                        <BsPencil 
-                           className="bs-pencil"
-                           onClick={() => runEditDish(dish.id, dish.category)}
-                        />
-                        :
-                        <AiOutlineHeart 
-                           className="ai-outline-heart"
-                        />
-                        }
-                        
-                        <Meal
-                           key={dish.name}
-                           data={dish}
-                           className="meal"
-                        />
-                  </div>
-               ))     
+               {desserts.length > 0 ?
+                  <div className="cards" ref={scrollDessertList} onScroll={handleScrollDessert}>
+                     {dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
+                        <div 
+                           key={String(index)}
+                           className="meal-wrapper">
+                              {
+                              user.isAdmin ?
+                              <BsPencil 
+                                 className="bs-pencil"
+                                 onClick={() => runEditDish(dish.id, dish.category)}
+                              />
+                              :
+                              <AiOutlineHeart 
+                                 className="ai-outline-heart"
+                              />
+                              }
+                              
+                              <Meal
+                                 key={dish.name}
+                                 data={dish}
+                                 className="meal"
+                              />
+                        </div>
+                        )) 
+                     }
+                  </div> 
+               :
+                  <span>Não há pratos na categoria de sobremesas para essa busca</span>
                }
-               </div>  
                {!isMobile && 
                <div className="arrows">
                   <div 
@@ -289,35 +292,37 @@ export function Home() {
             </Section>
 
             <Section title="Bebidas">
-               <div className="cards" ref={scrollDrinkList} onScroll={handleScrollDrink}>
-               {
-               dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
-               
-                  <div 
-                     key={String(index)}
-                     className="meal-wrapper">
-                     
-                        {
-                        user.isAdmin ?
-                        <BsPencil
-                           className="bs-pencil"
-                           onClick={() => runEditDish(dish.id, dish.category)}
-                        />
-                        :
-                        <AiOutlineHeart 
-                           className="ai-outline-heart"
-                        />
-                        }
-                        
-                        <Meal
-                           key={dish.name}
-                           data={dish}
-                           className="meal"
-                        />
-                  </div>
-               ))     
-               }     
-               </div>   
+               {drinks.length > 0 ?
+                  <div className="cards" ref={scrollDrinkList} onScroll={handleScrollDrink}>
+                     {dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
+                        <div 
+                           key={String(index)}
+                           className="meal-wrapper">
+                           
+                              {
+                              user.isAdmin ?
+                              <BsPencil
+                                 className="bs-pencil"
+                                 onClick={() => runEditDish(dish.id, dish.category)}
+                              />
+                              :
+                              <AiOutlineHeart 
+                                 className="ai-outline-heart"
+                              />
+                              }
+                              
+                              <Meal
+                                 key={dish.name}
+                                 data={dish}
+                                 className="meal"
+                              />
+                        </div>
+                        )) 
+                     }     
+                  </div>  
+               :
+                  <span>Não há pratos na categoria de bebidas para essa busca</span>
+               } 
                {!isMobile && 
                <div className="arrows">
                   <div onClick={handlePrevDrinkList} direction="prev">
