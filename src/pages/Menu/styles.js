@@ -10,6 +10,25 @@ grid-template-areas:
 height: 100vh;
 grid-template-rows: 60px 200px auto 40px;
 
+.meals {
+   overflow-x: scroll;
+}
+
+.section {
+   margin: 1rem;
+
+   span.empty-dishes {
+      font-size: 1rem;
+      color: ${({ theme }) => theme.COLORS.WHITE_GRAY};
+      opacity: .6;
+   }
+}
+.cards {
+   display: flex;
+   gap: 1.2rem;
+   margin: 12px 0 24px 0;
+}
+
 @media(min-width: 768px) {
 grid-template-rows: 110px 1fr 55px;
 }

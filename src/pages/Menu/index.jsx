@@ -27,6 +27,10 @@ export const Menu = () => {
    const [imgDish, setImgDish] = useState(null)
    const [search, setSearch] = useState("")
 
+   const meals = dishes.filter(dish => dish.category === 'refeicao')
+   const desserts = dishes.filter(dish => dish.category === 'sobremesa')
+   const drinks = dishes.filter(dish => dish.category === 'bebidas')
+
    function handleCloseButton() {
       navigate(-1)
    }
@@ -62,7 +66,6 @@ export const Menu = () => {
       const fetchImagesDishes = async () => {
          setImgDish(`${api.defaults.baseURL}/files/${dishes.image}`)
       }
-
       fetchImagesDishes()
    })
 
@@ -102,86 +105,106 @@ export const Menu = () => {
          </HeadTwo>
 
          {search.length > 0 &&
-            
-            <section>
-               <Section title="Refeições">
-               {
-                  dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
-                  
-                     <div 
-                        key={dish.id}
-                        className="meal-wrapper">
-                        
-                           {
-                           user.isAdmin ?
-                           <BsPencil
-                              onClick={() => runEditDish(dish.id, dish.category)}
-                           />
-                           :
-                           <AiOutlineHeart />
-                           }
-                           
-                           <Meal
-                              key={String(index)}
-                              data={dish}
-                           />
-                     </div>
-                  ))     
+            <div className="meals">
+            <Section title="Refeições" className="refeicoes">
+               {meals.length > 0 ?
+                  <div className="cards">
+                     {dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
+                        <div 
+                           key={dish.id}
+                           className="meal-wrapper">
+                              {
+                              user.isAdmin ?
+                              <BsPencil
+                                 className="bs-pencil"
+                                 onClick={() => runEditDish(dish.id, dish.category)}
+                              />
+                              :
+                              <AiOutlineHeart 
+                                 className="ai-outline-heart"
+                              />
+                              }
+                              <Meal
+                                 key={String(index)}
+                                 data={dish}
+                                 className="meal"
+                              />
+                        </div>
+                        ))     
+                     }
+                  </div>
+               :
+                  <span className="empty-dishes">Não há pratos na categoria de refeições para essa busca</span>
                }
-               </Section>
+            </Section>
 
-               <Section title="Sobremesas">
-               {
-                  dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
-                  
-                     <div 
-                        key={String(index)}
-                        className="meal-wrapper">
-                        
-                           {
-                           user.isAdmin ?
-                           <BsPencil 
-                              onClick={() => runEditDish(dish.id, dish.category)}
-                           />
-                           :
-                           <AiOutlineHeart />
-                           }
-                           
-                           <Meal
-                              key={dish.name}
-                              data={dish}
-                           />
-                     </div>
-                  ))     
-               }   
-               </Section>
+            <Section title="Sobremesas">
+               {desserts.length > 0 ?
+                  <div className="cards">
+                     {dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
+                        <div 
+                           key={String(index)}
+                           className="meal-wrapper">
+                              {
+                              user.isAdmin ?
+                              <BsPencil 
+                                 className="bs-pencil"
+                                 onClick={() => runEditDish(dish.id, dish.category)}
+                              />
+                              :
+                              <AiOutlineHeart 
+                                 className="ai-outline-heart"
+                              />
+                              }
+                              
+                              <Meal
+                                 key={dish.name}
+                                 data={dish}
+                                 className="meal"
+                              />
+                        </div>
+                        )) 
+                     }
+                  </div> 
+               :
+                  <span className="empty-dishes">Não há pratos na categoria de sobremesas para essa busca</span>
+               }
+            </Section>
 
-               <Section title="Bebidas">
-               {
-                  dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
-                  
-                     <div 
-                        key={String(index)}
-                        className="meal-wrapper">
-                        
-                           {
-                           user.isAdmin ?
-                           <BsPencil 
-                           onClick={() => runEditDish(dish.id, dish.category)}
-                           />
-                           :
-                           <AiOutlineHeart />
-                           }
+            <Section title="Bebidas">
+               {drinks.length > 0 ?
+                  <div className="cards">
+                     {dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
+                        <div 
+                           key={String(index)}
+                           className="meal-wrapper">
                            
-                           <Meal
-                              key={dish.name}
-                              data={dish}
-                           />
-                     </div>
-                  ))     
-               }          
-               </Section>
-            </section>
+                              {
+                              user.isAdmin ?
+                              <BsPencil
+                                 className="bs-pencil"
+                                 onClick={() => runEditDish(dish.id, dish.category)}
+                              />
+                              :
+                              <AiOutlineHeart 
+                                 className="ai-outline-heart"
+                              />
+                              }
+                              
+                              <Meal
+                                 key={dish.name}
+                                 data={dish}
+                                 className="meal"
+                              />
+                        </div>
+                        )) 
+                     }     
+                  </div>  
+               :
+                  <span className="empty-dishes">Não há pratos na categoria de bebidas para essa busca</span>
+               } 
+            </Section>
+         </div>
          }
 
          <Footer />

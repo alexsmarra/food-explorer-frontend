@@ -25,7 +25,6 @@ export function Home() {
    const navigate = useNavigate()
    const isMobile = useMediaQuery({ maxWidth: 1279 })
 
-
    const scrollMealList = useRef(null)
    const scrollDessertList = useRef(null);
    const scrollDrinkList = useRef(null)
