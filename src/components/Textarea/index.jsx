@@ -2,7 +2,7 @@ import { Container } from "./styles"
 
 export const Textarea = ({ ...rest }) => {
    return (
-      <Container>
+      <Container className="textarea">
          <label htmlFor="textarea">Descrição</label>
          <textarea 
             name="textarea"

@@ -28,6 +28,52 @@ grid-template-rows: 70px 100px 1fr 40px;
          padding-left: 1.05rem;
       }
    }
+
+@media(min-width: 390px) {
+   .button-return {
+      padding-top: 2rem;
+
+      button {
+         padding-left: 2.2rem;
+      }
+
+      h2 {
+         padding-left: 2.2rem;
+      }
+   }
+}
+@media(min-width: 414px) {
+   .button-return {
+      margin-top: 2rem;
+
+      button {
+         padding-left: 2.5rem;
+      }
+
+      h2 {
+         padding-left: 2.5rem;
+      }
+   }
+}
+
+@media(min-width: 768px) {
+   .button-return {
+      gap: 2rem;
+      button { 
+         img {
+            width: 2.5rem;
+            height: 2.5rem;
+         }
+         span {
+            font-size: 2rem;
+         }
+      }
+
+      h2 {
+         font-size: 2.7rem;
+      }
+   }
+}
 `
 
 export const Form = styled.form`
@@ -37,21 +83,18 @@ display: flex;
 flex-direction: column;
 gap: 1.5rem;
 
-
-
    span {
-         display: inline-flex;
-         margin-bottom: 1rem;
-         color: ${({ theme }) => theme.COLORS.LABEL_COLOR};
-         font-size: 1rem;
-      }
+      display: inline-flex;
+      margin-bottom: 1rem;
+      color: ${({ theme }) => theme.COLORS.LABEL_COLOR};
+      font-size: 1rem;
+   }
 
    .wrapper-inputs-one {
-   display: flex;
-   flex-direction: column;
-   gap: 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
 
-   
       label {
          font-size: 1rem;
          font-family: 'Roboto', sans-serif;
@@ -143,4 +186,77 @@ gap: 1.5rem;
          margin-bottom: 4rem;
       }
    }
+
+@media(min-width: 390px) {
+margin: 0 2.2rem;
+}
+
+@media(min-width: 414px) {
+margin: 0 2.5rem;
+
+   .wrapper-inputs-one {
+      margin-top: 3rem;
+   }
+}
+
+@media(min-width: 768px) {
+   .wrapper-inputs-one {
+      margin-top: 5rem;
+
+      .wrapper-img-input {
+         label {
+            span {
+               font-size: 1.3rem;
+            }
+            .input {
+               height: 55px;
+            }
+         }
+      }
+
+      .input-label {
+         height: 75px;
+         margin-bottom: -30px;
+
+         label {
+            font-size: 1.3rem;
+         }
+
+         input {
+            height: 75px;
+
+         }
+      }
+
+      .custom-select {
+         label {
+            font-size: 1.3rem;
+         }
+
+         .custom-select__input-container {
+            height: 45px;
+         }
+      }
+   }
+
+   .wrapper-inputs-two {
+      .ingredients {
+         span {
+            font-size: 1.3rem;
+         }
+      }
+
+      .input-label {
+         label {
+            font-size: 1.3rem;
+         }
+      }
+
+      .textarea {
+         label {
+            font-size: 1.3rem;
+         }
+      }
+   }
+}
 `

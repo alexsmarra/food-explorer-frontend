@@ -25,6 +25,7 @@ export const CustomSelect = ({ categoryParams, ...rest }) => {
       <Container className="custom-select">
          <label htmlFor="category">Categoria</label>
          <SelectElement
+            className="select-custom"  
             classNamePrefix="custom-select" // como o proprio nome diz, classNamePrefix, um prefixo para classes base da extensão
             defaultValue={options[indexCategoryParams] || options[0]}
             options={options}

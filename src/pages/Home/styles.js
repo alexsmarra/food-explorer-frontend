@@ -218,7 +218,7 @@ grid-template-rows: 100px auto 900px 55px;
       /* margin: 0 12rem; */
       
       .meal {
-        width: 350px;
+        width: 300px;
       }
     }
   }
