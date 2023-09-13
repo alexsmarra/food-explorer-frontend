@@ -50,8 +50,8 @@ export const Container = styled.div`
         top: 1rem;
         right: 1rem;
         cursor: pointer;
-        width: 2.2rem;
-        height: 2.2rem;
+        width: 1.6rem;
+        height: 1.6rem;
       }
 
       img {
@@ -218,7 +218,7 @@ grid-template-rows: 100px auto 900px 55px;
       /* margin: 0 12rem; */
       
       .meal {
-        width: 400px;
+        width: 350px;
       }
     }
   }

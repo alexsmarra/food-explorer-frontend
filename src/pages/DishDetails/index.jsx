@@ -106,7 +106,9 @@ export const DishDetails = () => {
          <Content>
             <main>
                <div className="wrapper-details-one">
-                  <ButtonReturn />
+                  <ButtonReturn 
+                     onClick={() => navigate(-1)}
+                  />
 
                   <img 
                      src={`${api.defaults.baseURL}/files/${dish.image}`} 
@@ -133,7 +135,7 @@ export const DishDetails = () => {
                      />
                   :
                   <div className="wrapper-amount-and-price">
-                     <div>
+                     <div className="amount">
                         <button className="minus" onClick={minusPrice}>-</button>
                         <span>{zeroFix(amount)}</span>
                         <button className="plus" onClick={plusPrice}>+</button>

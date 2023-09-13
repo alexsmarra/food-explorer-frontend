@@ -86,20 +86,48 @@ export const Content = styled.div`
 
          .wrapper-amount-and-price {
             display: flex;
+            width: 100%;
+            gap: 1rem;
+            
+            div.amount {
+               width: 100%;
+               display: flex;
+               flex: 1;
+               align-items: center;
+               text-align: center;
+               gap: 1.5rem;
+
+               .minus {
+                  font-size: 3rem;
+               }
+
+               .plus {
+                  font-size: 3rem;
+               }
+            }
             
             span.price {
                background: ${({ theme }) => theme.COLORS.BUTTON_COLOR};
                cursor: pointer;
+               display: flex;
+               flex: 2;
+               align-items: center;
+               justify-content: center;
+               gap: .6rem;
+               font-size: .8rem;
+               width: 100%;
+
                .btn-img {
+                  img {
+                     width: 1.5rem;
+                     height: 1.5rem;
+                     margin-top: .5rem;
+                  }
                   .circle-number {
                      display: none;
                      visibility: none;
                   }
                }
-
-               display: inline-flex;
-               color: white;
-               font-size: 16px;
             }
          }   
       }        
