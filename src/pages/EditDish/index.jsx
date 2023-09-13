@@ -41,6 +41,9 @@ export const EditDish = () => {
    console.log(`teste: ${teste}`)
    console.log(price)
 
+   const handleNavigate = () => {
+      navigate(-1)
+   }
 
    const handleCategoryChange = category => {
       setSelectedCategory(category.value)
@@ -157,7 +160,10 @@ export const EditDish = () => {
    <Container>
       <HeaderAdmin />
 
-      <ButtonReturn title="Editar prato" />
+      <ButtonReturn 
+         title="Editar prato" 
+         onClick={handleNavigate}   
+      />
 
       <Form>
          <div className="wrapper-inputs-one">

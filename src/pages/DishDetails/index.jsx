@@ -37,6 +37,10 @@ export const DishDetails = () => {
    const [fixEndPrice, setFixEndPrice] = useState(priceLocalStorage)
    const [amount, setAmount] = useState(amountLocalStorage)
 
+   const handleNavigate = () => {
+      navigate(-1)
+   }
+
    const zeroFix = (number) => {
       if(number > 9) {
          return number
@@ -107,7 +111,7 @@ export const DishDetails = () => {
             <main>
                <div className="wrapper-details-one">
                   <ButtonReturn 
-                     onClick={() => navigate(-1)}
+                     onClick={handleNavigate}
                   />
 
                   <img 

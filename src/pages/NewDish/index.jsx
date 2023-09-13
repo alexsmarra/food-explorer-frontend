@@ -29,6 +29,10 @@ export const NewDish = () => {
    const [price, setPrice] = useState("")
    const [description, setDescription] = useState("")
 
+   const handleNavigate = () => {
+      navigate(-1)
+   }
+
    const handleCategoryChange = category => {
       setSelectedCategory(category.value)
    }
@@ -124,7 +128,10 @@ export const NewDish = () => {
       <Container>
          <HeaderAdmin />
 
-         <ButtonReturn title="Novo prato" />
+         <ButtonReturn 
+            title="Novo prato" 
+            onClick={handleNavigate}
+         />
 
          <Form>
            <div className="wrapper-inputs-one">
