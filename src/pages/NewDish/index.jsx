@@ -167,6 +167,7 @@ export const NewDish = () => {
                      {
                         tags.map((tag, index) => (
                            <IngredientsItem 
+                              className="ingredients-item"
                               isNew={false}
                               key={String(index)}
                               value={tag}

@@ -19,8 +19,6 @@ export const Container = styled.div`
       color: ${({ theme, isnew }) => isnew == 'true' ? theme.COLORS.PLACEHOLDER_INPUT_COLOR
                                                      : "white"};
       padding: 1px 0.5em;
-      //
-
       width: 65px;
       height: 27px;
       font-size: 1rem;

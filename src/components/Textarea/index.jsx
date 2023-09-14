@@ -8,7 +8,6 @@ export const Textarea = ({ ...rest }) => {
             name="textarea"
             {...rest}
          >
-
          </textarea>
       </Container>
    )

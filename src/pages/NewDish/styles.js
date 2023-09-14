@@ -11,6 +11,8 @@ grid-template-areas:
 grid-template-rows: 70px 100px 1fr 40px;
 
    .header-admin {
+      padding: 4.6rem 1.6rem 2.4rem;
+
       // btn admin para pedidos
       .pedidos-button {
          display: none;
@@ -19,46 +21,39 @@ grid-template-rows: 70px 100px 1fr 40px;
 
    .button-return {
       padding-top: 1rem;
-
-      button {
-         padding-left: .7rem;
-      }
-
-      h2 {
-         padding-left: 1.05rem;
-      }
+      padding-left: 1.6rem;
    }
 
-@media(min-width: 390px) {
+@media(min-width: 360px) {
+   .header-admin {
+      padding: 4.6rem 2.5rem 2.4rem;
+   }
+
    .button-return {
       padding-top: 2rem;
-
-      button {
-         padding-left: 2.2rem;
-      }
-
-      h2 {
-         padding-left: 2.2rem;
-      }
+      padding-left: 2.5rem;
    }
 }
 @media(min-width: 414px) {
+   .header-admin {
+      padding: 4.6rem 3rem 2.4rem;
+   }
+
    .button-return {
       margin-top: 2rem;
-
-      button {
-         padding-left: 2.5rem;
-      }
-
-      h2 {
-         padding-left: 2.5rem;
-      }
+      padding-left: 3rem;
    }
 }
 
 @media(min-width: 768px) {
+   .header-admin {
+      padding: 4.6rem 6rem 2.4rem;
+   }
+
    .button-return {
       gap: 2rem;
+      padding-left: 6rem;
+
       button { 
          img {
             width: 2.5rem;
@@ -78,7 +73,7 @@ grid-template-rows: 70px 100px 1fr 40px;
 
 export const Form = styled.form`
 grid-area: form;
-margin: 0 1.05rem;
+margin: 0 1.6rem;
 display: flex;
 flex-direction: column;
 gap: 1.5rem;
@@ -126,7 +121,6 @@ gap: 1.5rem;
       }
 
       .input-label {
-
          input {
             background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
             height: 40px;
@@ -187,12 +181,17 @@ gap: 1.5rem;
       }
    }
 
-@media(min-width: 390px) {
-margin: 0 2.2rem;
+@media(min-width: 360px) {
+margin: 0 2.5rem;
+
+   button.btn-form {
+      font-size: 1.3rem;
+      height: 40px;
+   }
 }
 
 @media(min-width: 414px) {
-margin: 0 2.5rem;
+margin: 0 3rem;
 
    .wrapper-inputs-one {
       margin-top: 3rem;
@@ -200,6 +199,8 @@ margin: 0 2.5rem;
 }
 
 @media(min-width: 768px) {
+margin: 0 6rem;
+
    .wrapper-inputs-one {
       margin-top: 5rem;
 
@@ -210,6 +211,7 @@ margin: 0 2.5rem;
             }
             .input {
                height: 55px;
+               font-size: 1.3rem;
             }
          }
       }
@@ -224,7 +226,9 @@ margin: 0 2.5rem;
 
          input {
             height: 75px;
-
+            &::placeholder {
+               font-size: 1.3rem;
+            }
          }
       }
 
@@ -233,8 +237,12 @@ margin: 0 2.5rem;
             font-size: 1.3rem;
          }
 
-         .custom-select__input-container {
-            height: 45px;
+         .select-custom {
+            font-size: 1.3rem;
+            
+            .custom-select__input-container {
+               height: 45px;
+            }
          }
       }
    }
@@ -244,11 +252,37 @@ margin: 0 2.5rem;
          span {
             font-size: 1.3rem;
          }
+
+         .tags {
+            height: 55px;
+
+            .ingredients-item {
+               input {
+                  height: 32px;
+                  &::placeholder {
+                     font-size: 1.1rem;
+                  }
+               }
+
+               button {
+                  svg {
+                     font-size: 1.6rem;
+                  }
+               }
+            }
+         }
       }
 
       .input-label {
          label {
             font-size: 1.3rem;
+         }
+
+         input {
+            font-size: 1.3rem;
+            &::placeholder {
+               font-size: 1.3rem;
+            }
          }
       }
 
@@ -256,6 +290,19 @@ margin: 0 2.5rem;
          label {
             font-size: 1.3rem;
          }
+
+         textarea {
+            &::placeholder {
+               font-size: 1.3rem;
+            }
+         }
+      }
+
+      button.btn-form {
+         font-size: 1.3rem;
+         height: 45px;
+         margin-top: 1.5rem;
+         margin-bottom: 7rem;
       }
    }
 }
