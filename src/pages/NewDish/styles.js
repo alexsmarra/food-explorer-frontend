@@ -69,6 +69,26 @@ grid-template-rows: 70px 100px 1fr 40px;
       }
    }
 }
+
+@media(min-width: 1280px) {
+   .header-admin {
+      padding: 4.6rem 10rem 2.4rem;
+   }
+
+   .button-return {
+      padding-left: 30rem;
+   }
+}
+
+@media(min-width: 1536px) {
+   .header-admin {
+      padding: 4.6rem 12.3rem 2.4rem;
+   }
+
+   .button-return {
+      padding-left: 12.3rem;
+   }
+}
 `
 
 export const Form = styled.form`
@@ -88,7 +108,7 @@ gap: 1.5rem;
    .wrapper-inputs-one {
       display: flex;
       flex-direction: column;
-      gap: 5rem;
+      gap: 1rem;
 
       label {
          font-size: 1rem;
@@ -280,6 +300,9 @@ margin: 0 6rem;
 
          input {
             font-size: 1.3rem;
+            padding-top: 27.5px;
+            padding-bottom: 27.5px;
+
             &::placeholder {
                font-size: 1.3rem;
             }
@@ -287,6 +310,7 @@ margin: 0 6rem;
       }
 
       .textarea {
+         margin-top: 22px;
          label {
             font-size: 1.3rem;
          }
@@ -303,6 +327,67 @@ margin: 0 6rem;
          height: 45px;
          margin-top: 1.5rem;
          margin-bottom: 7rem;
+      }
+   }
+}
+
+@media(min-width: 1280px) {
+margin: 0 30rem;
+
+   .wrapper-inputs-two {
+      button.btn-form {
+         font-size: 1.3rem;
+         height: 55px;
+         margin-top: 1.5rem;
+         margin-bottom: 7rem;
+      }
+   }
+}
+
+@media(min-width: 1536px) {
+margin: 0 12.3rem;
+   
+   .wrapper-inputs-one {
+      flex-direction: row;
+      /* align-items: center; */
+      gap: 3rem;
+
+      .wrapper-img-input {
+         flex: 1;
+
+         label {
+            span {
+               /* font-size: 1.3rem; */
+            }
+            .input {
+               /* height: 55px; */
+               /* font-size: 1.3rem; */
+            }
+         }
+      }
+
+      .input-label {
+         flex: 1;
+         margin-top: 9px;
+
+         label {
+            /* font-size: 1.3rem; */
+         }
+
+         input {
+            /* font-size: 1.3rem; */
+            padding-top: 19.5px;
+            padding-bottom: 19.5px;
+
+            &::placeholder {
+               /* font-size: 1.3rem; */
+            }
+         }
+      }
+
+      .custom-select {
+         flex: 1;
+         margin-top: 7px;
       }
    }
 }
