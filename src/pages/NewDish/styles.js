@@ -81,12 +81,22 @@ grid-template-rows: 70px 100px 1fr 40px;
 }
 
 @media(min-width: 1536px) {
+grid-template-rows: 100px 105px 1fr 40px;
+
    .header-admin {
-      padding: 4.6rem 12.3rem 2.4rem;
+      padding: 2.4rem 12.3rem 2.4rem;
    }
 
    .button-return {
       padding-left: 12.3rem;
+
+      span {
+         font-weight: 500;
+      }
+
+      h2 {
+         font-weight: 500;
+      }
    }
 }
 `
@@ -117,10 +127,9 @@ gap: 1.5rem;
       }
 
       .wrapper-img-input {
-         margin-bottom: -3rem;
+         /* margin-bottom: -3rem; */
 
          label {
-            
             .input {
                background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
                color: ${({ theme }) => theme.COLORS.MAIN_COLOR};
@@ -155,6 +164,7 @@ gap: 1.5rem;
       .custom-select {
          display: flex;
          flex-direction: column;
+         margin-top: 2.5rem;
       }
    }
 
@@ -162,6 +172,7 @@ gap: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      margin-top: -1rem;
 
       .ingredients .tags {
          display: flex;
@@ -389,6 +400,10 @@ margin: 0 12.3rem;
          flex: 1;
          margin-top: 7px;
       }
+   }
+
+   .wrapper-inputs-two {
+      margin-top: 0;
    }
 }
 `

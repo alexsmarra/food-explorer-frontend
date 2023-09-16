@@ -129,7 +129,7 @@ export const NewDish = () => {
          <HeaderAdmin />
 
          <ButtonReturn 
-            title="Novo prato" 
+            title="Adicionar prato" 
             onClick={handleNavigate}
          />
 
