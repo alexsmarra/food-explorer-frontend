@@ -16,11 +16,14 @@ import { Footer } from "../../components/Footer"
 import { BiUpload } from "react-icons/bi";
 
 import { useNavigate, useParams } from "react-router-dom"
+import { useMediaQuery } from "react-responsive"
 import { toast } from 'react-toastify';
+
 
 export const EditDish = () => {
    const navigate = useNavigate()
    const params = useParams()
+   const isDesktop = useMediaQuery({ minWidth: 1536 })
 
    const [dish, setDish] = useState([])
 
@@ -194,45 +197,84 @@ export const EditDish = () => {
          </div> 
 
          <div className="wrapper-inputs-two">
-               <div className="ingredients">
-                  <span>Ingredientes</span>
-                  <div className="tags">
-                     {ingredientList.map((ingredient, index) => (
-                        <IngredientsItem 
-                           isNew={false}
-                           key={String(index)}
-                           value={ingredient}
-                           onClick={() => handleRemoveIngredient(ingredient)}
-                        />
-                     ))}
-                     {
-                        tags.map((tag, index) => (
+            {isDesktop ?
+               <div className="wrapper-ingredientsAndInputLabel">
+                  <div className="ingredients">
+                     <span>Ingredientes</span>
+                     <div className="tags">
+                        {ingredientList.map((ingredient, index) => (
                            <IngredientsItem 
                               isNew={false}
                               key={String(index)}
-                              value={tag}
-                              onClick={() => handleRemoveTag(tag)}
+                              value={ingredient}
+                              onClick={() => handleRemoveIngredient(ingredient)}
                            />
-                        ))
-                     }
+                        ))}
+                        {
+                           tags.map((tag, index) => (
+                              <IngredientsItem 
+                                 isNew={false}
+                                 key={String(index)}
+                                 value={tag}
+                                 onClick={() => handleRemoveTag(tag)}
+                              />
+                           ))
+                        }
 
-                     <IngredientsItem 
-                        isNew={true}
-                        placeholder="Adicionar"
-                        value={newTag}
-                        onChange={e => setNewTag(e.target.value)}
-                        onClick={handleAddTag}
-                     />
+                        <IngredientsItem 
+                           isNew={true}
+                           placeholder="Adicionar"
+                           value={newTag}
+                           onChange={e => setNewTag(e.target.value)}
+                           onClick={handleAddTag}
+                        />
 
+                     </div>
                   </div>
-               </div>
 
-               <InputLabel 
-                  title="Preço" 
-                  placeholder={dish.price}
-                  onChange={handlePriceChange}
-                  value={price}
-               />
+                  <InputLabel 
+                     title="Preço" 
+                     placeholder={dish.price}
+                     onChange={handlePriceChange}
+                     value={price}
+                  />
+               </div>
+            :
+               <>
+                  <div className="ingredients">
+                     <span>Ingredientes</span>
+                     <div className="tags">
+                        {
+                           tags.map((tag, index) => (
+                              <IngredientsItem 
+                                 className="ingredients-item"
+                                 isNew={false}
+                                 key={String(index)}
+                                 value={tag}
+                                 onClick={() => handleRemoveTag(tag)}
+                              />
+                           ))
+                        }
+
+                        <IngredientsItem 
+                           isNew={true}
+                           placeholder="Adicionar"
+                           value={newTag}
+                           onChange={e => setNewTag(e.target.value)}
+                           onClick={handleAddTag}
+                        />
+
+                     </div>
+                  </div>
+
+                  <InputLabel 
+                     title="Preço" 
+                     placeholder="R$00,00"
+                     onChange={handlePriceChange}
+                     value={price}
+                  />
+               </>
+            }     
 
                <Textarea
                   placeholder={dish.description}

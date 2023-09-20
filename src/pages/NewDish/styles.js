@@ -138,7 +138,6 @@ gap: 1.5rem;
       }
 
       .wrapper-img-input {
-         /* margin-bottom: -3rem; */
 
          label {
             .input {
@@ -378,7 +377,6 @@ margin: 0 12.3rem;
    
    .wrapper-inputs-one {
       flex-direction: row;
-      /* align-items: center; */
       gap: 3rem;
 
       .wrapper-img-input {
@@ -389,7 +387,6 @@ margin: 0 12.3rem;
                font-size: 1.5rem;
             }
             .input {
-               /* height: 65px; */
                font-size: 1.5rem;
             }
          }
@@ -405,8 +402,6 @@ margin: 0 12.3rem;
 
          input {
             font-size: 1.5rem;
-            /* padding-top: 24px; */
-            /* padding-bottom: 24px; */
 
             &::placeholder {
                font-size: 1.5rem;
@@ -424,10 +419,6 @@ margin: 0 12.3rem;
 
          .select-custom {
             font-size: 1.5rem;
-            
-            .custom-select__input-container {
-               /* height: 55px; */
-            }
          }
       }
    }
@@ -450,12 +441,10 @@ margin: 0 12.3rem;
          }
 
          .tags {
-            /* height: 65px; */ 
 
             .ingredients-item {
-               /* width: 100px; */
+
                input {
-                  /* height: 37px; */
                   width: 100px;
                   margin-right: -1rem;
                   font-size: 1.5rem;
@@ -463,12 +452,6 @@ margin: 0 12.3rem;
 
                   &::placeholder {
                      font-size: 1.5rem;
-                  }
-               }
-
-               button {
-                  svg {
-                     /* font-size: 1.6rem; */
                   }
                }
             }
@@ -487,8 +470,6 @@ margin: 0 12.3rem;
 
          input {
             font-size: 1.5rem;
-            /* padding-top: 32px; */
-            /* padding-bottom: 32px; */
 
             &::placeholder {
                font-size: 1.5rem;

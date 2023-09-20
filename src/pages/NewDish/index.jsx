@@ -16,8 +16,8 @@ import { Footer } from "../../components/Footer"
 import { BiUpload } from "react-icons/bi";
 
 import { useNavigate } from "react-router-dom"
-import { toast } from 'react-toastify';
 import { useMediaQuery } from "react-responsive"
+import { toast } from 'react-toastify';
 
 export const NewDish = () => {
    const navigate = useNavigate()
