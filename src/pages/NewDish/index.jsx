@@ -17,9 +17,11 @@ import { BiUpload } from "react-icons/bi";
 
 import { useNavigate } from "react-router-dom"
 import { toast } from 'react-toastify';
+import { useMediaQuery } from "react-responsive"
 
 export const NewDish = () => {
    const navigate = useNavigate()
+   const isDesktop = useMediaQuery({ minWidth: 1536 })
 
    const [image, setImage] = useState(null)
    const [name, setName] = useState("")
@@ -161,7 +163,44 @@ export const NewDish = () => {
             </div> 
 
            <div className="wrapper-inputs-two">
-               <div className="ingredients">
+            {isDesktop ?
+               <div className="wrapper-ingredientsAndInputLabel">
+                  <div className="ingredients">
+                     <span>Ingredientes</span>
+                     <div className="tags">
+                        {
+                           tags.map((tag, index) => (
+                              <IngredientsItem 
+                                 className="ingredients-item"
+                                 isNew={false}
+                                 key={String(index)}
+                                 value={tag}
+                                 onClick={() => handleRemoveTag(tag)}
+                              />
+                           ))
+                        }
+   
+                        <IngredientsItem 
+                           isNew={true}
+                           placeholder="Adicionar"
+                           value={newTag}
+                           onChange={e => setNewTag(e.target.value)}
+                           onClick={handleAddTag}
+                        />
+   
+                     </div>
+                  </div>
+   
+                  <InputLabel 
+                     title="Preço" 
+                     placeholder="R$00,00"
+                     onChange={handlePriceChange}
+                     value={price}
+                  />
+               </div>
+            :
+               <>
+                  <div className="ingredients">
                   <span>Ingredientes</span>
                   <div className="tags">
                      {
@@ -185,14 +224,16 @@ export const NewDish = () => {
                      />
 
                   </div>
-               </div>
+                  </div>
 
-               <InputLabel 
-                  title="Preço" 
-                  placeholder="R$00,00"
-                  onChange={handlePriceChange}
-                  value={price}
-               />
+                  <InputLabel 
+                     title="Preço" 
+                     placeholder="R$00,00"
+                     onChange={handlePriceChange}
+                     value={price}
+                  />
+               </>
+            }
 
                <Textarea
                   placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"

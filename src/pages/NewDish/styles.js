@@ -70,7 +70,17 @@ grid-template-rows: 70px 100px 1fr 40px;
    }
 }
 
+@media(min-width: 1024px) {
+grid-template-rows: 85px 105px 1fr 50px;
+
+   .header-admin {
+      padding: 2.4rem 12.3rem 2.4rem;
+   }
+}
+
 @media(min-width: 1280px) {
+grid-template-rows: 70px 100px 1fr 60px;
+
    .header-admin {
       padding: 4.6rem 10rem 2.4rem;
    }
@@ -80,8 +90,9 @@ grid-template-rows: 70px 100px 1fr 40px;
    }
 }
 
+
 @media(min-width: 1536px) {
-grid-template-rows: 100px 105px 1fr 40px;
+grid-template-rows: 100px 105px 1fr 65px;
 
    .header-admin {
       padding: 2.4rem 12.3rem 2.4rem;
@@ -118,7 +129,7 @@ gap: 1.5rem;
    .wrapper-inputs-one {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 2rem;
 
       label {
          font-size: 1rem;
@@ -171,19 +182,25 @@ gap: 1.5rem;
    .wrapper-inputs-two {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 2.5rem;
       margin-top: -1rem;
 
-      .ingredients .tags {
-         display: flex;
-         align-items: center;
-         justify-content: flex-start;
-         flex-wrap: wrap;
-         background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
-         border-radius: 5px;
-         padding: .5rem 7px;
-         gap: 1rem;
+      .ingredients {
+         margin-bottom: -1rem;
+         margin-top:1rem;
+
+         .tags {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            background-color: ${({ theme }) => theme.COLORS.INPUT_BACKGROUND_2};
+            border-radius: 5px;
+            padding: .5rem 7px;
+            gap: 1rem;
+         }
       }
+
 
       .input-label {
          margin-bottom: 2rem;
@@ -272,7 +289,7 @@ margin: 0 6rem;
             font-size: 1.3rem;
             
             .custom-select__input-container {
-               height: 45px;
+               height: 42px;
             }
          }
       }
@@ -290,6 +307,7 @@ margin: 0 6rem;
             .ingredients-item {
                input {
                   height: 32px;
+
                   &::placeholder {
                      font-size: 1.1rem;
                   }
@@ -371,7 +389,7 @@ margin: 0 12.3rem;
                /* font-size: 1.3rem; */
             }
             .input {
-               /* height: 55px; */
+               /* height: 65px; */
                /* font-size: 1.3rem; */
             }
          }
@@ -387,8 +405,8 @@ margin: 0 12.3rem;
 
          input {
             /* font-size: 1.3rem; */
-            padding-top: 19.5px;
-            padding-bottom: 19.5px;
+            /* padding-top: 24px; */
+            /* padding-bottom: 24px; */
 
             &::placeholder {
                /* font-size: 1.3rem; */
@@ -399,11 +417,100 @@ margin: 0 12.3rem;
       .custom-select {
          flex: 1;
          margin-top: 7px;
+
+         .select-custom {
+            /* font-size: 1.3rem; */
+            
+            .custom-select__input-container {
+               /* height: 55px; */
+            }
+         }
       }
    }
 
    .wrapper-inputs-two {
       margin-top: 0;
+      position: relative;
+
+      .wrapper-ingredientsAndInputLabel {
+         display: flex;
+         gap: 3rem;
+      }
+
+      .ingredients {
+         width: 100%;
+         flex: 4;
+
+         span {
+            /* font-size: 1.3rem; */
+         }
+
+         .tags {
+            /* height: 65px; */
+
+            .ingredients-item {
+               input {
+                  /* height: 37px; */
+
+                  &::placeholder {
+                     /* font-size: 1.1rem; */
+                  }
+               }
+
+               button {
+                  svg {
+                     /* font-size: 1.6rem; */
+                  }
+               }
+            }
+         }
+      }
+
+      .input-label {
+         width: 100%;
+         flex: 1;
+         margin-top: 13px;
+         gap: 1.4rem;
+
+         label {
+            /* font-size: 1.3rem; */
+         }
+
+         input {
+            /* font-size: 1.3rem; */
+            /* padding-top: 32px; */
+            /* padding-bottom: 32px; */
+
+            &::placeholder {
+               /* font-size: 1.3rem; */
+            }
+         }
+      }
+
+      .textarea {
+         margin-top: 2.5rem;
+
+         label {
+            /* font-size: 1.3rem; */
+         }
+
+         textarea {
+            height: 200px;
+
+            &::placeholder {
+               /* font-size: 1.3rem; */
+            }
+         }
+      }
+
+      button.btn-form {
+         font-size: 1.5rem;
+         width: 15%;
+         height: 50px;
+         position: absolute;
+         right: 0;
+         bottom: -155px;
+      }
    }
 }
 `
