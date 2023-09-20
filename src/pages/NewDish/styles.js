@@ -386,11 +386,11 @@ margin: 0 12.3rem;
 
          label {
             span {
-               /* font-size: 1.3rem; */
+               font-size: 1.5rem;
             }
             .input {
                /* height: 65px; */
-               /* font-size: 1.3rem; */
+               font-size: 1.5rem;
             }
          }
       }
@@ -400,26 +400,30 @@ margin: 0 12.3rem;
          margin-top: 9px;
 
          label {
-            /* font-size: 1.3rem; */
+            font-size: 1.5rem;
          }
 
          input {
-            /* font-size: 1.3rem; */
+            font-size: 1.5rem;
             /* padding-top: 24px; */
             /* padding-bottom: 24px; */
 
             &::placeholder {
-               /* font-size: 1.3rem; */
+               font-size: 1.5rem;
             }
          }
       }
 
       .custom-select {
+         label {
+            font-size: 1.5rem;
+         }
+
          flex: 1;
          margin-top: 7px;
 
          .select-custom {
-            /* font-size: 1.3rem; */
+            font-size: 1.5rem;
             
             .custom-select__input-container {
                /* height: 55px; */
@@ -442,18 +446,23 @@ margin: 0 12.3rem;
          flex: 4;
 
          span {
-            /* font-size: 1.3rem; */
+            font-size: 1.5rem;
          }
 
          .tags {
-            /* height: 65px; */
+            /* height: 65px; */ 
 
             .ingredients-item {
+               /* width: 100px; */
                input {
                   /* height: 37px; */
+                  width: 100px;
+                  margin-right: -1rem;
+                  font-size: 1.5rem;
+
 
                   &::placeholder {
-                     /* font-size: 1.1rem; */
+                     font-size: 1.5rem;
                   }
                }
 
@@ -473,16 +482,16 @@ margin: 0 12.3rem;
          gap: 1.4rem;
 
          label {
-            /* font-size: 1.3rem; */
+            font-size: 1.5rem;
          }
 
          input {
-            /* font-size: 1.3rem; */
+            font-size: 1.5rem;
             /* padding-top: 32px; */
             /* padding-bottom: 32px; */
 
             &::placeholder {
-               /* font-size: 1.3rem; */
+               font-size: 1.5rem;
             }
          }
       }
@@ -491,14 +500,15 @@ margin: 0 12.3rem;
          margin-top: 2.5rem;
 
          label {
-            /* font-size: 1.3rem; */
+            font-size: 1.5rem;
          }
 
          textarea {
             height: 200px;
+            font-size: 1.5rem;
 
             &::placeholder {
-               /* font-size: 1.3rem; */
+               font-size: 1.5rem;
             }
          }
       }
