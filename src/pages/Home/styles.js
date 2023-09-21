@@ -238,4 +238,46 @@ grid-template-rows: 100px auto 900px 55px;
     padding: 0 11.8rem;
   }
 }
+
+@media(min-width: 1536px) {
+  .meals {
+    .section {
+      h2 {
+        font-size: 2.5rem;
+      }
+    }
+    .meal-wrapper {
+      padding: 0;
+
+      .meal {
+        width: 250px;
+
+        img.dish-img {
+          width: 150px;
+          height: 150px;
+          margin-top: 4rem;
+        }
+
+        div {
+          margin-bottom: 2rem;
+
+          h3.meal-name {
+            font-size: 2rem;
+          }
+          
+          p.description {
+            font-size: 1.3rem;
+            padding: 0 1rem;
+          }
+        }
+
+        .price-amount-and-incluir {
+          span.price-span {
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+}
 `

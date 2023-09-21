@@ -16,7 +16,7 @@ import { useMediaQuery } from "react-responsive"
 
 export const Meal = ({ data, ...rest }) => {
    const navigate = useNavigate()
-   const isMobile = useMediaQuery({ maxWidth: 1280 })
+   const isMobile = useMediaQuery({ maxWidth: 1536 })
 
    const { user } = useAuth()
    const [amount, setAmount] = useState(1)
@@ -56,25 +56,30 @@ export const Meal = ({ data, ...rest }) => {
    }
 
    return (
-      <Container {...rest}>
+      <Container {...rest} className="meal">
          <img 
             src={`${api.defaults.baseURL}/files/${data.image}`} 
             alt={`Foto de um(a) ${(data.name).toLowerCase()}`} 
             className="dish-img"
          />
          <div>
-            <h3 onClick={() => handleDetails(data.id)}>{`${data.name} >`}</h3>
+            <h3
+               className="meal-name"
+               onClick={() => handleDetails(data.id)}>{`${data.name} >`}
+            </h3>
             {isMobile ?
                ""
             :
-               <p>{data.description}</p>
+               <p className="description">
+                  {data.description}
+               </p>
             }
          </div>
 
          <div className='price-amount-and-incluir'>
             {
             user.isAdmin ?
-               <span className="price-span">{`R$${price.toFixed(2).replace(/\./g, ',')}`}</span>
+               <span className="price-span">{`R$ ${price.toFixed(2).replace(/\./g, ',')}`}</span>
             :
                <div>
                   <span className="price-span">{`R$ ${(price.toFixed(2)).replace(/\./g, ',')}`}</span>

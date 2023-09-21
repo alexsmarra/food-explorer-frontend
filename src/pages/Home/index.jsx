@@ -23,7 +23,7 @@ import { useNavigate } from "react-router-dom"
 export function Home() {
    const { user } = useAuth()
    const navigate = useNavigate()
-   const isMobile = useMediaQuery({ maxWidth: 1279 })
+   const isMobile = useMediaQuery({ maxWidth: 1536 })
 
    const scrollMealList = useRef(null)
    const scrollDessertList = useRef(null);
