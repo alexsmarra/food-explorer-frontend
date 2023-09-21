@@ -160,121 +160,126 @@ export const EditDish = () => {
    }, [])
 
    return (
-   <Container>
-      <HeaderAdmin />
+      <Container>
+         <HeaderAdmin />
 
-      <ButtonReturn 
-         title="Editar prato" 
-         onClick={handleNavigate}   
-      />
+         <ButtonReturn 
+            title="Editar prato" 
+            onClick={handleNavigate}   
+         />
 
-      <Form>
-         <div className="wrapper-inputs-one">
-               <div className="wrapper-img-input">
-                  <label htmlFor="img-input">
-                     <span>Imagem do prato</span>
-                     <Input 
-                        id="img-input" 
-                        type="file" 
-                        icon={BiUpload}
-                        text="Selecione imagem para alterá-la"
-                        onChange={e => setImage(e.target.files[0])}
-                     />
-                  </label>
-               </div>
+         <Form>
+            <div className="wrapper-inputs-one">
+                  <div className="wrapper-img-input">
+                     <label htmlFor="img-input">
+                        <span>Imagem do prato</span>
+                        <Input 
+                           id="img-input" 
+                           type="file" 
+                           icon={BiUpload}
+                           text="Selecione imagem para alterá-la"
+                           onChange={e => setImage(e.target.files[0])}
+                        />
+                     </label>
+                  </div>
 
-               <InputLabel 
-                  title="Nome" 
-                  className="input-value"
-                  placeholder={dish.name}
-                  onChange={e => setName(e.target.value)}
-               />
+                  <InputLabel 
+                     title="Nome" 
+                     className="input-value"
+                     placeholder={dish.name}
+                     onChange={e => setName(e.target.value)}
+                  />
 
-               <CustomSelect 
-                  onChange={handleCategoryChange}
-                  categoryParams={categoryParams}
-               />
-         </div> 
+                  <CustomSelect 
+                     onChange={handleCategoryChange}
+                     categoryParams={categoryParams}
+                  />
+            </div> 
 
-         <div className="wrapper-inputs-two">
-            {isDesktop ?
-               <div className="wrapper-ingredientsAndInputLabel">
-                  <div className="ingredients">
-                     <span>Ingredientes</span>
-                     <div className="tags">
-                        {ingredientList.map((ingredient, index) => (
+            <div className="wrapper-inputs-two">
+               {isDesktop ?
+                  <div className="wrapper-ingredientsAndInputLabel">
+                     <div className="ingredients">
+                        <span>Ingredientes</span>
+                        <div className="tags">
+                           {ingredientList.map((ingredient, index) => (
+                              <IngredientsItem 
+                                 isNew={false}
+                                 key={String(index)}
+                                 value={ingredient}
+                                 onClick={() => handleRemoveIngredient(ingredient)}
+                              />
+                           ))}
+                           {
+                              tags.map((tag, index) => (
+                                 <IngredientsItem 
+                                    isNew={false}
+                                    key={String(index)}
+                                    value={tag}
+                                    onClick={() => handleRemoveTag(tag)}
+                                 />
+                              ))
+                           }
+
                            <IngredientsItem 
-                              isNew={false}
-                              key={String(index)}
-                              value={ingredient}
-                              onClick={() => handleRemoveIngredient(ingredient)}
+                              isNew={true}
+                              placeholder="Adicionar"
+                              value={newTag}
+                              onChange={e => setNewTag(e.target.value)}
+                              onClick={handleAddTag}
                            />
-                        ))}
-                        {
-                           tags.map((tag, index) => (
+                        </div>
+                     </div>
+
+                     <InputLabel 
+                        title="Preço" 
+                        placeholder={dish.price}
+                        onChange={handlePriceChange}
+                        value={price}
+                     />
+                  </div>
+               :
+                  <>
+                     <div className="ingredients">
+                        <span>Ingredientes</span>
+                        <div className="tags">
+                           {ingredientList.map((ingredient, index) => (
                               <IngredientsItem 
                                  isNew={false}
                                  key={String(index)}
-                                 value={tag}
-                                 onClick={() => handleRemoveTag(tag)}
+                                 value={ingredient}
+                                 onClick={() => handleRemoveIngredient(ingredient)}
                               />
-                           ))
-                        }
+                           ))}
+                           {
+                              tags.map((tag, index) => (
+                                 <IngredientsItem 
+                                    isNew={false}
+                                    key={String(index)}
+                                    value={tag}
+                                    onClick={() => handleRemoveTag(tag)}
+                                 />
+                              ))
+                           }
 
-                        <IngredientsItem 
-                           isNew={true}
-                           placeholder="Adicionar"
-                           value={newTag}
-                           onChange={e => setNewTag(e.target.value)}
-                           onClick={handleAddTag}
-                        />
-
+                           <IngredientsItem 
+                              isNew={true}
+                              placeholder="Adicionar"
+                              value={newTag}
+                              onChange={e => setNewTag(e.target.value)}
+                              onClick={handleAddTag}
+                           />
+                        </div>
                      </div>
-                  </div>
 
-                  <InputLabel 
-                     title="Preço" 
-                     placeholder={dish.price}
-                     onChange={handlePriceChange}
-                     value={price}
-                  />
-               </div>
-            :
-               <>
-                  <div className="ingredients">
-                     <span>Ingredientes</span>
-                     <div className="tags">
-                        {
-                           tags.map((tag, index) => (
-                              <IngredientsItem 
-                                 className="ingredients-item"
-                                 isNew={false}
-                                 key={String(index)}
-                                 value={tag}
-                                 onClick={() => handleRemoveTag(tag)}
-                              />
-                           ))
-                        }
-
-                        <IngredientsItem 
-                           isNew={true}
-                           placeholder="Adicionar"
-                           value={newTag}
-                           onChange={e => setNewTag(e.target.value)}
-                           onClick={handleAddTag}
-                        />
-
-                     </div>
-                  </div>
-
-                  <InputLabel 
-                     title="Preço" 
-                     placeholder="R$00,00"
-                     onChange={handlePriceChange}
-                     value={price}
-                  />
-               </>
-            }     
+                     <InputLabel 
+                        title="Preço" 
+                        placeholder="R$00,00"
+                        onChange={handlePriceChange}
+                        value={price}
+                     />
+                  </>
+               }     
 
                <Textarea
                   placeholder={dish.description}
@@ -287,7 +292,7 @@ export const EditDish = () => {
                      className="btn-form-excluir"
                      title="Excluir prato"   
                      onClick={handleDeleteDish}   
-             
+               
                   />
                   <Button
                      className="btn-form-save" 
@@ -295,10 +300,10 @@ export const EditDish = () => {
                      onClick={handleEditDish}
                   />
                </div>
-         </div>
-      </Form>
+            </div>
+         </Form>
 
-      <Footer />
-   </Container>
+         <Footer />
+      </Container>
    )
 }

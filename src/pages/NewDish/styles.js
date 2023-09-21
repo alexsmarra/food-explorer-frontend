@@ -34,6 +34,7 @@ grid-template-rows: 70px 100px 1fr 40px;
       padding-left: 2.5rem;
    }
 }
+
 @media(min-width: 414px) {
    .header-admin {
       padding: 4.6rem 3rem 2.4rem;
@@ -79,10 +80,10 @@ grid-template-rows: 85px 105px 1fr 50px;
 }
 
 @media(min-width: 1280px) {
-grid-template-rows: 70px 100px 1fr 60px;
+grid-template-rows: 90px 105px 1fr 60px;
 
    .header-admin {
-      padding: 4.6rem 10rem 2.4rem;
+      padding: 4.6rem 10rem 4.6rem;
    }
 
    .button-return {
@@ -273,6 +274,8 @@ margin: 0 6rem;
 
          input {
             height: 75px;
+            font-size: 1.3rem;
+
             &::placeholder {
                font-size: 1.3rem;
             }
@@ -301,7 +304,7 @@ margin: 0 6rem;
          }
 
          .tags {
-            height: 55px;
+            padding: .9rem;
 
             .ingredients-item {
                input {
@@ -344,6 +347,8 @@ margin: 0 6rem;
          }
 
          textarea {
+            font-size: 1.3rem;
+
             &::placeholder {
                font-size: 1.3rem;
             }
@@ -364,7 +369,7 @@ margin: 0 30rem;
 
    .wrapper-inputs-two {
       button.btn-form {
-         font-size: 1.3rem;
+         font-size: 1.5rem;
          height: 55px;
          margin-top: 1.5rem;
          margin-bottom: 7rem;
@@ -394,7 +399,7 @@ margin: 0 12.3rem;
 
       .input-label {
          flex: 1;
-         margin-top: 9px;
+         margin-top: 5.5px;
 
          label {
             font-size: 1.5rem;
@@ -415,10 +420,14 @@ margin: 0 12.3rem;
          }
 
          flex: 1;
-         margin-top: 7px;
+         margin-top: 4px;
 
          .select-custom {
             font-size: 1.5rem;
+
+            .custom-select__input-container {
+               height: 46px;
+            }
          }
       }
    }
@@ -441,9 +450,7 @@ margin: 0 12.3rem;
          }
 
          .tags {
-
             .ingredients-item {
-
                input {
                   width: 100px;
                   margin-right: -1rem;
@@ -485,7 +492,7 @@ margin: 0 12.3rem;
          }
 
          textarea {
-            height: 200px;
+            height: 175px;
             font-size: 1.5rem;
 
             &::placeholder {
