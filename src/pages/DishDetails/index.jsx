@@ -20,7 +20,7 @@ export const DishDetails = () => {
    const params = useParams()
    const navigate = useNavigate()
    const { user } = useAuth()
-   const isMobile = useMediaQuery({ maxWidth: 1023 })
+   const isMobile = useMediaQuery({ maxWidth: 1536 })
 
    let priceLocalStorage = localStorage.getItem("@foodexplorer:endPrice")
    priceLocalStorage = JSON.parse(priceLocalStorage)

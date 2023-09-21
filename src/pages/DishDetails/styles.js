@@ -17,10 +17,10 @@ export const Content = styled.div`
    main {
       display: flex;
       flex-direction: column;
-      margin: 0 2rem 3rem;
+      margin: 0 auto;
+      /* padding: 0 1rem; */
       justify-content:center;
       align-items: center;
-
 
       .wrapper-details-one {
          position: relative;
@@ -29,20 +29,20 @@ export const Content = styled.div`
          .button-return {
             height: auto;
             position: absolute;
-            left: -20px;
+            left: 0px;
 
             img {
-               width: 2rem;
-               height: 2rem; 
+               width: 2.5rem;
+               height: 2.5rem; 
             }
             span {
-               font-size: 1.5rem;
+               font-size: 2rem;
             }
          }
 
          img.dish-image {
-            width: 17rem;
-            height: 17rem;
+            width: 20rem;
+            height: 20rem;
             margin-top: 35px;
          }
       }
@@ -74,9 +74,9 @@ export const Content = styled.div`
          .ingredients {
             display: flex;
             justify-content: center;
-            max-width: 20rem;
+            /* max-width: 20rem; */
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2rem;
             margin-bottom: 4rem;
          }
 
@@ -87,22 +87,29 @@ export const Content = styled.div`
          .wrapper-amount-and-price {
             display: flex;
             width: 100%;
-            gap: 1rem;
+            gap: 2rem;
+            padding: 0 1rem;
             
             div.amount {
                width: 100%;
                display: flex;
                flex: 1;
                align-items: center;
+               justify-content: center;
                text-align: center;
                gap: 1.5rem;
+               /* background: orange; */
 
                .minus {
-                  font-size: 3rem;
+                  font-size: 4rem;
+               }
+
+               span{
+                  font-size: 2rem;
                }
 
                .plus {
-                  font-size: 3rem;
+                  font-size: 4rem;
                }
             }
             
@@ -110,17 +117,18 @@ export const Content = styled.div`
                background: ${({ theme }) => theme.COLORS.BUTTON_COLOR};
                cursor: pointer;
                display: flex;
-               flex: 2;
+               flex: 1;
                align-items: center;
                justify-content: center;
                gap: .6rem;
-               font-size: .8rem;
-               width: 100%;
+               font-size: 1.2rem;
+               /* width: 200px; */
+               padding: 8px;
 
                .btn-img {
                   img {
-                     width: 1.5rem;
-                     height: 1.5rem;
+                     width: 2rem;
+                     height: 2rem;
                      margin-top: .5rem;
                   }
                   .circle-number {

@@ -10,7 +10,7 @@ import { useMediaQuery } from "react-responsive"
 
 export const ButtonImg = ({title, ...rest}) => {
    const navigate = useNavigate()
-   const isMobile = useMediaQuery({ maxWidth: 1023})
+   const isMobile = useMediaQuery({ maxWidth: 1536})
    
    const { user } = useAuth()
 
