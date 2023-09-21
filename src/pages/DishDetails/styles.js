@@ -9,6 +9,10 @@ export const Container = styled.div`
    "header"
    "content"
    "footer";
+
+@media(min-width: 768px) {
+   grid-template-rows: 100px auto 55px;
+}   
 `
 
 export const Content = styled.div`
@@ -140,4 +144,57 @@ export const Content = styled.div`
          }   
       }        
    }
+
+@media(min-width: 360px) {
+   main {
+      margin: 0 3rem;
+
+      .wrapper-details-one {
+         .button-return {
+            left: -40px;
+         }
+      }
+
+      .wrapper-amount-and-price {
+         padding: 0;
+      }
+   }
+}
+
+@media(min-width: 540px) {
+   main {
+      margin: 0 10rem;
+   }
+}
+
+@media(min-width: 768px) {
+   main {
+      margin-top: 4rem;
+
+      .wrapper-details-one {
+         position: relative;
+         padding-top: 3rem;
+
+         /* .button-return {
+            height: auto;
+            position: absolute;
+            left: 0px;
+
+            img {
+               width: 2.5rem;
+               height: 2.5rem; 
+            }
+            span {
+               font-size: 2rem;
+            }
+         } */
+
+         img.dish-image {
+            width: 27rem;
+            height: 27rem;
+            margin-top: 35px;
+         }
+      }
+   }
+}
 `
