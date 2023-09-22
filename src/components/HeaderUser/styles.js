@@ -21,6 +21,8 @@ export const Container = styled.header`
       margin-bottom: .5rem;
    }
 
+
+
 @media(min-width: 360px) {
    justify-content: space-between;
    padding: 4.6rem 2rem 2.4rem;
@@ -55,6 +57,12 @@ export const Container = styled.header`
 
 @media(min-width: 1400px) {
    padding: 4.6rem 11.8rem 4.6rem;
+}
+
+@media(min-width: 1536px) {
+   .pedidos-button {
+      border-radius: 5px;
+   }
 }
 
 `

@@ -11,6 +11,7 @@ export const Container = styled.div`
       display: inline-block;
       align-items: center;
 
+
       img {
          width: 2.1rem;
          height: 2.1rem;
@@ -32,8 +33,6 @@ export const Container = styled.div`
       font-size: 12px;
       font-weight: bold;  
    }
-
-   
    
 @media(min-width: 768px) {
 
