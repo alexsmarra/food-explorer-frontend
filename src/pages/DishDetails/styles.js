@@ -125,7 +125,7 @@ export const Content = styled.div`
                align-items: center;
                justify-content: center;
                gap: .6rem;
-               font-size: 1.2rem;
+               font-size: 1.1rem;
                /* width: 200px; */
                padding: 8px;
 
@@ -147,7 +147,7 @@ export const Content = styled.div`
 
 @media(min-width: 360px) {
    main {
-      margin: 0 3rem;
+      margin: 0 4rem;
 
       .wrapper-details-one {
          .button-return {
@@ -155,15 +155,21 @@ export const Content = styled.div`
          }
       }
 
-      .wrapper-amount-and-price {
-         padding: 0;
+      .wrapper-details-two {
+         .wrapper-amount-and-price {
+            padding: 0;
+   
+            span.price {
+               font-size: 1.2rem;
+            }
+         }
       }
    }
 }
 
 @media(min-width: 540px) {
    main {
-      margin: 0 10rem;
+      margin: 0 12rem;
 
       .wrapper-details-two {
          .wrapper-amount-and-price {
@@ -178,7 +184,7 @@ export const Content = styled.div`
 
 @media(min-width: 768px) {
    main {
-      margin: 0 15rem;
+      margin: 0 20rem;
       margin-top: 4rem;
 
       .wrapper-details-one {
@@ -194,9 +200,15 @@ export const Content = styled.div`
    }
 }
 
+@media(min-width: 936px) {
+   main {
+      margin: 0 23rem;
+   }
+}
+
 @media(min-width: 1024px) {
    main {
-      margin: 0 30rem;
+      margin: 0 34rem;
 
       .wrapper-amount-and-price {
          margin-bottom: 8rem;
@@ -206,9 +218,16 @@ export const Content = styled.div`
 
 @media(min-width: 1280px) {
    main {
-      margin: 0 40rem;
+      margin: 0 43rem;
    }
 }
+
+@media(min-width: 1395px) {
+   main {
+      margin: 0 46rem;
+   }
+}
+
 
 @media(min-width: 1536px) {
    main {
