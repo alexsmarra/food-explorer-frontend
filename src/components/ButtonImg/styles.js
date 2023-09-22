@@ -10,8 +10,7 @@ export const Container = styled.div`
       position: relative;
       display: inline-block;
       align-items: center;
-
-
+      
       img {
          width: 2.1rem;
          height: 2.1rem;
@@ -66,6 +65,11 @@ export const Container = styled.div`
       background-color: ${({ theme }) => theme.COLORS.BUTTON_COLOR}; 
       padding: 12px 40px;
       gap: 1rem;
+      transition: .3s;
+   }
+
+   div.pedidos-button:hover {
+      filter: brightness(.85);
    }
 
    button.pedidos-number {

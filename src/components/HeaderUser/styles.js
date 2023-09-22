@@ -62,6 +62,8 @@ export const Container = styled.header`
 @media(min-width: 1536px) {
    .pedidos-button {
       border-radius: 5px;
+      cursor: pointer;
+      filter: brightness(.9);
    }
 }
 

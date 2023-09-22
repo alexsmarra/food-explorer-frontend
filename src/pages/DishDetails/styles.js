@@ -213,10 +213,13 @@ export const Content = styled.div`
 @media(min-width: 1536px) {
    main {
       flex-direction: row;
-      margin: 0;
-      gap: 10rem;
+      margin: 0 25rem;
+      gap: 7rem;
 
       .wrapper-details-one {
+         /* background: orange; */
+         margin-top: 5rem;
+
          .button-return {
             left: 6px;
 
@@ -233,19 +236,24 @@ export const Content = styled.div`
          img.dish-image {
             width: 40rem;
             height: 40rem;
-            margin-top: 7rem;
+            margin-top: 5rem;
          }
       }
 
       .wrapper-details-two {
+         margin-top: 15rem;
+
          p:nth-child(1) {
             text-align: left;
             width: 100%;
+            font-size: 4rem;
          }
 
          p:nth-child(2) { 
             text-align: left;
             width: 100%;
+            font-size: 2.4rem;
+            margin-bottom: 2rem;
          }
 
          .ingredients {
@@ -269,19 +277,18 @@ export const Content = styled.div`
                gap: 1.5rem; */
                /* background: orange; */
                justify-content: left;
-               background: green;
                flex: 0.2;
 
                .minus {
-                  /* font-size: 4rem; */
+                  font-size: 4.2rem;
                }
 
                span{
-                  /* font-size: 2rem; */
+                  font-size: 2.2rem;
                }
 
                .plus {
-                  /* font-size: 4rem; */
+                  font-size: 4.2rem;
                }
             }
             
@@ -301,6 +308,8 @@ export const Content = styled.div`
                /* width: 10px; */
                padding: 1.5rem 0rem;
                border-radius: 5px;
+               font-size: 1.6rem;
+               transition: .3s;
 
                .btn-img {
                   img {
@@ -313,6 +322,10 @@ export const Content = styled.div`
                      visibility: none; */
                   }
                }
+            }
+
+            span.price:hover {
+               filter: brightness(.9);
             }
          }
       }
