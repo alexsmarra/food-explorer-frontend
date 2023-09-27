@@ -72,7 +72,8 @@ export const Content = styled.div`
          p:nth-child(2) { 
             font-weight: 400;
             font-size: 1.4rem;
-            margin-bottom: 1.5em;
+            margin-bottom: 1.5rem;
+            margin: 0 1rem;
          }
 
          .ingredients {
@@ -82,6 +83,7 @@ export const Content = styled.div`
             flex-wrap: wrap;
             gap: 2rem;
             margin-bottom: 4rem;
+            margin-top: 1.5rem;
          }
 
          .btn-edit-dish {
@@ -92,28 +94,29 @@ export const Content = styled.div`
             display: flex;
             width: 100%;
             gap: 2rem;
-            padding: 0 1rem;
+            /* padding: 0 1rem; */
+            justify-content: center;
             
             div.amount {
                width: 100%;
                display: flex;
-               flex: 1;
+               /* flex: 1; */
                align-items: center;
                justify-content: center;
                text-align: center;
                gap: 1.5rem;
-               /* background: orange; */
+               width: 11rem;
 
                .minus {
-                  font-size: 4rem;
+                  font-size: 3rem;
                }
 
                span{
-                  font-size: 2rem;
+                  font-size: 1.5rem;
                }
 
                .plus {
-                  font-size: 4rem;
+                  font-size: 3rem;
                }
             }
             
@@ -121,18 +124,21 @@ export const Content = styled.div`
                background: ${({ theme }) => theme.COLORS.BUTTON_COLOR};
                cursor: pointer;
                display: flex;
-               flex: 1;
+               /* flex: 1; */
                align-items: center;
                justify-content: center;
                gap: .6rem;
                font-size: 1.1rem;
                /* width: 200px; */
                padding: 8px;
+               /* margin: 0 1rem; */
+               width: 13rem;
+               border-radius: 5px;
 
                .btn-img {
                   img {
-                     width: 2rem;
-                     height: 2rem;
+                     width: 1.5rem;
+                     height: 1.5rem;
                      margin-top: .5rem;
                   }
                   .circle-number {
@@ -160,7 +166,7 @@ export const Content = styled.div`
             padding: 0;
    
             span.price {
-               font-size: 1.2rem;
+               /* font-size: 1rem; */
             }
          }
       }
@@ -174,8 +180,8 @@ export const Content = styled.div`
       .wrapper-details-two {
          .wrapper-amount-and-price {
             span.price {
-               gap: .8rem;
-               font-size: 1.4rem;
+               /* gap: .8rem; */
+               /* font-size: 1.1rem; */
             }
          }   
       } 
@@ -272,7 +278,7 @@ export const Content = styled.div`
             text-align: left;
             width: 100%;
             font-size: 2.4rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
          }
 
          .ingredients {
@@ -285,6 +291,7 @@ export const Content = styled.div`
             width: 100%;
             gap: 2rem;
             padding: 0 1rem; */
+            justify-content: left;
             
             div.amount {
                /* width: 100%;
@@ -295,8 +302,11 @@ export const Content = styled.div`
                text-align: center;
                gap: 1.5rem; */
                /* background: orange; */
-               justify-content: left;
-               flex: 0.2;
+               /* justify-content: left; */
+               /* background: orange; */
+               width: 13rem;
+
+               /* flex: 0.2; */
 
                .minus {
                   font-size: 4.2rem;
@@ -323,10 +333,11 @@ export const Content = styled.div`
                /* width: 200px; */
                /* padding: 8px; */
                /* background: orange; */
-               flex: 0.3;
-               /* width: 10px; */
+               width: 16rem;
+
+               /* flex: 0.3; */
                padding: 1.5rem 0rem;
-               border-radius: 5px;
+               /* max-width: 150px; */
                font-size: 1.6rem;
                transition: .3s;
 
