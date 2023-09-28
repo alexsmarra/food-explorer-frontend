@@ -35,6 +35,7 @@ width: 190px;
          color: ${({ theme }) => theme.COLORS.LIGHT_BLUE};
          font-size: 1.2rem;
       }
+      
       .amount {
          display: flex;
          align-items: center;

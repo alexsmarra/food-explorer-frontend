@@ -83,11 +83,11 @@ export const Content = styled.div`
             flex-wrap: wrap;
             gap: 2rem;
             margin-bottom: 4rem;
-            margin-top: 1.5rem;
+            margin-top: 2.5rem;
          }
 
          .btn-edit-dish {
-            width: 100%;
+            width: 11rem;
          }
 
          .wrapper-amount-and-price {
@@ -216,6 +216,10 @@ export const Content = styled.div`
    main {
       margin: 0 34rem;
 
+      .btn-edit-dish {
+         margin-bottom: 8rem;
+      }
+
       .wrapper-amount-and-price {
          margin-bottom: 8rem;
       }
@@ -267,11 +271,15 @@ export const Content = styled.div`
 
       .wrapper-details-two {
          margin-top: 15rem;
+         display: flex;
+         align-items: flex-start;
 
          p:nth-child(1) {
             text-align: left;
             width: 100%;
             font-size: 4rem;
+            margin-left: -.5rem;
+
          }
 
          p:nth-child(2) { 
@@ -279,11 +287,16 @@ export const Content = styled.div`
             width: 100%;
             font-size: 2.4rem;
             margin-bottom: 1rem;
+            margin: 0;
          }
 
          .ingredients {
             width: 100%;
             justify-content: left;
+         }
+
+         .btn-edit-dish {
+            height: 4rem;
          }
 
          .wrapper-amount-and-price {

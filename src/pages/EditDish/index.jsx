@@ -131,10 +131,14 @@ export const EditDish = () => {
    async function handleDeleteDish() {
       const confirm = window.confirm("Quer realmente deletar esse prato?")
 
-      if(confirm) await api.delete(`/dishes/${params.id}`)
+      if(confirm) {
+         await api.delete(`/dishes/${params.id}`)
+         navigate(-1)
+         toast.success(`Prato ${dish.name} excluído com sucesso!`, {autoClose: 2000})
+      } else {
+         ""
+      }
 
-      navigate(-1)
-      toast.success(`Prato ${dish.name} excluído com sucesso!`, {autoClose: 2000})
 
    }
 
