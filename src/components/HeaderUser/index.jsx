@@ -32,6 +32,7 @@ const HeaderUser = ({ setSearch }) => {
    
    async function handleSignOut() {
       signOut()
+      navigate("/")
    }
 
    return (
