@@ -32,6 +32,7 @@ const HeaderAdmin = ({ setSearch }) => {
 
    async function handleSignOut() {
       signOut()
+      navigate("/")
    }
 
    return (
