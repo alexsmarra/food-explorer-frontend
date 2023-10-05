@@ -12,6 +12,7 @@ padding: 0 1.5rem;
       display: flex;
       align-items: center;
       gap: .5rem;
+      user-select: none;
 
       >img {
          width: 1.5rem;
@@ -25,6 +26,7 @@ padding: 0 1.5rem;
 
    >span {
       font-size: .8rem;
+      user-select: none;
    }
 
 @media(min-width: 360px) {

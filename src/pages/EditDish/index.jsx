@@ -119,6 +119,7 @@ export const EditDish = () => {
             toast.success("Prato atualizado com sucesso!", {
                autoClose: 2000
             })
+            navigate("/")
       } catch( error) {
          if(error.response) {
             toast.error(error.response.data.message, {autoClose: 2000})
@@ -133,8 +134,8 @@ export const EditDish = () => {
 
       if(confirm) {
          await api.delete(`/dishes/${params.id}`)
-         navigate(-1)
          toast.success(`Prato ${dish.name} excluído com sucesso!`, {autoClose: 2000})
+         navigate("/")
       } else {
          ""
       }

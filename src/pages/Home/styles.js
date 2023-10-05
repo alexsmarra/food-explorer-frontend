@@ -95,7 +95,7 @@ export const Container = styled.div`
 }
 
 @media(min-width: 768px) {
-grid-template-rows: 100px auto 900px 55px;
+grid-template-rows: 100px auto 1100px 55px;
 
   .banner {
     margin-top: 7rem;
@@ -159,11 +159,13 @@ grid-template-rows: 100px auto 900px 55px;
 }
 
 @media(min-width: 820px) {
-  grid-template-rows: 110px auto 950px 58px;
+  grid-template-rows: 110px auto 1100px 58px;
 }
 
 
 @media(min-width: 1024px) {
+  grid-template-rows: 110px auto 1150px 58px;
+
   .meals {
     .section {
       margin: 3rem 12rem;
@@ -240,6 +242,8 @@ grid-template-rows: 100px auto 900px 55px;
 }
 
 @media(min-width: 1536px) {
+  grid-template-rows: 110px auto 1550px 58px;
+
   .meals {
     .section {
       h2 {

@@ -15,6 +15,7 @@ width: 190px;
       height: 6.6rem;
       border-radius: 50%;
       object-fit: cover;
+      user-select: none;
    } 
 
    h3 {
@@ -22,6 +23,7 @@ width: 190px;
       font-size: 1rem;
       color: ${({ theme }) => theme.COLORS.WHITE_GRAY};
       font-weight: 500;
+      user-select: none;
    }
 
    p {

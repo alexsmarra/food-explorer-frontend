@@ -5,5 +5,6 @@ export const Container = styled.div`
       font-size: 1.19rem;
       font-weight: 500;
       color: ${({ theme }) => theme.COLORS.WHITE_GRAY};
+      user-select: none;
    }
 `
