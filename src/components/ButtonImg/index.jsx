@@ -49,9 +49,7 @@ export const ButtonImg = ({title, ...rest}) => {
                   </>
                }
             </div>
-
          }
-
       </Container>
    )
 }

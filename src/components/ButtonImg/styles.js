@@ -66,6 +66,7 @@ export const Container = styled.div`
       padding: 12px 40px;
       gap: 1rem;
       transition: .3s;
+      border-radius: 5px;
    }
 
    div.pedidos-button:hover {

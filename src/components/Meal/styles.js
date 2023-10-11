@@ -29,6 +29,7 @@ width: 190px;
    p {
       font-size: .8rem;
       color: ${({ theme }) => theme.COLORS.WHITE_GRAY};
+      user-select: none;
    }
 
    .price-amount-and-incluir {
