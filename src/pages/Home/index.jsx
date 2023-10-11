@@ -13,7 +13,7 @@ import { Section } from "../../components/Section"
 import { Meal } from "../../components/Meal"
 import { Footer} from "../../components/Footer"
 
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
@@ -33,6 +33,8 @@ export function Home() {
    const [imgDish, setImgDish] = useState(null)
    const [search, setSearch] = useState("")
 
+   const [favoriteStates, setFavoriteStates] = useState({});
+
    const [isLeftArrowVisibleMeal, setIsLeftArrowVisibleMeal] = useState(false);
    const [isRightArrowVisibleMeal, setIsRightArrowVisibleMeal] = useState(true);
    const [isLeftArrowVisibleDessert, setIsLeftArrowVisibleDessert] = useState(false);
@@ -43,6 +45,13 @@ export function Home() {
    const meals = dishes.filter(dish => dish.category === 'refeicao')
    const desserts = dishes.filter(dish => dish.category === 'sobremesa')
    const drinks = dishes.filter(dish => dish.category === 'bebidas')
+   
+   const toggleFavorite = (dishId) => {
+     setFavoriteStates((prevState) => ({
+       ...prevState,
+       [dishId]: !prevState[dishId], // define como true se o valor for undefined
+     }));
+   };
 
    const runEditDish = (id, category) => {
       navigate(`/editDish/${id}/${category}`)
@@ -198,9 +207,19 @@ export function Home() {
                                  onClick={() => runEditDish(dish.id, dish.category)}
                               />
                               :
-                              <AiOutlineHeart 
-                                 className="ai-outline-heart"
-                              />
+                              <div>
+                                 {favoriteStates[dish.id] ? (
+                                    <AiFillHeart
+                                       className="ai-fill-heart"
+                                       onClick={() => toggleFavorite(dish.id)}
+                                    />
+                                 ) : (
+                                    <AiOutlineHeart 
+                                       className="ai-outline-heart"
+                                       onClick={() => toggleFavorite(dish.id)} 
+                                    />
+                                 )}
+                              </div>
                               }
                               <Meal
                                  key={String(index)}
@@ -252,9 +271,19 @@ export function Home() {
                                  onClick={() => runEditDish(dish.id, dish.category)}
                               />
                               :
-                              <AiOutlineHeart 
-                                 className="ai-outline-heart"
-                              />
+                              <div>
+                                 {favoriteStates[dish.id] ? (
+                                    <AiFillHeart
+                                       className="ai-fill-heart"
+                                       onClick={() => toggleFavorite(dish.id)}
+                                    />
+                                 ) : (
+                                    <AiOutlineHeart 
+                                       className="ai-outline-heart"
+                                       onClick={() => toggleFavorite(dish.id)} 
+                                    />
+                                 )}
+                              </div>
                               }
                               
                               <Meal
@@ -305,9 +334,19 @@ export function Home() {
                                  onClick={() => runEditDish(dish.id, dish.category)}
                               />
                               :
-                              <AiOutlineHeart 
-                                 className="ai-outline-heart"
-                              />
+                              <div>
+                                 {favoriteStates[dish.id] ? (
+                                    <AiFillHeart
+                                       className="ai-fill-heart"
+                                       onClick={() => toggleFavorite(dish.id)}
+                                    />
+                                 ) : (
+                                    <AiOutlineHeart 
+                                       className="ai-outline-heart"
+                                       onClick={() => toggleFavorite(dish.id)} 
+                                    />
+                                 )}
+                              </div>
                               }
                               
                               <Meal

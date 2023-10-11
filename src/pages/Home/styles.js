@@ -45,13 +45,17 @@ export const Container = styled.div`
       border-radius: 8px;
       background: ${({ theme }) => theme.COLORS.CARD};
 
-      .bs-pencil, .ai-outline-heart {
+      .bs-pencil, .ai-outline-heart, .ai-fill-heart {
         position: absolute;
         top: 1rem;
         right: 1rem;
         cursor: pointer;
         width: 1.6rem;
         height: 1.6rem;
+      }
+
+      .ai-fill-heart {
+        color: ${({ theme }) => theme.COLORS.BUTTON_FORM_COLOR};
       }
 
       img {
@@ -115,7 +119,7 @@ grid-template-rows: 100px auto 1100px 55px;
     .meal-wrapper {
       padding: 5rem 2rem;
 
-      .bs-pencil, .ai-outline-heart {
+      .bs-pencil, .ai-outline-heart, .ai-fill-heart {
         width: 2.5rem;
         height: 2.5rem;
         top: 1.5rem;
