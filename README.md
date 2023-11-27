@@ -14,4 +14,5 @@ React, Styled-components, Vite, React-router-dom, React-icons and Axios.
 
 ## Some pages..
 
-<img width="360" alt="bbb" src="./src/assets/readme/signin.png">
+<img width="360" alt="bbb" src="./src/assets/readme/signin.png"> <img width="360" alt="bbb" src="./src/assets/readme/home-adm.png"> <img width="360" alt="bbb" src="./src/assets/readme/edit-adm.png">
+<img width="360" alt="bbb" src="./src/assets/readme/home-user.png"> <img width="360" alt="bbb" src="./src/assets/readme/details-plate.png">   
