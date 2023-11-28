@@ -49,7 +49,7 @@ export function Home() {
    const toggleFavorite = (dishId) => {
      setFavoriteStates((prevState) => ({
        ...prevState,
-       [dishId]: !prevState[dishId], // define como true se o valor for undefined
+       [dishId]: !prevState[dishId], // define como true se o valor for undefined.
      }));
    };
 
