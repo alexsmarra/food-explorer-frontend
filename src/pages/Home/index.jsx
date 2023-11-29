@@ -30,6 +30,7 @@ export function Home() {
    const scrollDrinkList = useRef(null)
 
    const [dishes, setDishes] = useState([])
+   const [loading, setLoading] = useState(true)
    const [imgDish, setImgDish] = useState(null)
    const [search, setSearch] = useState("")
 
@@ -169,6 +170,8 @@ export function Home() {
             setDishes(response.data)
          } catch(error) {
             console.log(error)
+         } finally {
+            setLoading(false)
          }
       }
 
@@ -194,7 +197,7 @@ export function Home() {
 
          <div className="meals">
             <Section title="Refeições" className="refeicoes">
-               {meals.length > 0 ?
+               {!loading && meals.length > 0 ? (
                   <div className="cards" ref={scrollMealList} onScroll={handleScrollMeals}>
                      {dishes.filter(dishes => dishes.category === "refeicao").map((dish, index) => ( 
                         <div 
@@ -230,9 +233,11 @@ export function Home() {
                         ))     
                      }
                   </div>
-               :
-                  <span>Não há pratos na categoria de refeições para essa busca</span>
-               }
+               ) : (
+                  <span>{!loading ? "Não há pratos na categoria de refeições para essa busca" 
+                                  : "Loading..."}
+                  </span>
+               )}
                {!isMobile && 
                <div className="arrows">
                   <div 
@@ -258,7 +263,7 @@ export function Home() {
             </Section>
 
             <Section title="Sobremesas">
-               {desserts.length > 0 ?
+               {!loading && desserts.length > 0 ? (
                   <div className="cards" ref={scrollDessertList} onScroll={handleScrollDessert}>
                      {dishes.filter(dishes => dishes.category === "sobremesa").map((dish, index) => ( 
                         <div 
@@ -295,9 +300,12 @@ export function Home() {
                         )) 
                      }
                   </div> 
-               :
-                  <span>Não há pratos na categoria de sobremesas para essa busca</span>
-               }
+               ) : (
+                  <span>
+                     {!loading ? "Não há pratos na categoria de sobremesas para essa busca" 
+                               : "Loading..."}
+                  </span>
+               )}
                {!isMobile && 
                <div className="arrows">
                   <div 
@@ -320,7 +328,7 @@ export function Home() {
             </Section>
 
             <Section title="Bebidas">
-               {drinks.length > 0 ?
+               {!loading && drinks.length > 0 ? (
                   <div className="cards" ref={scrollDrinkList} onScroll={handleScrollDrink}>
                      {dishes.filter(dishes => dishes.category === "bebidas").map((dish, index) => ( 
                         <div 
@@ -358,9 +366,12 @@ export function Home() {
                         )) 
                      }     
                   </div>  
-               :
-                  <span>Não há pratos na categoria de bebidas para essa busca</span>
-               } 
+               ) : (
+                  <span>
+                     {!loading ? "Não há pratos na categoria de bebidas para essa busca"
+                               : "Loading..."}
+                  </span>
+               )} 
                {!isMobile && 
                <div className="arrows">
                   <div onClick={handlePrevDrinkList} direction="prev">
