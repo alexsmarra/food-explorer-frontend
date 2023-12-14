@@ -1,6 +1,6 @@
 # Food Explorer (frontend), version 1.0 
 
-- Application link (deploy): ********************* 888888888 uuuuuuuuu iiiiiii
+- Application link (deploy): https://foodexplorer1387.netlify.app
 
 - A project for a fictional restaurant called Food Explorer, a challenge from a Rocketseat's Explorer course.
 
