@@ -190,11 +190,14 @@ grid-template-rows: 100px auto 1100px 55px;
         position: absolute;
         top: 50%;
         transition: opacity 1s ease-in-out;
+        cursor: pointer;
       }
+
       div:nth-child(2) {
         position: absolute;
         top: 50%;
         right: 0;
+        cursor: pointer;
       }
       
       div {

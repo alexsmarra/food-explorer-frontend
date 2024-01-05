@@ -165,7 +165,7 @@ export const DishDetails = () => {
             </main>
          </Content>
          
-         <Footer />
+         <Footer className="footer" />
       </Container>
    )
 }

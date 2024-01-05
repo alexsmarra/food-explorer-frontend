@@ -3,12 +3,16 @@ import styled from "styled-components"
 export const Container = styled.div`
    display: grid;
    height: 100vh;
-   grid-template-rows: 70px auto 40px;
+   grid-template-rows: 70px auto 50px;
 
    grid-template-areas:
    "header"
    "content"
    "footer";
+
+   .footer {
+      margin-top: 2rem;
+   }
 
 @media(min-width: 768px) {
    grid-template-rows: 100px auto 55px;
